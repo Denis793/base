@@ -1,0 +1,148 @@
+@use '@/styles/variables' as *;
+
+.blogSingle {
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+  gap: $spacing-8;
+  padding: $spacing-12 $spacing-4;
+}
+
+.postCover {
+  width: 100%;
+  border-radius: $radius-md;
+  margin-bottom: $spacing-6;
+}
+
+.postTitle {
+  margin: $spacing-4 0;
+  color: $primary-color;
+  font-size: $font-size-2xl;
+  font-weight: $font-weight-bold;
+}
+
+.postMeta {
+  display: flex;
+  gap: $spacing-4;
+  margin-bottom: $spacing-4;
+  font-size: $font-size-sm;
+  color: $text-color-default;
+}
+
+.postText {
+  margin-bottom: $spacing-4;
+  color: $text-color-default;
+  font-size: $font-size-base;
+  line-height: 1.6;
+}
+
+.postGallery {
+  display: flex;
+  gap: $spacing-4;
+  margin: $spacing-6 0;
+}
+
+.postGallery img {
+  width: 50%;
+  border-radius: $radius-md;
+}
+
+.postShare {
+  margin-top: $spacing-8;
+  display: flex;
+  gap: $spacing-4;
+  font-weight: $font-weight-bold;
+}
+
+.postShare a {
+  color: $secondary-color;
+}
+
+.sidebar {
+  display: flex;
+  flex-direction: column;
+  gap: $spacing-8;
+}
+
+.widget {
+  margin-bottom: $spacing-8;
+}
+
+.widgetTitle {
+  margin-bottom: $spacing-4;
+  color: $primary-color;
+  font-size: $font-size-lg;
+  font-weight: $font-weight-semibold;
+}
+
+.widgetList {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.widgetItem {
+  margin-bottom: $spacing-3;
+  display: flex;
+  align-items: center;
+  gap: $spacing-2;
+}
+
+.widgetItem img {
+  width: 50px;
+  border-radius: $radius-sm;
+}
+
+.sidebarInput {
+  width: 100%;
+  padding: $spacing-2;
+  border: 1px solid $border-color;
+  border-radius: $radius-sm;
+}
+
+.cta {
+  margin-top: $spacing-12;
+  position: relative;
+  padding: $spacing-12 $spacing-6;
+  text-align: center;
+  background: $secondary-color;
+  border-radius: $radius-md;
+  color: $text-color-contrast;
+  grid-column: span 2;
+}
+
+.ctaBg {
+  position: absolute;
+  inset: 0;
+  opacity: 0.1;
+  z-index: 0;
+}
+
+.ctaContent {
+  position: relative;
+  z-index: 2;
+}
+
+.ctaContent h2 {
+  margin-bottom: $spacing-4;
+  font-size: $font-size-2xl;
+  font-weight: $font-weight-bold;
+}
+
+.ctaContent p {
+  margin-bottom: $spacing-6;
+  font-size: $font-size-base;
+}
+
+.ctaBtn {
+  background: $text-color-contrast;
+  color: $secondary-color;
+  padding: $spacing-3 $spacing-6;
+  border-radius: $radius-sm;
+  font-weight: $font-weight-semibold;
+  display: inline-block;
+  transition: $transition-fast;
+}
+
+.ctaBtn:hover {
+  opacity: 0.9;
+}

@@ -1,0 +1,17 @@
+.dark body {
+  background: #111827;
+  color: $text-color-contrast;
+}
+
+.dark h1,
+.dark h2,
+.dark h3,
+.dark h4,
+.dark h5,
+.dark h6 {
+  color: $text-color-contrast;
+}
+
+.dark a:hover {
+  color: $accent-color-blue;
+}

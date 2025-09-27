@@ -1,0 +1,58 @@
+@use '@/styles/variables' as *;
+
+.notFound {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: $spacing-12 $spacing-4;
+  text-align: center;
+  min-height: 80vh;
+  background-color: $bg-section;
+}
+
+.wrapper {
+  position: relative;
+}
+
+.shape {
+  position: absolute;
+  opacity: 0.2;
+  max-width: 150px;
+}
+
+.content {
+  position: relative;
+  z-index: 2;
+}
+
+.image {
+  max-width: 300px;
+  margin: 0 auto $spacing-8;
+}
+
+.title {
+  color: $primary-color;
+  margin-bottom: $spacing-4;
+  font-size: $font-size-2xl;
+  font-weight: $font-weight-bold;
+}
+
+.text {
+  margin-bottom: $spacing-6;
+  color: $text-color-default;
+  font-size: $font-size-base;
+}
+
+.btn {
+  background: $primary-color;
+  color: $text-color-contrast;
+  padding: $spacing-3 $spacing-6;
+  border-radius: $radius-sm;
+  font-weight: $font-weight-semibold;
+  display: inline-block;
+  transition: $transition-fast;
+
+  &:hover {
+    background: $primary-color-hover;
+  }
+}

@@ -1,0 +1,9 @@
+@use 'variables' as *;
+
+@function header-height($logo-height, $padding-y) {
+  @return $logo-height + ($padding-y * 2);
+}
+
+@function hero-padding-top($logo-height, $padding-y, $extra) {
+  @return header-height($logo-height, $padding-y) + $extra;
+}

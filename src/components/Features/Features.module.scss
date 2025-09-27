@@ -1,0 +1,38 @@
+@use '@/styles/variables' as *;
+
+.features {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: $spacing-8;
+  padding: $spacing-12 $spacing-6;
+  background: $bg-section;
+
+  @media (min-width: $breakpoint-lg) {
+    flex-direction: row;
+    justify-content: space-around;
+    gap: $spacing-12;
+  }
+}
+
+.featureItem {
+  max-width: 280px;
+  text-align: center;
+}
+
+.featureItem img {
+  height: 60px;
+  margin-bottom: $spacing-4;
+}
+
+.featureItem h4 {
+  color: $primary-color;
+  margin-bottom: $spacing-2;
+  font-size: $font-size-lg;
+  font-weight: $font-weight-semibold;
+}
+
+.featureItem p {
+  color: $text-color-default;
+  font-size: $font-size-sm;
+}

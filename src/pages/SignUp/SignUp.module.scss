@@ -1,0 +1,131 @@
+@use 'sass:color';
+@use '@/styles/variables' as *;
+
+.signup {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: $spacing-12 $spacing-4;
+  min-height: 80vh;
+  background-color: $bg-section;
+}
+
+.wrapper {
+  position: relative;
+}
+
+.shape {
+  position: absolute;
+  opacity: 0.1;
+  max-width: 150px;
+}
+
+.card {
+  position: relative;
+  z-index: 2;
+  max-width: 400px;
+  margin: auto;
+  background: $bg-card;
+  padding: $spacing-8;
+  border-radius: $radius-md;
+  box-shadow: $shadow-md;
+}
+
+.cardTitle {
+  margin-bottom: $spacing-2;
+  color: $primary-color;
+  font-size: $font-size-xl;
+  font-weight: $font-weight-bold;
+}
+
+.cardDescription {
+  margin-bottom: $spacing-6;
+  color: $text-color-default;
+  font-size: $font-size-base;
+}
+
+.cardSubtitle {
+  margin: $spacing-6 0 $spacing-4;
+  font-size: $font-size-sm;
+  color: $secondary-color;
+  font-weight: $font-weight-medium;
+}
+
+.social {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: $spacing-6;
+  list-style: none;
+  padding: 0;
+  gap: $spacing-4;
+}
+
+.socialLink {
+  display: inline-block;
+  background: $primary-color;
+  color: $text-color-contrast;
+  padding: $spacing-2 $spacing-4;
+  border-radius: $radius-sm;
+  font-size: $font-size-sm;
+  font-weight: $font-weight-semibold;
+  transition: $transition-fast;
+}
+
+.socialLink:hover {
+  background: $primary-color-hover;
+}
+
+.divider {
+  display: block;
+  margin: $spacing-6 0;
+  text-align: center;
+  color: $text-color-default;
+  font-size: $font-size-sm;
+}
+
+.formGroup {
+  margin-bottom: $spacing-4;
+}
+
+.formLabel {
+  display: block;
+  margin-bottom: $spacing-2;
+  font-weight: $font-weight-medium;
+  font-size: $font-size-sm;
+  color: $text-color-heading;
+}
+
+.formInput {
+  width: 100%;
+  padding: $spacing-3;
+  border: 1px solid $border-color;
+  border-radius: $radius-sm;
+  font-size: $font-size-base;
+}
+
+.btnPrimary {
+  width: 100%;
+  background: $primary-color;
+  color: $text-color-contrast;
+  padding: $spacing-3;
+  border-radius: $radius-sm;
+  border: none;
+  font-weight: $font-weight-semibold;
+  cursor: pointer;
+  transition: $transition-fast;
+}
+
+.btnPrimary:hover {
+  background: color.adjust($primary-color, $lightness: -5%);
+}
+
+.signinText {
+  margin-top: $spacing-4;
+  font-size: $font-size-sm;
+  text-align: center;
+}
+
+.signinText a {
+  color: $secondary-color;
+  font-weight: $font-weight-semibold;
+}

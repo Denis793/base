@@ -1,0 +1,140 @@
+@use '@/styles/variables' as *;
+
+.blogGrid {
+  padding: $spacing-12 $spacing-4;
+}
+
+.postsGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: $spacing-8;
+}
+
+.post {
+  background: $bg-card;
+  border-radius: $radius-md;
+  overflow: hidden;
+  box-shadow: $shadow-sm;
+}
+
+.imageWrapper {
+  position: relative;
+}
+
+.postImage {
+  width: 100%;
+  display: block;
+}
+
+.overlay {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  background: $overlay-dark;
+  transition: $transition-base;
+}
+
+.readMore {
+  background: $primary-color;
+  color: $text-color-contrast;
+  padding: $spacing-2 $spacing-4;
+  border-radius: $radius-sm;
+  font-weight: $font-weight-semibold;
+  transition: $transition-fast;
+}
+
+.readMore:hover {
+  background: $primary-color-hover;
+}
+
+.imageWrapper:hover .overlay {
+  opacity: 1;
+}
+
+.postMeta {
+  display: flex;
+  justify-content: space-between;
+  padding: $spacing-2 $spacing-4;
+  font-size: $font-size-sm;
+  color: $text-color-default;
+}
+
+.postTitle {
+  padding: 0 $spacing-4 $spacing-4;
+  font-size: $font-size-lg;
+  color: $primary-color;
+  font-weight: $font-weight-medium;
+}
+
+.pagination {
+  display: flex;
+  justify-content: center;
+  margin-top: $spacing-8;
+  gap: $spacing-2;
+}
+
+.paginationBtn {
+  background: $bg-card;
+  border: 1px solid $primary-color;
+  color: $primary-color;
+  padding: $spacing-2 $spacing-3;
+  border-radius: $radius-sm;
+  cursor: pointer;
+  font-size: $font-size-sm;
+  transition: $transition-fast;
+}
+
+.paginationBtn:hover {
+  background: $primary-color;
+  color: $text-color-contrast;
+}
+
+.cta {
+  margin-top: $spacing-12;
+  position: relative;
+  padding: $spacing-12 $spacing-6;
+  text-align: center;
+  background: $secondary-color;
+  border-radius: $radius-md;
+  color: $text-color-contrast;
+}
+
+.ctaBg {
+  position: absolute;
+  inset: 0;
+  opacity: 0.1;
+  z-index: 0;
+}
+
+.ctaContent {
+  position: relative;
+  z-index: 2;
+}
+
+.ctaContent h2 {
+  margin-bottom: $spacing-4;
+  font-size: $font-size-2xl;
+  font-weight: $font-weight-bold;
+}
+
+.ctaContent p {
+  margin-bottom: $spacing-6;
+  font-size: $font-size-base;
+}
+
+.ctaBtn {
+  background: $text-color-contrast;
+  color: $secondary-color;
+  padding: $spacing-3 $spacing-6;
+  border-radius: $radius-sm;
+  font-weight: $font-weight-semibold;
+  display: inline-block;
+  transition: $transition-fast;
+}
+
+.ctaBtn:hover {
+  opacity: 0.9;
+}

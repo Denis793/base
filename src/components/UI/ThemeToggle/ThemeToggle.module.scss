@@ -1,0 +1,28 @@
+@use '@/styles/variables' as *;
+
+.toggle {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  border: none;
+  cursor: pointer;
+  font-size: 1.2rem;
+  color: $text-color-default;
+  background: transparent;
+  transition: $transition-base;
+
+  &:hover {
+    background: rgba(0, 0, 0, 0.05);
+  }
+}
+
+.dark .toggle {
+  color: $text-color-contrast;
+
+  &:hover {
+    background: rgba(255, 255, 255, 0.1);
+  }
+}
