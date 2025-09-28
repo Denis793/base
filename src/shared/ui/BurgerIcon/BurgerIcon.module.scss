@@ -1,3 +1,5 @@
+@use '@/shared/styles/variables' as *;
+
 .burger {
   position: relative;
   display: flex;
@@ -12,7 +14,7 @@
   padding: 0;
   z-index: var(--z-index-mobileMenu);
 
-  @media (min-width: var(--breakpoint-l)) {
+  @media (min-width: $breakpoint-l) {
     display: none;
   }
 }
