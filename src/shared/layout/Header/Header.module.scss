@@ -1,3 +1,5 @@
+@use '@/shared/styles/variables' as *;
+
 .header {
   position: fixed;
   top: 0;
@@ -28,7 +30,7 @@
   justify-content: flex-end;
   width: 100%;
 
-  @media (min-width: var(--breakpoint-l)) {
+  @media (min-width: $breakpoint-l) {
     justify-content: space-between;
   }
 }
@@ -50,7 +52,7 @@
   pointer-events: none;
   z-index: var(--z-index-overlay);
 
-  @media (min-width: var(--breakpoint-l)) {
+  @media (min-width: $breakpoint-l) {
     position: static;
     height: auto;
     width: auto;
@@ -75,7 +77,7 @@
   flex-direction: column;
   gap: var(--spacing-3);
 
-  @media (min-width: var(--breakpoint-l)) {
+  @media (min-width: $breakpoint-l) {
     flex-direction: row;
     gap: var(--spacing-8);
   }
@@ -99,7 +101,7 @@
     color: var(--primary-color);
   }
 
-  @media (min-width: var(--breakpoint-l)) {
+  @media (min-width: $breakpoint-l) {
     font-size: var(--font-size-base);
     color: var(--text-color-heading);
   }
@@ -146,7 +148,7 @@
   transform: translateY(0);
 }
 
-@media (min-width: var(--breakpoint-l)) {
+@media (min-width: $breakpoint-l) {
   .dropdown:hover .dropdownMenu {
     display: flex;
     opacity: 1;
@@ -158,7 +160,7 @@
 .dropdownMenu li a {
   color: var(--text-color-contrast);
 
-  @media (min-width: var(--breakpoint-l)) {
+  @media (min-width: $breakpoint-l) {
     color: var(--text-color-default);
 
     &:hover {
@@ -177,7 +179,7 @@
 .signIn {
   display: none;
 
-  @media (min-width: var(--breakpoint-l)) {
+  @media (min-width: $breakpoint-l) {
     display: block;
     font-weight: var(--font-weight-medium);
     color: var(--text-color-heading);
@@ -187,7 +189,7 @@
 .signUp {
   display: none;
 
-  @media (min-width: var(--breakpoint-l)) {
+  @media (min-width: $breakpoint-l) {
     display: block;
     background: var(--primary-color);
     color: var(--text-color-contrast);
