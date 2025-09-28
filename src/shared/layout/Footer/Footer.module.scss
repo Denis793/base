@@ -1,0 +1,9 @@
+@use '@/shared/styles/variables' as *;
+
+.footer {
+  padding: $spacing-8;
+  text-align: center;
+  background: $primary-color;
+  color: $text-color-contrast;
+  font-size: $font-size-sm;
+}

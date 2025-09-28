@@ -1,0 +1,135 @@
+.burger {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 6px;
+  width: 25px;
+  height: 23px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 0;
+  z-index: var(--z-index-mobileMenu);
+
+  @media (min-width: var(--breakpoint-l)) {
+    display: none;
+  }
+}
+
+.line {
+  display: block;
+  height: 2px;
+  width: 100%;
+  background: var(--burger-color);
+  border-radius: 2px;
+  transform-origin: right;
+  opacity: 1;
+  transition: transform 0.3s ease, opacity 0.3s ease, background 0.3s ease;
+}
+
+.cross1,
+.cross2 {
+  position: absolute;
+  top: 0%;
+  left: 50%;
+  height: 2px;
+  width: 0;
+  background: var(--burger-color);
+  border-radius: 2px;
+  opacity: 0;
+  z-index: var(--z-index-overlay);
+  transform: translate(-50%, -50%);
+  transition: background 0.3s ease;
+}
+
+.cross1 {
+  transform: translate(-36%, -50%) rotate(45deg);
+  transform-origin: left center;
+}
+
+.cross2 {
+  transform: translate(-62%, -50%) rotate(-45deg);
+  transform-origin: right center;
+}
+
+/* Keyframes */
+@keyframes shrink-out {
+  0% {
+    transform: scaleX(1);
+    opacity: 1;
+  }
+  100% {
+    transform: scaleX(0);
+    opacity: 0;
+  }
+}
+
+@keyframes grow-in-line {
+  0% {
+    transform: scaleX(0);
+    opacity: 0;
+  }
+  100% {
+    transform: scaleX(1);
+    opacity: 1;
+  }
+}
+
+@keyframes grow-diagonal {
+  0% {
+    width: 0;
+    opacity: 0;
+  }
+  100% {
+    width: 32px;
+    opacity: 1;
+  }
+}
+
+@keyframes shrink-diagonal {
+  0% {
+    width: 32px;
+    opacity: 1;
+  }
+  100% {
+    width: 0;
+    opacity: 0;
+  }
+}
+
+/* Анімації при відкритті */
+.burger.open .line:nth-child(1) {
+  animation: shrink-out 0.35s forwards;
+}
+.burger.open .line:nth-child(2) {
+  animation: shrink-out 0.35s 0.05s forwards;
+}
+.burger.open .line:nth-child(3) {
+  animation: shrink-out 0.35s 0.1s forwards;
+}
+
+.burger.open .cross1 {
+  animation: grow-diagonal 0.35s 0.05s forwards;
+}
+.burger.open .cross2 {
+  animation: grow-diagonal 0.35s 0.2s forwards;
+}
+
+/* Анімації при закритті */
+.burger:not(.open) .cross1 {
+  animation: shrink-diagonal 0.35s forwards;
+}
+.burger:not(.open) .cross2 {
+  animation: shrink-diagonal 0.35s 0.05s forwards;
+}
+
+.burger:not(.open) .line:nth-child(1) {
+  animation: grow-in-line 0.35s 0.05s forwards;
+}
+.burger:not(.open) .line:nth-child(2) {
+  animation: grow-in-line 0.35s 0.15s forwards;
+}
+.burger:not(.open) .line:nth-child(3) {
+  animation: grow-in-line 0.35s 0.25s forwards;
+}

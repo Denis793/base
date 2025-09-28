@@ -1,0 +1,70 @@
+@use '@/shared/styles/variables' as *;
+
+.about {
+  display: flex;
+  flex-direction: column;
+  gap: $spacing-8;
+  padding: $spacing-12 $spacing-6;
+  align-items: center;
+
+  @media (min-width: $breakpoint-lg) {
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+  }
+}
+
+.aboutImages {
+  display: flex;
+  flex-direction: column;
+  gap: $spacing-4;
+  max-width: 400px;
+}
+
+.aboutImages img {
+  max-width: 100%;
+  border-radius: $radius-sm;
+}
+
+.aboutContent {
+  max-width: 500px;
+  text-align: center;
+
+  @media (min-width: $breakpoint-lg) {
+    text-align: left;
+  }
+}
+
+.aboutContent h4 {
+  color: $secondary-color;
+  margin-bottom: $spacing-2;
+  font-size: $font-size-sm;
+  font-weight: $font-weight-medium;
+}
+
+.aboutContent h2 {
+  font-size: $font-size-2xl;
+  color: $primary-color;
+  margin-bottom: $spacing-4;
+  font-weight: $font-weight-bold;
+}
+
+.aboutContent p {
+  margin-bottom: $spacing-6;
+  color: $text-color-default;
+  font-size: $font-size-base;
+}
+
+.videoBtn {
+  background: $secondary-color;
+  color: $text-color-contrast;
+  padding: $spacing-3 $spacing-6;
+  border-radius: $radius-sm;
+  font-weight: $font-weight-semibold;
+  display: inline-block;
+  transition: $transition-fast;
+}
+
+.videoBtn:hover {
+  opacity: 0.9;
+}

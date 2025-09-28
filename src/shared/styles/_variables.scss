@@ -1,0 +1,102 @@
+:root {
+  /* === Fonts === */
+  --font-heading: 'Outfit', sans-serif;
+  --font-body: 'Inter', sans-serif;
+
+  --font-size-xs: 0.75rem;
+  --font-size-sm: 0.875rem;
+  --font-size-base: 1rem;
+  --font-size-lg: 1.25rem;
+  --font-size-xl: 1.5rem;
+  --font-size-2xl: 2rem;
+  --font-size-3xl: 3rem;
+  --font-size-4xl: 4rem;
+
+  --font-weight-regular: 400;
+  --font-weight-medium: 500;
+  --font-weight-semibold: 600;
+  --font-weight-bold: 700;
+
+  /* === Colors (light) === */
+  --primary-color: #3565b3;
+  --primary-color-hover: #2563eb;
+  --secondary-color: #f36a8d;
+
+  --text-color-default: #1d2125;
+  --text-color-heading: #111827;
+  --text-color-subheading: #1f2937;
+  --text-color-contrast: #292929;
+  --text-color-link: #1280c9;
+
+  --color-h1: #111827;
+  --color-h2: #202020;
+  --color-h3: #303030;
+  --color-h4: #414141;
+  --color-h5: #000;
+  --color-description: #666;
+
+  --bg-page: #fff;
+  --bg-section: #f4f7fa;
+  --bg-card: #fff;
+  --bg-header: rgba(255, 255, 255, 0.9);
+  --bg-mobile-nav: rgba(0, 0, 0, 0.95);
+
+  --border-color: #d8e1ed;
+
+  /* === Accent Colors === */
+  --accent-color-blue: #60a5fa;
+  --accent-color-green: #34d399;
+  --accent-color-pink: #f472b6;
+
+  /* === Shadows === */
+  --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.05);
+  --shadow-md: 0 0px 8px rgba(218, 218, 218, 0.2);
+  --shadow-lg: 0 10px 15px rgba(0, 0, 0, 0.2);
+
+  /* === Overlay Colors === */
+  --overlay-dark: rgba(0, 0, 0, 0.5);
+  --overlay-light: rgba(255, 255, 255, 0.5);
+  --overlay-white: rgba(255, 255, 255, 0.95);
+
+  /* === Radius === */
+  --radius-sm: 0.5rem;
+  --radius-md: 1rem;
+  --radius-lg: 2rem;
+  --radius-full: 50%;
+
+  /* === Spacing === */
+  --spacing-1: 0.25rem;
+  --spacing-2: 0.5rem;
+  --spacing-3: 0.75rem;
+  --spacing-4: 1rem;
+  --spacing-5: 1.25rem;
+  --spacing-6: 1.5rem;
+  --spacing-8: 2rem;
+  --spacing-10: 2.5rem;
+  --spacing-12: 3rem;
+
+  --header-logo-height: 1rem;
+  --header-padding-y: var(--spacing-2);
+
+  /* === Layout === */
+  --container-max-width: 1280px;
+
+  /* === Breakpoints === */
+  --breakpoint-m: 768px;
+  --breakpoint-l: 1280px;
+
+  /* === Z-index === */
+  --z-index-behind: -1;
+  --z-index-base: 1;
+  --z-index-overlay: 900;
+  --z-index-modal: 1000;
+  --z-header: 50;
+  --z-index-mobileMenu: 1000;
+
+  /* === Transitions === */
+  --transition-base: all 0.3s ease;
+  --transition-fast: all 0.2s ease-in-out;
+
+  /* === Burger === */
+  --burger-color: #111827;
+}

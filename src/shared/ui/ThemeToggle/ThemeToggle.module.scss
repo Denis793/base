@@ -1,0 +1,14 @@
+@use '@/shared/styles/variables' as *;
+
+.toggle {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.3rem;
+  background: none;
+  border: none;
+  cursor: pointer;
+  color: var(--text-color-default);
+  transition: var(--transition-base);
+  padding: 0 var(--spacing-4);
+}
