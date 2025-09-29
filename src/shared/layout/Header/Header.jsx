@@ -15,7 +15,6 @@ export const Header = () => {
   const [submenuOpen, setSubmenuOpen] = useState(null);
   const [isDark, setIsDark] = useState(false);
 
-  // Відновлення теми з localStorage
   useEffect(() => {
     const storedTheme = localStorage.getItem('theme');
     if (storedTheme === 'dark' || document.documentElement.classList.contains('dark')) {
@@ -23,7 +22,6 @@ export const Header = () => {
     }
   }, []);
 
-  // Слідкуємо за змінами класу .dark
   useEffect(() => {
     const observer = new MutationObserver(() => {
       setIsDark(document.documentElement.classList.contains('dark'));

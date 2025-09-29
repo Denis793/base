@@ -13,7 +13,11 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: var(--spacing-6);
+  padding: var(--spacing-4);
+  @media (min-width: $breakpoint-m) {
+    padding: var(--spacing-6);
+    max-width: 100%;
+  }
 }
 
 .logo {
@@ -42,7 +46,7 @@
   opacity: 0;
   top: -100%;
   left: 50%;
-  width: 94%;
+  width: 100%;
   pointer-events: none;
   background: var(--bg-page);
   gap: var(--spacing-8);
