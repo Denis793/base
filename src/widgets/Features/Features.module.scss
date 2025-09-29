@@ -2,37 +2,52 @@
 
 .features {
   display: flex;
-  flex-direction: column;
+  flex-wrap: wrap;
+  justify-content: center;
   align-items: center;
-  gap: $spacing-8;
-  padding: $spacing-12 $spacing-6;
-  background: $bg-section;
-
-  @media (min-width: $breakpoint-lg) {
-    flex-direction: row;
-    justify-content: space-around;
-    gap: $spacing-12;
-  }
+  gap: var(--spacing-8);
+  padding: var(--spacing-4);
 }
 
 .featureItem {
-  max-width: 280px;
-  text-align: center;
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-5);
+  width: 100%;
+  @media (min-width: $breakpoint-m) {
+    width: 20rem;
+  }
+  @media (min-width: $breakpoint-l) {
+    width: 24rem;
+  }
 }
 
-.featureItem img {
-  height: 60px;
-  margin-bottom: $spacing-4;
+.imageWrapper {
+  border-radius: var(--radius-full);
+  padding: var(--spacing-6);
+  width: 5rem;
+  height: 5rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+
+  &.image1 {
+    background: var(--accent-color-blue);
+  }
+  &.image2 {
+    background: var(--accent-color-green);
+  }
+  &.image3 {
+    background: var(--accent-color-pink);
+  }
 }
 
-.featureItem h4 {
-  color: $primary-color;
-  margin-bottom: $spacing-2;
-  font-size: $font-size-lg;
-  font-weight: $font-weight-semibold;
+.featureSVG {
+  height: 2.5rem;
+  width: 2.5rem;
 }
 
-.featureItem p {
-  color: $text-color-default;
-  font-size: $font-size-sm;
+.descriptionWrapper {
+  max-width: 300px;
 }

@@ -3,7 +3,6 @@ import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import { Header } from '@/shared/layout/Header';
 import { Home } from '@/pages/Home';
 import { Features } from '@/widgets/Features';
-// import { BlogGrid } from '@/pages/BlogGrid';
 
 export default function App() {
   return (
