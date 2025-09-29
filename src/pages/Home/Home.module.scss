@@ -2,20 +2,40 @@
 
 .home {
   position: relative;
-  padding: 6rem 1rem 1rem;
+  padding-top: 6rem;
 }
 
 .hero {
-  max-width: 45%;
-  @media (max-width: $breakpoint-m) {
-    max-width: 100%;
+  width: 100%;
+  padding: var(--spacing-4);
+  @media (min-width: $breakpoint-m) {
+    padding: var(--spacing-6);
+    max-width: 45%;
+  }
+}
+
+.heroContent {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-10);
+}
+
+.heroCta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--spacing-8);
+  @media (min-width: $breakpoint-m) {
+    flex-direction: row-reverse;
+    justify-content: start;
   }
 }
 
 .heroPhone {
-  font-weight: 500;
+  font-size: var(--font-size-lg);
+  font-weight: var(--font-weight-medium);
 }
 
+// heroVisual
 .heroVisual {
   position: absolute;
   top: 0;
@@ -30,7 +50,7 @@
 .heroImageWrapper {
   position: relative;
   width: 100%;
-  height: auto;
+  max-height: 40rem;
   aspect-ratio: 1 / 1;
 }
 

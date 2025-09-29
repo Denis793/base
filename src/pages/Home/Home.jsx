@@ -20,15 +20,17 @@ export const Home = () => {
                 viverra sem eu rhoncus consequat varius nisi quis, posuere magna.
               </p>
 
-              <div className={styles.ctaGroup}>
-                <a href="tel:0123456789" className={styles.heroPhone}>
-                  Call us (0123) 456 – 789
-                </a>
-                <p className="description">For any question or concern</p>
+              <div className={styles.heroCta}>
+                <div className={styles.ctaGroup}>
+                  <a href="tel:0123456789" className={styles.heroPhone}>
+                    Call us (0123) 456 – 789
+                  </a>
+                  <p className="description">For any question or concern</p>
+                </div>
+                <Button variant="primary" href="#">
+                  Get Started Now
+                </Button>
               </div>
-              <Button variant="primary" href="#">
-                Get Started Now
-              </Button>
             </div>
 
             <div className={styles.heroVisual}>
