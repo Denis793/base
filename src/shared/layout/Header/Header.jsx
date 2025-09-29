@@ -1,6 +1,6 @@
+import clsx from 'clsx';
 import { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
-import clsx from 'clsx';
 import { menuItems } from '@/shared/config/menuConfig';
 import { BurgerIcon } from '@/shared/ui/BurgerIcon';
 import { ThemeToggle } from '@/shared/ui/ThemeToggle';
