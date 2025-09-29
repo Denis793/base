@@ -1,4 +1,4 @@
-import { useState, useEffect, useRef } from 'react';
+import { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import clsx from 'clsx';
 import { menuItems } from '@/shared/config/menuConfig';
@@ -15,8 +15,7 @@ export const Header = () => {
   const [submenuOpen, setSubmenuOpen] = useState(null);
   const [isDark, setIsDark] = useState(false);
 
-  const navRef = useRef(null);
-
+  // Відновлення теми з localStorage
   useEffect(() => {
     const storedTheme = localStorage.getItem('theme');
     if (storedTheme === 'dark' || document.documentElement.classList.contains('dark')) {
@@ -24,6 +23,7 @@ export const Header = () => {
     }
   }, []);
 
+  // Слідкуємо за змінами класу .dark
   useEffect(() => {
     const observer = new MutationObserver(() => {
       setIsDark(document.documentElement.classList.contains('dark'));
@@ -31,18 +31,6 @@ export const Header = () => {
 
     observer.observe(document.documentElement, { attributes: true, attributeFilter: ['class'] });
     return () => observer.disconnect();
-  }, []);
-
-  useEffect(() => {
-    const handleClickOutside = (event) => {
-      if (navRef.current && !navRef.current.contains(event.target)) {
-        setMenuOpen(false);
-        setSubmenuOpen(null);
-      }
-    };
-
-    document.addEventListener('click', handleClickOutside);
-    return () => document.removeEventListener('click', handleClickOutside);
   }, []);
 
   const handleLinkClick = () => {
@@ -65,7 +53,7 @@ export const Header = () => {
           </div>
 
           <div className={styles.menuWrapper}>
-            <nav ref={navRef} className={clsx(styles.nav, menuOpen && styles.open)}>
+            <nav className={clsx(styles.nav, menuOpen && styles.open)}>
               <ul>
                 {menuItems.map((item) => (
                   <li
