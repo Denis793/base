@@ -1,54 +1,71 @@
 @use '@/shared/styles/variables' as *;
 
+.home {
+  position: relative;
+  padding: 6rem 1rem 1rem;
+}
+
 .hero {
-  display: flex;
+  max-width: 45%;
+  @media (max-width: $breakpoint-m) {
+    max-width: 100%;
+  }
+}
+
+.heroPhone {
+  font-weight: 500;
 }
 
 .heroVisual {
-  position: relative;
-  width: 100rem;
-  height: 100%;
-}
-
-.heroImageWrapper {
-  position: relative;
-  display: inline-block;
-}
-
-.heroImage {
   position: absolute;
   top: 0;
-  left: 0;
-  width: 100%;
-  height: auto;
-}
-
-.shapeYellow,
-.shapeWaves,
-.shapeBlue {
-  position: absolute;
+  right: 0;
+  height: 100%;
+  max-width: 50%;
   @media (max-width: $breakpoint-m) {
     display: none;
   }
 }
 
+.heroImageWrapper {
+  position: relative;
+  width: 100%;
+  height: auto;
+  aspect-ratio: 1 / 1;
+}
+
+.heroImage,
+.shapeYellow,
+.shapeWaves,
+.shapeBlue {
+  position: absolute;
+  display: block;
+  @media (max-width: $breakpoint-m) {
+    display: none;
+    height: auto;
+  }
+}
+
+.heroImage {
+  top: 0;
+  left: 0;
+  width: 100%;
+}
+
 .shapeYellow {
   top: 30%;
-  left: -10%;
-  width: 8rem;
-  height: auto;
+  left: -8%;
+  width: 15%;
 }
 
 .shapeWaves {
-  bottom: 15%;
+  bottom: 26%;
   left: 8%;
-  width: 5rem;
-  height: auto;
+  width: 10%;
 }
 
 .shapeBlue {
-  bottom: -5%;
-  right: 20%;
-  width: 5rem;
-  height: auto;
+  bottom: 8%;
+  right: 15%;
+  width: 12%;
 }
