@@ -1,6 +1,7 @@
 import React from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import { Header } from '@/shared/layout/Header';
+import { Home } from '@/pages/Home';
 
 export default function App() {
   return (
@@ -8,7 +9,7 @@ export default function App() {
       <Header />
 
       <Routes>
-        {/* <Route path="/" element={<Home />} /> */}
+        <Route path="/" element={<Home />} />
         {/* <Route path="/blog-grid" element={<BlogGrid />} /> */}
         {/* <Route path="/blog-single" element={<BlogSingle />} /> */}
         {/* <Route path="/signin" element={<SignIn />} /> */}

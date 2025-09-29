@@ -1,2 +1,54 @@
 @use '@/shared/styles/variables' as *;
-@use '@/styles/utils' as utils;
+
+.hero {
+  display: flex;
+}
+
+.heroVisual {
+  position: relative;
+  width: 100rem;
+  height: 100%;
+}
+
+.heroImageWrapper {
+  position: relative;
+  display: inline-block;
+}
+
+.heroImage {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: auto;
+}
+
+.shapeYellow,
+.shapeWaves,
+.shapeBlue {
+  position: absolute;
+  @media (max-width: $breakpoint-m) {
+    display: none;
+  }
+}
+
+.shapeYellow {
+  top: 30%;
+  left: -10%;
+  width: 8rem;
+  height: auto;
+}
+
+.shapeWaves {
+  bottom: 15%;
+  left: 8%;
+  width: 5rem;
+  height: auto;
+}
+
+.shapeBlue {
+  bottom: -5%;
+  right: 20%;
+  width: 5rem;
+  height: auto;
+}

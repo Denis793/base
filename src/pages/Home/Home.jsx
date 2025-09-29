@@ -1,17 +1,17 @@
 import React from 'react';
-import shape04 from '@/images/shape/shape-04.svg';
-import heroImg from '@/images/hero/hero.png';
-import shapeYellow from '@/images/shape/shape-01.svg';
-import shapeBlue from '@/images/shape/shape-02.svg';
-import shapeWaves from '@/images/shape/shape-03.svg';
+import shape04 from '@/assets/images/shape/shape-04.svg';
+import heroImg from '@/assets/images/hero/hero.png';
+import shapeYellow from '@/assets/images/shape/shape-01.svg';
+import shapeBlue from '@/assets/images/shape/shape-02.svg';
+import shapeWaves from '@/assets/images/shape/shape-03.svg';
 import styles from './Home.module.scss';
 
 export const Home = () => {
   return (
     <>
       <main className={styles.home}>
-        <section className={styles.hero}>
-          <div className="container">
+        <div className="container">
+          <section className={styles.hero}>
             <div className={styles.heroContent}>
               <h1 className={styles.heroTitle}>We specialize in UI/UX, Web Development, Digital Marketing.</h1>
               <p className={styles.heroText}>
@@ -30,18 +30,18 @@ export const Home = () => {
                 </div>
               </div>
             </div>
-          </div>
 
-          <div className={styles.heroVisual}>
-            <div className={styles.heroImageWrapper}>
-              <img src={shape04} alt="Decorative background" className={styles.heroShape} />
+            <div className={styles.heroVisual}>
+              <div className={styles.heroImageWrapper}>
+                <img src={shape04} alt="Decorative background" className={styles.heroShape} />
+              </div>
+              <img src={heroImg} alt="Hero" className={styles.heroImage} />
+              <img src={shapeYellow} alt="Yellow quarter" className={styles.shapeYellow} />
+              <img src={shapeWaves} alt="Waves" className={styles.shapeWaves} />
+              <img src={shapeBlue} alt="Blue quarter" className={styles.shapeBlue} />
             </div>
-            <img src={heroImg} alt="Hero" className={styles.heroImage} />
-            <img src={shapeYellow} alt="Yellow quarter" className={styles.shapeYellow} />
-            <img src={shapeWaves} alt="Waves" className={styles.shapeWaves} />
-            <img src={shapeBlue} alt="Blue quarter" className={styles.shapeBlue} />
-          </div>
-        </section>
+          </section>
+        </div>
       </main>
     </>
   );
