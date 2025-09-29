@@ -75,15 +75,19 @@
   --spacing-10: 2.5rem;
   --spacing-12: 3rem;
 
+  --gap-s: 0.5rem;
+  --gap-m: 1rem;
+  --gap-l: 2rem;
+
+  --spacing-vertical-m: 3rem;
+  --spacing-vertical-l: 10rem;
+  --spacing-horizontal-m: 1rem;
+  --spacing-horizontal-l: 1.5rem;
+
   --header-logo-height: 1rem;
-  --header-padding-y: var(--spacing-2);
 
   /* === Layout === */
   --container-max-width: 1280px;
-
-  /* === Breakpoints === */
-  --breakpoint-m: 768px;
-  --breakpoint-l: 1280px;
 
   /* === Z-index === */
   --z-index-behind: -1;

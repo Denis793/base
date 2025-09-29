@@ -1,6 +1,7 @@
 export const menuItems = [
-  { label: 'Home', to: '/' },
-  { label: 'Features', href: '#features' },
+  { label: 'Home', to: '#home' },
+  { label: 'Features', to: '#features' },
+
   {
     label: 'Pages',
     children: [
@@ -12,4 +13,5 @@ export const menuItems = [
     ],
   },
   { label: 'Support', href: '#support' },
+  { label: 'About', to: '#about' },
 ];

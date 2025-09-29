@@ -1,6 +1,7 @@
 import clsx from 'clsx';
 import { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
+import { HashLink } from 'react-router-hash-link';
 import { menuItems } from '@/shared/config/menuConfig';
 import { BurgerIcon } from '@/shared/ui/BurgerIcon';
 import { ThemeToggle } from '@/shared/ui/ThemeToggle';
@@ -40,6 +41,21 @@ export const Header = () => {
     setSubmenuOpen(submenuOpen === label ? null : label);
   };
 
+  const renderLink = (item, onClick) => {
+    if (item.to?.startsWith('#')) {
+      return (
+        <HashLink smooth to={`/${item.to}`} onClick={onClick}>
+          {item.label}
+        </HashLink>
+      );
+    }
+    return (
+      <Link to={item.to || item.href} onClick={onClick}>
+        {item.label}
+      </Link>
+    );
+  };
+
   return (
     <header className={styles.header}>
       <div className="container">
@@ -71,18 +87,12 @@ export const Header = () => {
 
                         <ul className={clsx(styles.dropdownMenu, submenuOpen === item.label && styles.open)}>
                           {item.children.map((child) => (
-                            <li key={child.label}>
-                              <Link to={child.to} onClick={handleLinkClick}>
-                                {child.label}
-                              </Link>
-                            </li>
+                            <li key={child.label}>{renderLink(child, handleLinkClick)}</li>
                           ))}
                         </ul>
                       </>
                     ) : (
-                      <Link to={item.to || item.href} onClick={handleLinkClick}>
-                        {item.label}
-                      </Link>
+                      renderLink(item, handleLinkClick)
                     )}
                   </li>
                 ))}

@@ -9,8 +9,8 @@ import styles from './HeroSection.module.scss';
 
 export const HeroSection = () => {
   return (
-    <section className={styles.hero}>
-      <div className="container">
+    <section className={styles.hero} id="home">
+      <div className="container section">
         <div className={styles.heroContent}>
           <h1 className={styles.heroTitle}>We specialize in UI/UX, Web Development, Digital Marketing.</h1>
           <p className="description">
