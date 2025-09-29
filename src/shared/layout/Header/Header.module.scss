@@ -152,17 +152,19 @@
   opacity: 1;
   visibility: visible;
   pointer-events: auto;
+  transform: translateY(0);
   transition-delay: 0s;
 }
 
-.dropdownMenu.open,
-.dropdown:hover .dropdownMenu {
-  top: 100%;
-  opacity: 1;
-  visibility: visible;
-  pointer-events: auto;
-  transform: translateY(0);
-  transition-delay: 0s;
+@media (hover: hover) and (pointer: fine) {
+  .dropdown:hover .dropdownMenu {
+    top: 100%;
+    opacity: 1;
+    visibility: visible;
+    pointer-events: auto;
+    transform: translateY(0);
+    transition-delay: 0s;
+  }
 }
 
 .dropdownMenu li a {
