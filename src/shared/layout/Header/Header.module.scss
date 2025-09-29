@@ -188,6 +188,9 @@
 
 .signIn {
   display: none;
+  &:hover {
+    color: var(--text-color-button);
+  }
 
   @media (min-width: $breakpoint-m) {
     display: block;
