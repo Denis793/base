@@ -30,7 +30,7 @@
   justify-content: flex-end;
   width: 100%;
 
-  @media (min-width: $breakpoint-l) {
+  @media (min-width: $breakpoint-m) {
     justify-content: space-between;
   }
 }
@@ -39,35 +39,36 @@
   position: fixed;
   display: flex;
   flex-direction: column;
+  opacity: 0;
   top: -100%;
   left: 50%;
+  width: 94%;
+  pointer-events: none;
+  background: var(--bg-page);
+  gap: var(--spacing-8);
+  padding: var(--spacing-8);
   transform: translateX(-50%);
-  width: 90%;
   box-shadow: var(--shadow-md);
   border-radius: var(--radius-md);
-  padding: var(--spacing-8);
-  gap: var(--spacing-8);
-  transition: top 0.35s ease, opacity 0.3s ease;
-  opacity: 0;
-  pointer-events: none;
   z-index: var(--z-index-overlay);
+  transition: top 0.35s ease, opacity 0.3s ease;
 
-  @media (min-width: $breakpoint-l) {
-    position: static;
-    height: auto;
-    width: auto;
-    background: transparent;
-    flex-direction: row;
-    padding: 0;
-    gap: var(--spacing-8);
-    transform: none;
+  @media (min-width: $breakpoint-m) {
     opacity: 1;
+    padding: 0;
+    width: auto;
+    height: auto;
+    transform: none;
+    position: static;
+    box-shadow: none;
+    flex-direction: row;
     pointer-events: auto;
+    background: transparent;
   }
 }
 
 .open {
-  top: 12%;
+  top: 6%;
   opacity: 1;
   pointer-events: auto;
 }
@@ -77,8 +78,9 @@
   flex-direction: column;
   gap: var(--spacing-3);
 
-  @media (min-width: $breakpoint-l) {
+  @media (min-width: $breakpoint-m) {
     flex-direction: row;
+    align-items: center;
     gap: var(--spacing-8);
   }
 }
@@ -101,7 +103,7 @@
     color: var(--primary-color);
   }
 
-  @media (min-width: $breakpoint-l) {
+  @media (min-width: $breakpoint-m) {
     font-size: var(--font-size-base);
     color: var(--text-color-heading);
   }
@@ -111,6 +113,10 @@
   margin-left: var(--spacing-2);
   font-size: 0.9em;
   transition: transform 0.3s ease;
+
+  @media (min-width: $breakpoint-l) {
+    display: none;
+  }
 }
 
 .rotated {
@@ -122,11 +128,12 @@
 }
 
 .dropdownMenu {
+  display: flex;
   position: absolute;
-  top: 100%;
-  left: 0;
-  display: none;
   flex-direction: column;
+  left: 0;
+  top: -2000%;
+  pointer-events: none;
   gap: var(--spacing-3);
   margin-top: var(--spacing-2);
   background: var(--bg-page);
@@ -134,27 +141,27 @@
   box-shadow: var(--shadow-md);
   padding: var(--spacing-3) var(--spacing-4);
   min-width: 180px;
+  z-index: var(--z-index-overlay);
   opacity: 0;
   visibility: hidden;
-  transform: translateY(10px);
-  transition: var(--transition-base);
-  z-index: var(--z-index-overlay);
+  transition: top 0.55s ease, opacity 0.5s ease, visibility 0s linear 0.3s;
 }
 
 .dropdownMenu.open {
-  display: flex;
+  top: 100%;
   opacity: 1;
   visibility: visible;
-  transform: translateY(0);
+  pointer-events: auto;
+  transition-delay: 0s;
 }
 
-@media (min-width: $breakpoint-l) {
-  .dropdown:hover .dropdownMenu {
-    display: flex;
-    opacity: 1;
-    visibility: visible;
-    transform: translateY(0);
-  }
+.dropdownMenu.open,
+.dropdown:hover .dropdownMenu {
+  top: 100%;
+  opacity: 1;
+  visibility: visible;
+  pointer-events: auto;
+  transition-delay: 0s;
 }
 
 .dropdownMenu li a {
@@ -179,7 +186,7 @@
 .signIn {
   display: none;
 
-  @media (min-width: $breakpoint-l) {
+  @media (min-width: $breakpoint-m) {
     display: block;
     font-weight: var(--font-weight-medium);
     color: var(--text-color-heading);
@@ -189,7 +196,7 @@
 .signUp {
   display: none;
 
-  @media (min-width: $breakpoint-l) {
+  @media (min-width: $breakpoint-m) {
     display: block;
     background: var(--primary-color);
     color: var(--text-color-contrast);
