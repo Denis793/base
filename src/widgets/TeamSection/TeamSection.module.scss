@@ -114,14 +114,14 @@
     }
 
     .overlayBlue {
-      background: #3b5bff;
-      clip-path: polygon(0 100%, 100% 100%, 100% 100%, 0 100%); // приховано
+      background: var(--accent-color-blue);
+      clip-path: polygon(0 100%, 100% 100%, 100% 100%, 0 100%);
       z-index: 50;
     }
 
     .overlayPink {
-      background: #ff4d8d;
-      clip-path: polygon(0 100%, 100% 100%, 100% 100%, 0 100%); // приховано
+      background: var(--accent-color-pink);
+      clip-path: polygon(0 100%, 100% 100%, 100% 100%, 0 100%);
       z-index: 40;
       transition-delay: 0.1s;
     }
@@ -150,11 +150,11 @@
   }
 
   &:hover .overlayBlue {
-    clip-path: polygon(0px 80%, 100% 85%, 100% 100%, 0px 100%);
+    clip-path: polygon(0px 85%, 101% 89%, 101% 101%, 0px 101%);
   }
 
   &:hover .overlayPink {
-    clip-path: polygon(0 85%, 100% 75%, 100% 100%, 0 100%);
+    clip-path: polygon(0 90%, 101% 78%, 101% 101%, 0 101%);
   }
 
   &:hover .socialIcons {
