@@ -7,7 +7,7 @@
 .postsGrid {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-  gap: $spacing-8;
+  gap: var(--gap-xl);
 }
 
 .post {
@@ -58,13 +58,11 @@
   display: flex;
   justify-content: space-between;
   padding: $spacing-2 $spacing-4;
-  font-size: $font-size-sm;
   color: $text-color-default;
 }
 
 .postTitle {
   padding: 0 $spacing-4 $spacing-4;
-  font-size: $font-size-lg;
   color: $primary-color;
   font-weight: $font-weight-medium;
 }
@@ -73,7 +71,7 @@
   display: flex;
   justify-content: center;
   margin-top: $spacing-8;
-  gap: $spacing-2;
+  gap: var(--gap-s);
 }
 
 .paginationBtn {
@@ -83,7 +81,6 @@
   padding: $spacing-2 $spacing-3;
   border-radius: $radius-sm;
   cursor: pointer;
-  font-size: $font-size-sm;
   transition: $transition-fast;
 }
 
@@ -114,15 +111,8 @@
   z-index: 2;
 }
 
-.ctaContent h2 {
-  margin-bottom: $spacing-4;
-  font-size: $font-size-2xl;
-  font-weight: $font-weight-bold;
-}
-
 .ctaContent p {
   margin-bottom: $spacing-6;
-  font-size: $font-size-base;
 }
 
 .ctaBtn {

@@ -12,7 +12,7 @@ export const HeroSection = () => {
     <section className={styles.hero} id="home">
       <div className="container section">
         <div className={styles.heroContent}>
-          <h1 className={styles.heroTitle}>We specialize in UI/UX, Web Development, Digital Marketing.</h1>
+          <h2 className={styles.heroTitle}>We specialize in UI/UX, Web Development, Digital Marketing.</h2>
           <p className="description">
             Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque fringilla magna mauris. Nulla fermentum
             viverra sem eu rhoncus consequat varius nisi quis, posuere magna.

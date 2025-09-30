@@ -16,7 +16,6 @@
 .postTitle {
   margin: $spacing-4 0;
   color: $primary-color;
-  font-size: $font-size-2xl;
   font-weight: $font-weight-bold;
 }
 
@@ -24,14 +23,12 @@
   display: flex;
   gap: $spacing-4;
   margin-bottom: $spacing-4;
-  font-size: $font-size-sm;
   color: $text-color-default;
 }
 
 .postText {
   margin-bottom: $spacing-4;
   color: $text-color-default;
-  font-size: $font-size-base;
   line-height: 1.6;
 }
 
@@ -70,7 +67,6 @@
 .widgetTitle {
   margin-bottom: $spacing-4;
   color: $primary-color;
-  font-size: $font-size-lg;
   font-weight: $font-weight-semibold;
 }
 
@@ -124,13 +120,11 @@
 
 .ctaContent h2 {
   margin-bottom: $spacing-4;
-  font-size: $font-size-2xl;
   font-weight: $font-weight-bold;
 }
 
 .ctaContent p {
   margin-bottom: $spacing-6;
-  font-size: $font-size-base;
 }
 
 .ctaBtn {

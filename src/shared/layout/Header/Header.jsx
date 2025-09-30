@@ -15,6 +15,7 @@ export const Header = () => {
   const [menuOpen, setMenuOpen] = useState(false);
   const [submenuOpen, setSubmenuOpen] = useState(null);
   const [isDark, setIsDark] = useState(false);
+  const [scrolled, setScrolled] = useState(false);
 
   useEffect(() => {
     const storedTheme = localStorage.getItem('theme');
@@ -32,6 +33,12 @@ export const Header = () => {
     return () => observer.disconnect();
   }, []);
 
+  useEffect(() => {
+    const handleScroll = () => setScrolled(window.scrollY > 50);
+    window.addEventListener('scroll', handleScroll);
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
+
   const handleLinkClick = () => {
     setMenuOpen(false);
     setSubmenuOpen(null);
@@ -44,7 +51,7 @@ export const Header = () => {
   const renderLink = (item, onClick) => {
     if (item.to?.startsWith('#')) {
       return (
-        <HashLink smooth to={`/${item.to}`} onClick={onClick}>
+        <HashLink smooth to={item.to} onClick={onClick}>
           {item.label}
         </HashLink>
       );
@@ -57,62 +64,66 @@ export const Header = () => {
   };
 
   return (
-    <header className={styles.header}>
-      <div className="container">
-        <div className={styles.headerWrapper}>
-          <div className={styles.logo}>
-            <Link to="/">
-              <img src={isDark ? logoLight : logoDark} alt="Logo" />
-            </Link>
-          </div>
-
-          <div className={styles.menuWrapper}>
-            <nav className={clsx(styles.nav, menuOpen && styles.open)}>
-              <ul>
-                {menuItems.map((item) => (
-                  <li
-                    key={item.label}
-                    className={clsx(item.children && styles.dropdown, submenuOpen === item.label && styles.active)}
-                  >
-                    {item.children ? (
-                      <>
-                        <button
-                          type="button"
-                          className={styles.dropdownToggle}
-                          onClick={() => handleSubmenuToggle(item.label)}
-                        >
-                          {item.label}
-                          <FaChevronDown className={clsx(styles.arrow, submenuOpen === item.label && styles.rotated)} />
-                        </button>
-
-                        <ul className={clsx(styles.dropdownMenu, submenuOpen === item.label && styles.open)}>
-                          {item.children.map((child) => (
-                            <li key={child.label}>{renderLink(child, handleLinkClick)}</li>
-                          ))}
-                        </ul>
-                      </>
-                    ) : (
-                      renderLink(item, handleLinkClick)
-                    )}
-                  </li>
-                ))}
-              </ul>
-            </nav>
-
-            <div className={styles.actions}>
-              <ThemeToggle />
-              <Link className={styles.signIn} to="/signin">
-                Sign In
-              </Link>
-              <Link className={styles.signUp} to="/signup">
-                <Button variant="primary">Sign Up</Button>
+    <>
+      <header className={clsx(styles.header, scrolled && styles.headerScrolled)}>
+        <div className="container">
+          <div className={styles.headerWrapper}>
+            <div className={styles.logo}>
+              <Link to="/">
+                <img src={isDark ? logoLight : logoDark} alt="Logo" />
               </Link>
             </div>
 
-            <BurgerIcon isOpen={menuOpen} onClick={() => setMenuOpen((prev) => !prev)} />
+            <div className={styles.menuWrapper}>
+              <nav className={clsx(styles.nav, menuOpen && styles.open)}>
+                <ul>
+                  {menuItems.map((item) => (
+                    <li
+                      key={item.label}
+                      className={clsx(item.children && styles.dropdown, submenuOpen === item.label && styles.active)}
+                    >
+                      {item.children ? (
+                        <>
+                          <button
+                            type="button"
+                            className={styles.dropdownToggle}
+                            onClick={() => handleSubmenuToggle(item.label)}
+                          >
+                            {item.label}
+                            <FaChevronDown
+                              className={clsx(styles.arrow, submenuOpen === item.label && styles.rotated)}
+                            />
+                          </button>
+
+                          <ul className={clsx(styles.dropdownMenu, submenuOpen === item.label && styles.open)}>
+                            {item.children.map((child) => (
+                              <li key={child.label}>{renderLink(child, handleLinkClick)}</li>
+                            ))}
+                          </ul>
+                        </>
+                      ) : (
+                        renderLink(item, handleLinkClick)
+                      )}
+                    </li>
+                  ))}
+                </ul>
+              </nav>
+
+              <div className={styles.actions}>
+                <ThemeToggle />
+                <Link className={styles.signIn} to="/signin">
+                  Sign In
+                </Link>
+                <Link className={styles.signUp} to="/signup">
+                  <Button variant="primary">Sign Up</Button>
+                </Link>
+              </div>
+
+              <BurgerIcon isOpen={menuOpen} onClick={() => setMenuOpen((prev) => !prev)} />
+            </div>
           </div>
         </div>
-      </div>
-    </header>
+      </header>
+    </>
   );
 };

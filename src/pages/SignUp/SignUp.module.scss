@@ -34,19 +34,16 @@
 .cardTitle {
   margin-bottom: $spacing-2;
   color: $primary-color;
-  font-size: $font-size-xl;
   font-weight: $font-weight-bold;
 }
 
 .cardDescription {
   margin-bottom: $spacing-6;
   color: $text-color-default;
-  font-size: $font-size-base;
 }
 
 .cardSubtitle {
   margin: $spacing-6 0 $spacing-4;
-  font-size: $font-size-sm;
   color: $secondary-color;
   font-weight: $font-weight-medium;
 }
@@ -57,7 +54,7 @@
   margin-bottom: $spacing-6;
   list-style: none;
   padding: 0;
-  gap: $spacing-4;
+  gap: var(--gap-m);
 }
 
 .socialLink {
@@ -66,7 +63,6 @@
   color: $text-color-contrast;
   padding: $spacing-2 $spacing-4;
   border-radius: $radius-sm;
-  font-size: $font-size-sm;
   font-weight: $font-weight-semibold;
   transition: $transition-fast;
 }
@@ -80,7 +76,6 @@
   margin: $spacing-6 0;
   text-align: center;
   color: $text-color-default;
-  font-size: $font-size-sm;
 }
 
 .formGroup {
@@ -91,7 +86,6 @@
   display: block;
   margin-bottom: $spacing-2;
   font-weight: $font-weight-medium;
-  font-size: $font-size-sm;
   color: $text-color-heading;
 }
 
@@ -100,7 +94,6 @@
   padding: $spacing-3;
   border: 1px solid $border-color;
   border-radius: $radius-sm;
-  font-size: $font-size-base;
 }
 
 .btnPrimary {
@@ -121,7 +114,6 @@
 
 .signinText {
   margin-top: $spacing-4;
-  font-size: $font-size-sm;
   text-align: center;
 }
 

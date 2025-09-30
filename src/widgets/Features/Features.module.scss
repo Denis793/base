@@ -1,18 +1,19 @@
 @use '@/shared/styles/variables' as *;
+@use '@/shared/styles/animations' as *;
 
 .features {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
   align-items: center;
-  gap: var(--spacing-8);
-  padding: var(--spacing-4);
+  gap: var(--gap-xl);
+  padding: var(--spacing-l);
 }
 
 .featureItem {
   display: flex;
   align-items: center;
-  gap: var(--spacing-5);
+  gap: var(--gap-l);
   width: 100%;
   @media (min-width: $breakpoint-m) {
     width: 20rem;
@@ -24,7 +25,7 @@
 
 .imageWrapper {
   border-radius: var(--radius-full);
-  padding: var(--spacing-6);
+  padding: var(--spacing-xl);
   width: 5rem;
   height: 5rem;
   display: flex;
@@ -50,4 +51,22 @@
 
 .descriptionWrapper {
   max-width: 300px;
+  display: flex;
+  flex-direction: column;
+  gap: var(--gap-m);
+}
+
+.featureItem {
+  opacity: 0;
+  animation: slideInDown 0.6s ease forwards;
+}
+
+.featureItem:nth-child(1) {
+  animation-delay: 0.1s;
+}
+.featureItem:nth-child(2) {
+  animation-delay: 0.3s;
+}
+.featureItem:nth-child(3) {
+  animation-delay: 0.5s;
 }

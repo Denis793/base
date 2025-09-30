@@ -74,6 +74,7 @@
   justify-content: center;
   gap: var(--gap-l);
   @media (min-width: $breakpoint-m) {
+    padding-left: var(--spacing-3xl);
     width: 50%;
   }
 }
@@ -85,8 +86,8 @@
 .videoBtn {
   display: inline-flex;
   align-items: center;
-  gap: var(--spacing-3);
-  font-weight: var(--font-weight-semibold);
+  gap: var(--gap-m);
+  font-weight: var(--fw-semibold);
   color: var(--text-color-heading);
   text-decoration: none;
   cursor: pointer;

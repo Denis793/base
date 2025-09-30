@@ -1,9 +1,9 @@
 @use './variables' as *;
 
 * {
-  box-sizing: border-box;
   margin: 0;
   padding: 0;
+  box-sizing: border-box;
 }
 
 html,
@@ -13,8 +13,8 @@ body {
 }
 
 body {
-  font-family: var(--font-body);
-  font-size: var(--font-size-base);
+  font-family: var(--ff-secondary);
+  font-size: var(--fs-body);
   line-height: 1.6;
   background: var(--bg-page);
   color: var(--text-color-default);
@@ -27,16 +27,25 @@ h3,
 h4,
 h5,
 h6 {
-  font-family: var(--font-body);
+  font-family: var(--ff-secondary);
 }
 
-h1 {
-  font-weight: 600;
-  line-height: 2.25rem;
+h2 {
+  font-family: var(--ff-main);
+  font-size: var(--fs-h2);
+  color: var(--color-h2);
+  line-height: 1.2;
+}
+
+h4 {
+  font-family: var(--ff-main);
+  font-size: var(--fs-h4);
+  color: var(--color-h4);
+  line-height: 1.2;
 }
 
 p {
-  font-family: var(--font-heading);
+  font-family: var(--ff-main);
 }
 
 a {
@@ -66,14 +75,15 @@ ul {
   margin: 0 auto;
 }
 .section {
-  padding: var(--spacing-4);
-  padding-top: var(--spacing-vertical-m);
+  padding: var(--spacing-l);
+  padding-top: var(--spacing-3xl);
   @media (min-width: $breakpoint-m) {
-    padding-top: var(--spacing-vertical-l);
+    padding-top: var(--spacing-4xl);
   }
 }
 
 .description {
+  font-family: var(--ff-secondary);
+  font-size: var(--fs-description);
   color: var(--color-description);
-  color: rgb(121 128 138);
 }

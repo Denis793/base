@@ -2,10 +2,10 @@
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  font-size: var(--font-size-base);
+  font-size: var(--fs-base);
   border: none;
   border-radius: var(--radius-lg);
-  padding: var(--spacing-4) var(--spacing-6);
+  padding: var(--spacing-l) var(--spacing-xl);
   cursor: pointer;
   transition: var(--transition-fast);
   color: var(--text-color-button);
