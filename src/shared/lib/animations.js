@@ -1,4 +1,6 @@
-// === Motion Variants ===
+// === Універсальні анімації ===
+
+// Зліва направо
 export const fadeLeft = {
   hidden: { opacity: 0, x: -50 },
   visible: {
@@ -8,6 +10,7 @@ export const fadeLeft = {
   },
 };
 
+// Справа наліво
 export const fadeRight = {
   hidden: { opacity: 0, x: 50 },
   visible: {
@@ -17,6 +20,7 @@ export const fadeRight = {
   },
 };
 
+// Зверху вниз
 export const slideInDown = {
   hidden: { opacity: 0, y: -30 },
   visible: (i = 0) => ({
@@ -26,6 +30,7 @@ export const slideInDown = {
   }),
 };
 
+// Fade in
 export const fadeIn = {
   hidden: { opacity: 0 },
   visible: (i = 0) => ({

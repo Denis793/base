@@ -22,6 +22,7 @@ export const TeamSection = () => {
 
   return (
     <section className={styles.teamSection} id="team">
+      {/* Shapes */}
       <div className={styles.bgWrapper}>
         <motion.img
           src={shapeCircle}
@@ -52,6 +53,7 @@ export const TeamSection = () => {
       </div>
 
       <div className="container section">
+        {/* Header */}
         <div className={styles.header}>
           <motion.h2 variants={fadeIn} initial="hidden" whileInView="visible" viewport={{ once: true }}>
             Meet With Our Creative <br /> Dedicated Team
@@ -69,6 +71,7 @@ export const TeamSection = () => {
           </motion.p>
         </div>
 
+        {/* Members */}
         <div className={styles.members}>
           {members.map((m, i) => (
             <motion.div
@@ -79,23 +82,22 @@ export const TeamSection = () => {
               whileInView="visible"
               viewport={{ once: true }}
               custom={i}
-              whileHover="hover" // 🔹 цей стан проброситься всередину
             >
-              <img src={m.img} alt={m.name} />
+              <div className={styles.photo}>
+                <img src={m.img} alt={m.name} />
 
-              {/* Overlay соцмереж */}
-              <motion.div
-                className={styles.socialOverlay}
-                variants={{
-                  hidden: { y: '100%' },
-                  hover: { y: 0, transition: { duration: 0.4, ease: 'easeOut' } },
-                }}
-                initial="hidden"
-              >
-                <FaFacebookF />
-                <FaTwitter />
-                <FaLinkedinIn />
-              </motion.div>
+                {/* Overlay соцмереж */}
+                <div className={styles.socialOverlay}>
+                  <div className={styles.overlayBlue}></div>
+                  <div className={styles.overlayPink}></div>
+
+                  <div className={styles.socialIcons}>
+                    <FaFacebookF />
+                    <FaTwitter />
+                    <FaLinkedinIn />
+                  </div>
+                </div>
+              </div>
 
               <h4>{m.name}</h4>
               <span className="description">{m.role}</span>
