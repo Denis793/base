@@ -1,4 +1,5 @@
 import React from 'react';
+import { motion } from 'framer-motion';
 import shape05 from '@/assets/images/shape/shape-05.svg';
 import shape06 from '@/assets/images/shape/shape-06.svg';
 import shape07 from '@/assets/images/shape/shape-07.svg';
@@ -7,12 +8,29 @@ import about02 from '@/assets/images/about/about-02.png';
 import about03 from '@/assets/images/about/about-03.png';
 import styles from './AboutSection.module.scss';
 
+const fadeLeft = {
+  hidden: { opacity: 0, x: -50 },
+  visible: { opacity: 1, x: 0, transition: { duration: 0.8, ease: 'easeOut' } },
+};
+
+const fadeRight = {
+  hidden: { opacity: 0, x: 50 },
+  visible: { opacity: 1, x: 0, transition: { duration: 0.8, ease: 'easeOut' } },
+};
+
 export const AboutSection = () => {
   return (
     <section className={styles.about} id="about">
       <div className="container section">
         <div className={styles.aboutWrapper}>
-          <div className={styles.aboutImages}>
+          {/* Images */}
+          <motion.div
+            className={styles.aboutImages}
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, amount: 0.3 }}
+            variants={fadeLeft}
+          >
             <div className={styles.imageWrapper}>
               <img className={styles.aboutImg} src={about01} alt="Team working together" />
               <img className={styles.aboutImg} src={about02} alt="Team collaboration" />
@@ -22,9 +40,16 @@ export const AboutSection = () => {
             <img src={shape05} alt="Decorative shape" className={styles.shape05} />
             <img src={shape06} alt="Decorative shape" className={styles.shape06} />
             <img src={shape07} alt="Decorative shape" className={styles.shape07} />
-          </div>
+          </motion.div>
 
-          <div className={styles.aboutContent}>
+          {/* Content */}
+          <motion.div
+            className={styles.aboutContent}
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, amount: 0.3 }}
+            variants={fadeRight}
+          >
             <h4>Why Choose Us</h4>
             <h2>We Make Our customers happy by giving Best services.</h2>
             <p className="description">
@@ -43,7 +68,7 @@ export const AboutSection = () => {
                 </svg>
               </span>
             </a>
-          </div>
+          </motion.div>
         </div>
       </div>
     </section>

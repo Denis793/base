@@ -1,22 +1,10 @@
 import React from 'react';
 import { motion } from 'framer-motion';
+import { slideInDown } from '@/shared/lib/animations';
 import icon01 from '@/assets/images/icons/icon-01.svg';
 import icon02 from '@/assets/images/icons/icon-02.svg';
 import icon03 from '@/assets/images/icons/icon-03.svg';
 import styles from './Features.module.scss';
-
-const itemVariants = {
-  hidden: { opacity: 0, y: -30 },
-  visible: (i) => ({
-    opacity: 1,
-    y: 0,
-    transition: {
-      duration: 0.6,
-      delay: i * 0.2,
-      ease: 'easeOut',
-    },
-  }),
-};
 
 export const Features = () => {
   const items = [
@@ -32,7 +20,7 @@ export const Features = () => {
           <motion.div
             key={item.title}
             className={styles.featureItem}
-            variants={itemVariants}
+            variants={slideInDown}
             initial="hidden"
             whileInView="visible"
             viewport={{ once: true, amount: 0.3 }}
