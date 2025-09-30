@@ -1,0 +1,133 @@
+@use '@/shared/styles/variables' as *;
+
+.teamSection {
+  position: relative;
+  padding: var(--spacing-4xl) 0;
+}
+
+.bgWrapper {
+  position: absolute;
+  top: 130px;
+  left: 0;
+  width: 100%;
+  height: 50%;
+  background-color: var(--bg-section);
+  background-image: url('@/assets/images/shape/shape-08.svg');
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+  z-index: -1;
+}
+
+.shapeCircle,
+.shapeOrange,
+.shapePink {
+  position: absolute;
+  transform: translate(-50%, -50%);
+  z-index: 1;
+}
+
+.shapeCircle {
+  top: 12%;
+  left: 18%;
+  width: 3rem;
+  height: 3rem;
+}
+
+.shapeOrange {
+  bottom: -8%;
+  left: 13%;
+  width: 5rem;
+  height: 5rem;
+}
+
+.shapePink {
+  top: 10%;
+  right: 20%;
+  width: 4rem;
+  height: 4rem;
+}
+
+.header {
+  text-align: center;
+  margin-bottom: var(--spacing-3xl);
+  z-index: 2;
+
+  p {
+    max-width: 600px;
+    margin: 0 auto;
+    color: var(--color-description);
+  }
+}
+
+.members {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--gap-xl);
+  z-index: 2;
+
+  @media (min-width: $breakpoint-m) {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+.memberCard {
+  position: relative;
+  text-align: center;
+  border-radius: var(--radius-sm);
+  overflow: hidden;
+  cursor: pointer;
+
+  img {
+    width: 100%;
+    display: block;
+  }
+
+  h4 {
+    margin-top: var(--spacing-m);
+  }
+
+  span {
+    font-size: var(--fs-nav-mobile);
+    color: var(--color-description);
+  }
+}
+
+/* Overlay для соцмереж */
+.socialOverlay {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  background: var(--primary-color);
+  display: flex;
+  justify-content: center;
+  gap: var(--gap-l);
+  padding: var(--spacing-m) 0;
+  color: #fff;
+  z-index: 2;
+
+  svg {
+    font-size: 1.2rem;
+    cursor: pointer;
+    transition: transform 0.2s ease;
+  }
+
+  svg:hover {
+    transform: scale(1.2);
+  }
+}
+
+.socialOverlay {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  background: var(--primary-color);
+  display: flex;
+  justify-content: center;
+  gap: var(--gap-l);
+  padding: var(--spacing-m) 0;
+  color: #fff;
+  z-index: 2;
+}

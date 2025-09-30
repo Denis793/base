@@ -1,5 +1,6 @@
 import React from 'react';
 import { motion } from 'framer-motion';
+import { fadeLeft, fadeRight } from '@/shared/lib/animations';
 import shape05 from '@/assets/images/shape/shape-05.svg';
 import shape06 from '@/assets/images/shape/shape-06.svg';
 import shape07 from '@/assets/images/shape/shape-07.svg';
@@ -7,16 +8,6 @@ import about01 from '@/assets/images/about/about-01.png';
 import about02 from '@/assets/images/about/about-02.png';
 import about03 from '@/assets/images/about/about-03.png';
 import styles from './AboutSection.module.scss';
-
-const fadeLeft = {
-  hidden: { opacity: 0, x: -50 },
-  visible: { opacity: 1, x: 0, transition: { duration: 0.8, ease: 'easeOut' } },
-};
-
-const fadeRight = {
-  hidden: { opacity: 0, x: 50 },
-  visible: { opacity: 1, x: 0, transition: { duration: 0.8, ease: 'easeOut' } },
-};
 
 export const AboutSection = () => {
   return (
@@ -56,6 +47,7 @@ export const AboutSection = () => {
               It is a long established fact that a reader will be distracted by the readable content of a page when
               looking at its layout. The point of using Lorem Ipsum.
             </p>
+
             <a
               href="https://www.youtube.com/watch?v=xcJtL7QggTI"
               target="_blank"

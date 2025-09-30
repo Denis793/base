@@ -1,39 +1,28 @@
+// === Motion Variants ===
+export const fadeLeft = {
+  hidden: { opacity: 0, x: -50 },
+  visible: {
+    opacity: 1,
+    x: 0,
+    transition: { duration: 0.8, ease: 'easeOut' },
+  },
+};
+
+export const fadeRight = {
+  hidden: { opacity: 0, x: 50 },
+  visible: {
+    opacity: 1,
+    x: 0,
+    transition: { duration: 0.8, ease: 'easeOut' },
+  },
+};
+
 export const slideInDown = {
   hidden: { opacity: 0, y: -30 },
   visible: (i = 0) => ({
     opacity: 1,
     y: 0,
-    transition: {
-      duration: 0.6,
-      delay: i * 0.2,
-      ease: 'easeOut',
-    },
-  }),
-};
-
-export const slideInLeft = {
-  hidden: { opacity: 0, x: -30 },
-  visible: (i = 0) => ({
-    opacity: 1,
-    x: 0,
-    transition: {
-      duration: 0.6,
-      delay: i * 0.2,
-      ease: 'easeOut',
-    },
-  }),
-};
-
-export const slideInRight = {
-  hidden: { opacity: 0, x: 30 },
-  visible: (i = 0) => ({
-    opacity: 1,
-    x: 0,
-    transition: {
-      duration: 0.6,
-      delay: i * 0.2,
-      ease: 'easeOut',
-    },
+    transition: { duration: 0.6, delay: i * 0.2, ease: 'easeOut' },
   }),
 };
 
@@ -41,11 +30,7 @@ export const fadeIn = {
   hidden: { opacity: 0 },
   visible: (i = 0) => ({
     opacity: 1,
-    transition: {
-      duration: 0.6,
-      delay: i * 0.2,
-      ease: 'easeOut',
-    },
+    transition: { duration: 0.6, delay: i * 0.2, ease: 'easeOut' },
   }),
 };
 
@@ -54,19 +39,14 @@ export const scaleUp = {
   visible: (i = 0) => ({
     opacity: 1,
     scale: 1,
-    transition: {
-      duration: 0.6,
-      delay: i * 0.2,
-      ease: 'easeOut',
-    },
+    transition: { duration: 0.6, delay: i * 0.2, ease: 'easeOut' },
   }),
 };
 
-export const staggerContainer = {
-  hidden: {},
+export const rotateInfinite = {
+  hidden: { rotate: 0 },
   visible: {
-    transition: {
-      staggerChildren: 0.2,
-    },
+    rotate: 360,
+    transition: { duration: 20, ease: 'linear', repeat: Infinity },
   },
 };

@@ -24,8 +24,8 @@ const imageVariants = {
 
 export const HeroSection = () => {
   return (
-    <section className={styles.hero} id="home">
-      <div className="container section">
+    <div className="container section">
+      <section className={styles.hero} id="home">
         <motion.div
           className={styles.heroContent}
           initial="hidden"
@@ -68,7 +68,7 @@ export const HeroSection = () => {
             <img src={shapeBlue} alt="Blue quarter" className={styles.shapeBlue} />
           </motion.div>
         </motion.div>
-      </div>
-    </section>
+      </section>
+    </div>
   );
 };
