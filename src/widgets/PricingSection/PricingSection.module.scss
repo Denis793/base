@@ -168,8 +168,11 @@
 .shape3,
 .shape4,
 .shape5 {
-  position: absolute;
-  z-index: 1;
+  display: none;
+  @media (min-width: $breakpoint-m) {
+    position: absolute;
+    z-index: 1;
+  }
 }
 
 .shape1 {
