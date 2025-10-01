@@ -4,6 +4,7 @@ import { Features } from '@/widgets/Features';
 import { AboutSection } from '@/widgets/AboutSection';
 import { TeamSection } from '@/widgets/TeamSection';
 import { ServicesSection } from '@/widgets/ServicesSection';
+import { PricingSection } from '@/widgets/PricingSection';
 import styles from './Home.module.scss';
 
 export const Home = () => {
@@ -15,6 +16,7 @@ export const Home = () => {
         <AboutSection />
         <TeamSection />
         <ServicesSection />
+        <PricingSection />
       </main>
     </>
   );

@@ -1,3 +1,5 @@
+@use '@/shared/styles/variables' as *;
+
 .button {
   display: inline-flex;
   align-items: center;
@@ -22,16 +24,22 @@
 
 .secondary {
   background: transparent;
-
   border: 1px solid var(--border-color);
 }
 
 .link {
   background: transparent;
-
   padding: 0;
 
   &:hover {
     text-decoration: underline;
   }
+}
+
+.blue {
+  background: var(--accent-color-blue);
+}
+
+.pink {
+  background: var(--accent-color-pink);
 }
