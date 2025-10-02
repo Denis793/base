@@ -1,15 +1,15 @@
 @use '@/shared/styles/variables' as *;
 
 .clientSection {
-  padding: $spacing-12 $spacing-4;
+  padding: var(--spacing-3xl) var(--spacing-l);
   text-align: center;
-  background: $bg-section;
+  background: var(--bg-section);
 }
 
 .heading {
-  margin-bottom: $spacing-8;
-  color: $primary-color;
-  font-weight: $font-weight-bold;
+  margin-bottom: var(--spacing-2xl);
+  color: var(--primary-color);
+  font-weight: var(--font-weight-bold);
 }
 
 .slide {
@@ -21,7 +21,7 @@
     max-height: 50px;
     filter: grayscale(100%);
     opacity: 0.8;
-    transition: $transition-base;
+    transition: var(--transition-base);
 
     &:hover {
       filter: grayscale(0);

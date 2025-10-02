@@ -5,12 +5,12 @@ import 'swiper/css';
 import styles from './ClientLogoSection.module.scss';
 
 const logos = [
-  '@/images/brands/brand-light-01.svg',
-  '@/images/brands/brand-light-02.svg',
-  '@/images/brands/brand-light-03.svg',
-  '@/images/brands/brand-light-04.svg',
-  '@/images/brands/brand-light-05.svg',
-  '@/images/brands/brand-light-06.svg',
+  '@/assets/images/brands/brand-light-01.svg',
+  '@/assets/images/brands/brand-light-02.svg',
+  '@/assets/images/brands/brand-light-03.svg',
+  '@/assets/images/brands/brand-light-04.svg',
+  '@/assets/images/brands/brand-light-05.svg',
+  '@/assets/images/brands/brand-light-06.svg',
 ];
 
 export const ClientLogoSection = () => {
