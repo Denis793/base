@@ -16,6 +16,7 @@ export const Header = () => {
   const [submenuOpen, setSubmenuOpen] = useState(null);
   const [isDark, setIsDark] = useState(false);
   const [scrolled, setScrolled] = useState(false);
+  const [scrollDirection, setScrollDirection] = useState('up');
 
   useEffect(() => {
     const storedTheme = localStorage.getItem('theme');
@@ -34,7 +35,20 @@ export const Header = () => {
   }, []);
 
   useEffect(() => {
-    const handleScroll = () => setScrolled(window.scrollY > 50);
+    let lastScrollY = window.scrollY;
+
+    const handleScroll = () => {
+      setScrolled(window.scrollY > 50);
+
+      if (window.scrollY > lastScrollY) {
+        setScrollDirection('down'); // скролимо вниз
+      } else {
+        setScrollDirection('up'); // скролимо вверх
+      }
+
+      lastScrollY = window.scrollY;
+    };
+
     window.addEventListener('scroll', handleScroll);
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
@@ -65,7 +79,9 @@ export const Header = () => {
 
   return (
     <>
-      <header className={clsx(styles.header, scrolled && styles.headerScrolled)}>
+      <header
+        className={clsx(styles.header, scrolled && styles.headerScrolled, scrollDirection === 'down' && styles.hidden)}
+      >
         <div className="container">
           <div className={styles.headerWrapper}>
             <div className={styles.logo}>

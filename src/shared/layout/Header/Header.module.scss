@@ -15,6 +15,10 @@
   backdrop-filter: blur(8px);
 }
 
+.hidden {
+  transform: translateY(-100%);
+}
+
 .headerWrapper {
   font-family: var(--ff-base);
   letter-spacing: 1px;
