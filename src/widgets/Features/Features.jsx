@@ -14,7 +14,7 @@ export const Features = () => {
   ];
 
   return (
-    <div className="container section" id="features">
+    <div className="container" id="features">
       <section className={styles.features}>
         {items.map((item, i) => (
           <motion.div

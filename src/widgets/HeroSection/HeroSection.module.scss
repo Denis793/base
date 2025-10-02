@@ -2,7 +2,6 @@
 
 .hero {
   width: 100%;
-  padding-top: var(--spacing-3xl);
   @media (min-width: $breakpoint-m) {
     max-width: 50%;
   }
