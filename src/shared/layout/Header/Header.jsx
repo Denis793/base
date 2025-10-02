@@ -41,9 +41,9 @@ export const Header = () => {
       setScrolled(window.scrollY > 50);
 
       if (window.scrollY > lastScrollY) {
-        setScrollDirection('down'); // скролимо вниз
+        setScrollDirection('down');
       } else {
-        setScrollDirection('up'); // скролимо вверх
+        setScrollDirection('up');
       }
 
       lastScrollY = window.scrollY;
@@ -100,16 +100,12 @@ export const Header = () => {
                     >
                       {item.children ? (
                         <>
-                          <button
-                            type="button"
-                            className={styles.dropdownToggle}
-                            onClick={() => handleSubmenuToggle(item.label)}
-                          >
+                          <Button variant="secondary" onClick={() => handleSubmenuToggle(item.label)}>
                             {item.label}
                             <FaChevronDown
                               className={clsx(styles.arrow, submenuOpen === item.label && styles.rotated)}
                             />
-                          </button>
+                          </Button>
 
                           <ul className={clsx(styles.dropdownMenu, submenuOpen === item.label && styles.open)}>
                             {item.children.map((child) => (

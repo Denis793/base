@@ -22,7 +22,6 @@ export const TeamSection = () => {
 
   return (
     <section className={styles.teamSection} id="team">
-      {/* Shapes */}
       <div className={styles.bgWrapper}>
         <motion.img
           src={shapeCircle}
@@ -53,8 +52,7 @@ export const TeamSection = () => {
       </div>
 
       <div className="container section">
-        {/* Header */}
-        <div className={styles.header}>
+        <div className="header">
           <motion.h2 variants={fadeIn} initial="hidden" whileInView="visible" viewport={{ once: true }}>
             Meet With Our Creative <br /> Dedicated Team
           </motion.h2>
@@ -86,7 +84,6 @@ export const TeamSection = () => {
               <div className={styles.photo}>
                 <img src={m.img} alt={m.name} />
 
-                {/* Overlay соцмереж */}
                 <div className={styles.socialOverlay}>
                   <div className={styles.overlayBlue}></div>
                   <div className={styles.overlayPink}></div>
@@ -99,7 +96,7 @@ export const TeamSection = () => {
                 </div>
               </div>
 
-              <h4>{m.name}</h4>
+              <h4 className={styles.membersTitle}>{m.name}</h4>
               <span className="description">{m.role}</span>
             </motion.div>
           ))}

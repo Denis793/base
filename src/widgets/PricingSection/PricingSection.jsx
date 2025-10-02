@@ -2,6 +2,13 @@ import React, { useState } from 'react';
 import { motion } from 'framer-motion';
 import { fadeIn, staggerContainer } from '@/shared/lib/animations';
 import { Button } from '@/shared/ui/Button';
+
+import shape1 from '@/assets/images/shape/shape-03.svg';
+import shape2 from '@/assets/images/shape/shape-06.svg';
+import shape3 from '@/assets/images/shape/shape-07.svg';
+import shape4 from '@/assets/images/shape/shape-12.svg';
+import shape5 from '@/assets/images/shape/shape-13.svg';
+
 import styles from './PricingSection.module.scss';
 
 export const PricingSection = () => {
@@ -30,7 +37,7 @@ export const PricingSection = () => {
       <section className={styles.pricingSection} id="pricing">
         <div className="container section">
           <div className={styles.pricingWrapper}>
-            <div className={styles.header}>
+            <div className="header">
               <motion.h2 variants={fadeIn} initial="hidden" whileInView="visible" viewport={{ once: true }}>
                 We Offer Great Affordable <br /> Premium Prices.
               </motion.h2>
@@ -46,7 +53,6 @@ export const PricingSection = () => {
                 looking at its layout. The point of using.
               </motion.p>
 
-              {/* Toggle */}
               <div className={styles.toggleWrapper}>
                 <span>Bill Monthly</span>
                 <label className={styles.switch}>
@@ -56,7 +62,7 @@ export const PricingSection = () => {
                 <span>Bill Annually</span>
               </div>
             </div>
-            {/* Pricing Cards */}
+
             <motion.div
               className={styles.cards}
               variants={staggerContainer}
@@ -91,11 +97,11 @@ export const PricingSection = () => {
         </div>
 
         <div className={styles.shapeWrapper}>
-          <img className={styles.shape1} src="/src/assets/images/shape/shape-03.svg" alt="shape" />
-          <img className={styles.shape2} src="/src/assets/images/shape/shape-06.svg" alt="shape" />
-          <img className={styles.shape3} src="/src/assets/images/shape/shape-07.svg" alt="shape" />
-          <img className={styles.shape4} src="/src/assets/images/shape/shape-12.svg" alt="shape" />
-          <img className={styles.shape5} src="/src/assets/images/shape/shape-13.svg" alt="shape" />
+          <img className={styles.shape1} src={shape1} alt="shape" />
+          <img className={styles.shape2} src={shape2} alt="shape" />
+          <img className={styles.shape3} src={shape3} alt="shape" />
+          <img className={styles.shape4} src={shape4} alt="shape" />
+          <img className={styles.shape5} src={shape5} alt="shape" />
         </div>
       </section>
     </>

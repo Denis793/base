@@ -5,19 +5,6 @@
   text-align: center;
 }
 
-.header {
-  text-align: center;
-  padding-bottom: var(--spacing-3xl);
-
-  h2 {
-    margin-bottom: var(--spacing-m);
-  }
-
-  p {
-    color: var(--color-description);
-  }
-}
-
 .servicesGrid {
   display: grid;
   grid-template-columns: 1fr;
@@ -31,14 +18,14 @@
 .serviceCard {
   background: transparent;
   padding: var(--spacing-l);
-  border-radius: var(--radius-sm);
+  border-radius: var(--radius-s);
   text-align: center;
   transition: transform 0.3s ease, box-shadow 0.3s ease;
 
   &:hover {
     background: var(--bg-card);
     transform: translateY(-6px);
-    box-shadow: var(--shadow-md);
+    box-shadow: var(--shadow-main);
 
     .icon {
       transform: scale(1.1);

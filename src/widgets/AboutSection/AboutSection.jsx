@@ -7,6 +7,7 @@ import shape07 from '@/assets/images/shape/shape-07.svg';
 import about01 from '@/assets/images/about/about-01.png';
 import about02 from '@/assets/images/about/about-02.png';
 import about03 from '@/assets/images/about/about-03.png';
+import playIcon from '@/assets/images/icons/icon-play.svg';
 import styles from './AboutSection.module.scss';
 
 export const AboutSection = () => {
@@ -55,9 +56,7 @@ export const AboutSection = () => {
               className={styles.videoBtn}
             >
               <span className={styles.playIcon}>
-                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="white">
-                  <path d="M8 5v14l11-7z" />
-                </svg>
+                <img src={playIcon} alt="Play video" />
               </span>
             </a>
           </motion.div>

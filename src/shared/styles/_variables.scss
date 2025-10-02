@@ -5,8 +5,8 @@
 
   --fs-body: 10px;
 
-  --fs-base: 1rem;
-  --fs-nav-mobile: 0.8rem;
+  --fs-base: 1.25rem;
+  --fs-nav-mobile: 2rem;
   --fs-nav-laptop: 1rem;
   --fs-nav-desktop: 1.2rem;
 
@@ -59,12 +59,11 @@
   --social-color: #fff;
 
   /* === Shadows === */
-  --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.05);
-  --shadow-md: 0 0px 8px rgba(218, 218, 218, 0.2);
-  --shadow-lg: 0 10px 15px rgba(0, 0, 0, 0.2);
+  --shadow-main: 0 0px 12px rgba(0, 0, 0, 0.2);
+  --shadow-overlay: 0 0px 12px rgba(255, 255, 255, 0.5);
 
   /* === Overlay Colors === */
-  --overlay-dark: rgba(0, 0, 0, 0.5);
+  --overlay-color: rgba(0, 0, 0, 0.5);
   --overlay-light: rgba(255, 255, 255, 0.5);
   --overlay-white: rgba(255, 255, 255, 0.95);
 
@@ -92,6 +91,7 @@
 
   /* === Layout === */
   --container-max-width: 1280px;
+  --description-width: 600px;
 
   /* === Z-index === */
   --z-index-behind: -1;
@@ -102,7 +102,7 @@
 
   /* === Transitions === */
   --transition-base: all 1s ease;
-  --transition-fast: all 0.5s ease-in-out;
+  --transition-fast: all 0.2s ease-in-out;
 }
 
 $breakpoint-l: 1280px;

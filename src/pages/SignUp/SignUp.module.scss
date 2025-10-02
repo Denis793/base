@@ -52,8 +52,6 @@
   display: flex;
   justify-content: space-between;
   margin-bottom: $spacing-6;
-  list-style: none;
-  padding: 0;
   gap: var(--gap-m);
 }
 
@@ -104,7 +102,6 @@
   border-radius: $radius-sm;
   border: none;
   font-weight: $font-weight-semibold;
-  cursor: pointer;
   transition: $transition-fast;
 }
 

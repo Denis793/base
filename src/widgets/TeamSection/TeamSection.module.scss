@@ -49,18 +49,6 @@
   height: 4rem;
 }
 
-.header {
-  text-align: center;
-  margin-bottom: var(--spacing-3xl);
-  z-index: 2;
-
-  p {
-    max-width: 600px;
-    margin: 0 auto;
-    color: var(--color-description);
-  }
-}
-
 .members {
   display: grid;
   grid-template-columns: 1fr;
@@ -75,24 +63,19 @@
 .memberCard {
   position: relative;
   text-align: center;
-  border-radius: var(--radius-sm);
+  border-radius: var(--radius-s);
   overflow: hidden;
   cursor: pointer;
+}
 
-  h4 {
-    margin-top: var(--spacing-m);
-  }
-
-  span {
-    font-size: var(--fs-nav-mobile);
-    color: var(--color-description);
-  }
+.membersTitle {
+  margin: var(--spacing-m) 0;
 }
 
 .photo {
   position: relative;
   overflow: hidden;
-  border-radius: var(--radius-sm);
+  border-radius: var(--radius-s);
 
   img {
     width: 100%;
@@ -133,14 +116,13 @@
       gap: var(--gap-l);
       padding: var(--spacing-xl) 0;
       color: var(--social-color);
-      z-index: 10;
+      z-index: 60;
       opacity: 0;
       transform: translateY(20px) scale(2);
       transition: opacity 0.4s ease, transform 0.4s ease;
 
       svg {
         font-size: 1.2rem;
-        cursor: pointer;
         transition: transform 0.2s ease;
 
         &:hover {

@@ -43,7 +43,7 @@ export const ServicesSection = () => {
     <section className={styles.services} id="services">
       <div className="container section">
         <motion.div
-          className={styles.header}
+          className="header"
           variants={fadeIn}
           initial="hidden"
           whileInView="visible"

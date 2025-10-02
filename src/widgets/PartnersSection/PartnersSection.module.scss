@@ -1,13 +1,12 @@
 @use '@/shared/styles/variables' as *;
 
 .clientSection {
-  padding: var(--spacing-3xl) var(--spacing-l);
   text-align: center;
   background: var(--bg-section);
 }
 
 .heading {
-  margin-bottom: var(--spacing-2xl);
+  margin-bottom: var(--spacing-3xl);
   color: var(--primary-color);
   font-weight: var(--font-weight-bold);
 }

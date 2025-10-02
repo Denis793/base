@@ -26,7 +26,7 @@
   width: 100%;
   height: auto;
   object-fit: cover;
-  border-radius: var(--radius-sm);
+  border-radius: var(--radius-s);
 }
 
 .imageWrapper img:nth-child(1) {
@@ -91,7 +91,6 @@
   font-weight: var(--fw-semibold);
   color: var(--text-color-heading);
   text-decoration: none;
-  cursor: pointer;
 }
 
 .playIcon {
@@ -106,7 +105,7 @@
   flex-shrink: 0;
   overflow: visible;
 
-  svg {
+  img {
     position: relative;
     z-index: 1;
     width: 1.5rem;

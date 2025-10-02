@@ -64,14 +64,13 @@
   gap: var(--gap-xl);
   padding: var(--spacing-2xl);
   transform: translateX(-50%);
-  box-shadow: var(--shadow-md);
-  border-radius: var(--radius-md);
+  box-shadow: var(--shadow-main);
+  border-radius: var(--radius-m);
   z-index: var(--z-index-overlay);
   transition: top 0.35s ease, opacity 0.3s ease;
 
   @media (min-width: $breakpoint-m) {
     opacity: 1;
-    padding: 0;
     width: auto;
     height: auto;
     transform: none;
@@ -109,7 +108,6 @@
   transition: var(--transition-fast);
   background: none;
   border: none;
-  cursor: pointer;
   text-align: left;
   display: flex;
   align-items: center;
@@ -120,7 +118,7 @@
   }
 
   @media (min-width: $breakpoint-m) {
-    font-size: var(--fs-nav-laptop);
+    font-size: var(--fs-base);
     color: var(--text-color-heading);
   }
   @media (min-width: $breakpoint-l) {
@@ -130,7 +128,7 @@
 
 .arrow {
   margin-left: var(--spacing-s);
-  font-size: 0.9em;
+  font-size: var(--ff-base);
   transition: transform 0.3s ease;
 
   @media (min-width: $breakpoint-l) {
@@ -165,8 +163,8 @@
   gap: var(--gap-s);
   margin-top: var(--spacing-s);
   background: var(--bg-page);
-  border-radius: var(--radius-md);
-  box-shadow: var(--shadow-md);
+  border-radius: var(--radius-m);
+  box-shadow: var(--shadow-main);
   padding: var(--spacing-m) var(--spacing-l);
   min-width: 180px;
   z-index: var(--z-index-overlay);
@@ -237,13 +235,5 @@
 
   @media (min-width: $breakpoint-m) {
     display: block;
-    color: var(--text-color-contrast);
-    border-radius: var(--radius-lg);
-    font-weight: var(--fw-semibold);
-    transition: var(--transition-fast);
-
-    &:hover {
-      background: var(--primary-color-hover);
-    }
   }
 }
