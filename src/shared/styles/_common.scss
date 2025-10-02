@@ -74,11 +74,11 @@ ul {
   max-width: var(--container-max-width);
   margin: 0 auto;
 }
+
 .section {
-  padding: var(--spacing-l);
-  padding-top: var(--spacing-3xl);
+  padding: var(--spacing-2xl) var(--spacing-m);
   @media (min-width: $breakpoint-m) {
-    padding-top: var(--spacing-4xl);
+    padding: var(--spacing-4xl) var(--spacing-l);
   }
 }
 
