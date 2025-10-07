@@ -1,0 +1,39 @@
+@use '@/shared/styles/variables' as *;
+
+.toast {
+  text-align: center;
+  padding: var(--spacing-s) var(--spacing-m);
+  border-radius: var(--radius-s);
+  font-size: var(--fs-base);
+  font-weight: var(--fw-medium);
+  margin-bottom: var(--spacing-l);
+  animation: fadeInDown 0.4s ease forwards;
+  width: 100%;
+  max-width: 100%;
+}
+
+.toastSuccess {
+  color: var(--success-color);
+  border: 1px solid var(--border-success);
+}
+
+.toastError {
+  color: var(--error-color);
+  border: 1px solid var(--border-error);
+}
+
+.toastInfo {
+  color: var(--primary-color);
+  border: 1px solid var(--primary-color);
+}
+
+@keyframes fadeInDown {
+  from {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}

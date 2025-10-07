@@ -2,13 +2,7 @@ import React, { useState } from 'react';
 import { motion } from 'framer-motion';
 import { fadeIn, staggerContainer } from '@/shared/lib/animations';
 import { Button } from '@/shared/ui/Button';
-
-import shape1 from '@/assets/images/shape/shape-03.svg';
-import shape2 from '@/assets/images/shape/shape-06.svg';
-import shape3 from '@/assets/images/shape/shape-07.svg';
-import shape4 from '@/assets/images/shape/shape-12.svg';
-import shape5 from '@/assets/images/shape/shape-13.svg';
-
+import { ShapeBackground } from '@/shared/ui/ShapeBackground';
 import styles from './PricingSection.module.scss';
 
 export const PricingSection = () => {
@@ -95,14 +89,7 @@ export const PricingSection = () => {
             </motion.div>
           </div>
         </div>
-
-        <div className={styles.shapeWrapper}>
-          <img className={styles.shape1} src={shape1} alt="shape" />
-          <img className={styles.shape2} src={shape2} alt="shape" />
-          <img className={styles.shape3} src={shape3} alt="shape" />
-          <img className={styles.shape4} src={shape4} alt="shape" />
-          <img className={styles.shape5} src={shape5} alt="shape" />
-        </div>
+        <ShapeBackground variant="pricing" />;
       </section>
     </>
   );

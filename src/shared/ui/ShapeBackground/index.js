@@ -1,0 +1,1 @@
+export { ShapeBackground } from './ShapeBackground';

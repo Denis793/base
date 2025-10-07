@@ -31,6 +31,7 @@
   align-items: center;
   justify-content: center;
   transition: var(--transition-fast);
+
   @media (min-width: $breakpoint-m) {
     font-size: var(--fs-base);
   }

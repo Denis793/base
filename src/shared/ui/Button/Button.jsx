@@ -3,21 +3,39 @@ import { forwardRef } from 'react';
 import styles from './Button.module.scss';
 
 export const Button = forwardRef(
-  ({ children, variant = 'primary', round = false, icon = null, direction = null, className, ...props }, ref) => {
+  (
+    {
+      children,
+      variant = 'primary',
+      type = 'button',
+      round = false,
+      icon = null,
+      direction = null,
+      className,
+      ...props
+    },
+    ref
+  ) => {
+    const variantClasses = variant
+      .split(' ')
+      .map((v) => styles[v])
+      .filter(Boolean);
+
     return (
       <button
         ref={ref}
-        type="button"
+        type={type}
         className={clsx(
           styles.button,
-          ...variant.split(' ').map((v) => styles[v]),
+          variantClasses,
           round && styles.round,
-          direction && styles[`arrow${direction.charAt(0).toUpperCase() + direction.slice(1)}`],
+          direction && styles[`arrow${direction[0].toUpperCase() + direction.slice(1)}`],
           className
         )}
         {...props}
       >
-        {icon ? <img src={icon} alt={`${direction || ''} arrow`} className={styles.arrowIcon} /> : children}
+        {icon && <img src={icon} alt="icon" className={styles.arrowIcon} />}
+        {!icon && children}
       </button>
     );
   }

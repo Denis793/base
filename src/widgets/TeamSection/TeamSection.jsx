@@ -70,7 +70,6 @@ export const TeamSection = () => {
             </motion.p>
           </div>
 
-          {/* Members */}
           <div className={styles.members}>
             {members.map((m, i) => (
               <motion.div
