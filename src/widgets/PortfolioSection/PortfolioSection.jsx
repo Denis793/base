@@ -20,13 +20,12 @@ const projects = [
 
 export const PortfolioSection = () => {
   const [activeCategory, setActiveCategory] = useState('All');
-
   const filteredProjects = activeCategory === 'All' ? projects : projects.filter((p) => p.category === activeCategory);
 
   return (
     <>
       <section className="section" id="portfolio">
-        <div className="container ">
+        <div className="container">
           <div className="header">
             <motion.h2
               className={styles.headerTitle}
@@ -37,6 +36,7 @@ export const PortfolioSection = () => {
             >
               We Offer Great Affordable <br /> Premium Prices.
             </motion.h2>
+
             <motion.p
               className="description"
               variants={fadeIn}
@@ -73,7 +73,7 @@ export const PortfolioSection = () => {
               {filteredProjects.map((p, i) => (
                 <motion.div
                   key={p.id}
-                  className={styles.card}
+                  className={`card ${styles.card}`}
                   variants={fadeIn}
                   custom={i}
                   initial="hidden"
@@ -81,15 +81,14 @@ export const PortfolioSection = () => {
                   exit={{ opacity: 0, scale: 0.9 }}
                   layout
                 >
-                  <div className={styles.cardImage}>
+                  <div className="cardImage">
                     <img src={p.img} alt={p.category} />
-                  </div>
-
-                  <div className={styles.overlay}>
-                    <div className={styles.overlayContent}>
-                      <h3 className={styles.overlayTitle}>Photo Retouching</h3>
-                      <p className={styles.overlayDescription}>{p.category}</p>
-                      <Button variant="primary" round icon={arrowRight} />
+                    <div className="overlay">
+                      <div className="overlayContent">
+                        <h3 className={styles.overlayTitle}>Photo Retouching</h3>
+                        <p className={`description ${styles.description}`}>{p.category}</p>
+                        <Button variant="primary" round icon={arrowRight} />
+                      </div>
                     </div>
                   </div>
                 </motion.div>
