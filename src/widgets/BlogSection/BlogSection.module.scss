@@ -1,0 +1,18 @@
+@use '@/shared/styles/variables' as *;
+
+.title {
+  color: var(--text-color-heading);
+}
+
+.list {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--gap-xl);
+
+  @media (min-width: $breakpoint-m) {
+    flex-direction: row;
+    justify-content: center;
+    align-items: stretch;
+  }
+}
