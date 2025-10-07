@@ -89,7 +89,7 @@ export const PricingSection = () => {
             </motion.div>
           </div>
         </div>
-        <ShapeBackground variant="pricing" />;
+        <ShapeBackground variant="pricing" />
       </section>
     </>
   );

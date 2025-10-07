@@ -1,15 +1,14 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import { fadeIn, rotateInfinite } from '@/shared/lib/animations';
-import { FaFacebookF, FaTwitter, FaLinkedinIn } from 'react-icons/fa';
-
-import shapeCircle from '@/assets/images/shape/shape-10.svg';
-import shapeTriangleOrange from '@/assets/images/shape/shape-09.svg';
-import shapeTrianglePink from '@/assets/images/shape/shape-11.svg';
+import { Social } from '@/shared/ui/Social';
 
 import team1 from '@/assets/images/team/team-01.png';
 import team2 from '@/assets/images/team/team-02.png';
 import team3 from '@/assets/images/team/team-03.png';
+import shapeCircle from '@/assets/images/shape/shape-10.svg';
+import shapeTriangleOrange from '@/assets/images/shape/shape-09.svg';
+import shapeTrianglePink from '@/assets/images/shape/shape-11.svg';
 
 import styles from './TeamSection.module.scss';
 
@@ -85,14 +84,12 @@ export const TeamSection = () => {
                   <img src={m.img} alt={m.name} />
 
                   <div className={styles.socialOverlay}>
+                    <div className={styles.socialIcons}>
+                      <Social />
+                    </div>
+
                     <div className={styles.overlayBlue}></div>
                     <div className={styles.overlayPink}></div>
-
-                    <div className={styles.socialIcons}>
-                      <FaFacebookF />
-                      <FaTwitter />
-                      <FaLinkedinIn />
-                    </div>
                   </div>
                 </div>
 

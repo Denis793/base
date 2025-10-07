@@ -1,11 +1,12 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import { fadeIn, staggerContainer } from '@/shared/lib/animations';
+import { Social } from '@/shared/ui/Social';
 import { blogData } from '@/shared/data/blogData';
+import { fadeIn, staggerContainer } from '@/shared/lib/animations';
 import blogMain from '@/assets/images/blog/blog-big.png';
 import blogImg1 from '@/assets/images/blog/blog-01.png';
 import blogImg2 from '@/assets/images/blog/blog-02.png';
-import { FaFacebookF, FaTwitter, FaPinterestP, FaLinkedinIn } from 'react-icons/fa';
+
 import { CtaSection } from '@/widgets/CtaSection';
 import styles from './BlogSingle.module.scss';
 
@@ -30,24 +31,27 @@ export const BlogSingle = () => {
 
               <div className={styles.meta}>
                 <span>
-                  <strong>Author:</strong> Devid Cleriya
+                  <strong>Author:</strong>
+                  <br /> Devid Cleriya
                 </span>
                 <span>
-                  <strong>Published On:</strong> April 16, 2025
+                  <strong>Published On:</strong>
+                  <br /> April 16, 2025
                 </span>
                 <span>
-                  <strong>Category:</strong> Events
+                  <strong>Category:</strong>
+                  <br /> Events
                 </span>
               </div>
 
-              <p className={styles.text}>
+              <p className="description">
                 Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc quis nibh lorem. Duis sed odio lorem. In a
                 efficitur leo. Ut venenatis finibus quam sed condimentum. Curabitur vel turpis in dolor volutpat
                 imperdiet in ut mi. Integer non volutpat nulla. Nunc elementum elit viverra, tempus quam non, interdum
                 ipsum.
               </p>
 
-              <p className={styles.text}>
+              <p className="description">
                 Aenean augue ex, condimentum vel metus vitae, aliquam porta elit. Quisque non metus ac orci mollis
                 posuere. Mauris vel ipsum a diam interdum ultricies sed vitae neque. Nulla porttitor quam vitae pulvinar
                 placerat. Nulla fringilla elit sit amet justo feugiat sodales. Morbi eleifend, enim non eleifend
@@ -62,7 +66,7 @@ export const BlogSingle = () => {
 
               <h3 className={styles.subtitle}>The powerful force of humanity</h3>
 
-              <p className={styles.text}>
+              <p className="description">
                 Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis sed odio lorem. In a efficitur leo. Ut
                 venenatis finibus quam sed condimentum. Curabitur vel turpis in dolor volutpat imperdiet in ut mi.
                 Integer non volutpat nulla.
@@ -70,20 +74,7 @@ export const BlogSingle = () => {
 
               <div className={styles.share}>
                 <span>Share On:</span>
-                <div className={styles.social}>
-                  <a href="#">
-                    <FaFacebookF />
-                  </a>
-                  <a href="#">
-                    <FaTwitter />
-                  </a>
-                  <a href="#">
-                    <FaPinterestP />
-                  </a>
-                  <a href="#">
-                    <FaLinkedinIn />
-                  </a>
-                </div>
+                <Social />
               </div>
             </motion.article>
 

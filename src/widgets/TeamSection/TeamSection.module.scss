@@ -94,13 +94,13 @@
     .overlayBlue {
       background: var(--accent-color-blue);
       clip-path: polygon(0 100%, 100% 100%, 100% 100%, 0 100%);
-      z-index: 50;
+      z-index: 10;
     }
 
     .overlayPink {
       background: var(--accent-color-pink);
       clip-path: polygon(0 100%, 100% 100%, 100% 100%, 0 100%);
-      z-index: 40;
+      z-index: 8;
       transition-delay: 0.1s;
     }
 
@@ -108,15 +108,13 @@
       position: relative;
       display: flex;
       gap: var(--gap-l);
-      padding: var(--spacing-xl) 0;
       color: var(--social-color);
-      z-index: 60;
       opacity: 0;
       transform: translateY(20px) scale(2);
       transition: opacity 0.4s ease, transform 0.4s ease;
+      z-index: 12;
 
       svg {
-        font-size: 1.2rem;
         transition: transform 0.2s ease;
 
         &:hover {

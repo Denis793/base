@@ -8,7 +8,7 @@ import styles from './BlogSection.module.scss';
 
 export const BlogSection = () => {
   return (
-    <section className="section section--bg" id="blog">
+    <section className="section " id="blog">
       <div className="container">
         <div className="header">
           <motion.h2 variants={fadeIn} initial="hidden" whileInView="visible" viewport={{ once: true }}>
