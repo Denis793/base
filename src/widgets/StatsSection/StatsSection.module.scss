@@ -10,7 +10,7 @@
   max-width: var(--container-max-width);
   margin: 0 auto;
 
-  @media (min-width: $breakpoint-m) {
+  @media (max-width: $breakpoint-m) {
     flex-direction: column;
   }
 }
