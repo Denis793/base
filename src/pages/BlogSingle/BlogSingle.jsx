@@ -1,111 +1,126 @@
 import React from 'react';
+import { motion } from 'framer-motion';
+import { fadeIn, staggerContainer } from '@/shared/lib/animations';
+import { blogData } from '@/shared/data/blogData';
+import blogMain from '@/assets/images/blog/blog-big.png';
+import blogImg1 from '@/assets/images/blog/blog-01.png';
+import blogImg2 from '@/assets/images/blog/blog-02.png';
+import { FaFacebookF, FaTwitter, FaPinterestP, FaLinkedinIn } from 'react-icons/fa';
+import { CtaSection } from '@/widgets/CtaSection';
 import styles from './BlogSingle.module.scss';
 
 export const BlogSingle = () => {
+  const relatedPosts = blogData.slice(0, 3);
+
   return (
-    <main className={styles.blogSingle}>
-      <section className={styles.post}>
-        <img src="/images/blog-big.png" alt="Blog" className={styles.cover} />
+    <>
+      <section className={`section section--bg ${styles.blogSingle}`}>
+        <div className="container">
+          <motion.div
+            className={styles.wrapper}
+            variants={staggerContainer}
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true }}
+          >
+            <motion.article className={styles.article} variants={fadeIn}>
+              <img src={blogMain} alt="Main article" className={styles.mainImage} />
 
-        <h2>Kobe Steel plant that supplied</h2>
+              <h2 className={styles.title}>Kobe Steel plant that supplied</h2>
 
-        <ul className={styles.meta}>
-          <li>
-            <strong>Author:</strong> Devid Cleriya
-          </li>
-          <li>
-            <strong>Published On:</strong> April 16, 2025
-          </li>
-          <li>
-            <strong>Category:</strong> Events
-          </li>
-        </ul>
+              <div className={styles.meta}>
+                <span>
+                  <strong>Author:</strong> Devid Cleriya
+                </span>
+                <span>
+                  <strong>Published On:</strong> April 16, 2025
+                </span>
+                <span>
+                  <strong>Category:</strong> Events
+                </span>
+              </div>
 
-        <p>
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc quis nibh lorem. Duis sed odio lorem. In a
-          efficitur leo. Ut venenatis rhoncus quam sed condimentum. Curabitur vel turpis in dolor volutpat imperdiet in
-          ut mi.
-        </p>
+              <p className={styles.text}>
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc quis nibh lorem. Duis sed odio lorem. In a
+                efficitur leo. Ut venenatis finibus quam sed condimentum. Curabitur vel turpis in dolor volutpat
+                imperdiet in ut mi. Integer non volutpat nulla. Nunc elementum elit viverra, tempus quam non, interdum
+                ipsum.
+              </p>
 
-        <p>
-          Aenean augue ex, condimentum vel metus vitae, aliquam porta elit. Quisque non metus ac orci mollis posuere.
-          Mauris vel ipsum a diam interdum ultricies sed vitae neque. Nulla porttitor quam vitae pulvinar placerat.
-        </p>
+              <p className={styles.text}>
+                Aenean augue ex, condimentum vel metus vitae, aliquam porta elit. Quisque non metus ac orci mollis
+                posuere. Mauris vel ipsum a diam interdum ultricies sed vitae neque. Nulla porttitor quam vitae pulvinar
+                placerat. Nulla fringilla elit sit amet justo feugiat sodales. Morbi eleifend, enim non eleifend
+                laoreet, odio libero lobortis lectus, non porttitor sem urna sit amet metus. In sollicitudin quam est,
+                pellentesque consectetur felis fermentum vitae.
+              </p>
 
-        <div className={styles.gallery}>
-          <img src="/images/blog-04.png" alt="Blog" />
-          <img src="/images/blog-05.png" alt="Blog" />
-        </div>
+              <div className={styles.gallery}>
+                <img src={blogImg1} alt="Workspace" />
+                <img src={blogImg2} alt="Laptop on desk" />
+              </div>
 
-        <h2>The powerful force of humanity</h2>
-        <p>
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc quis nibh lorem. Duis sed odio lorem. In a
-          efficitur leo. Ut venenatis rhoncus quam sed condimentum. Curabitur vel turpis in dolor volutpat imperdiet.
-        </p>
+              <h3 className={styles.subtitle}>The powerful force of humanity</h3>
 
-        <div className={styles.share}>
-          <span>Share On:</span>
-          <a href="#">Facebook</a>
-          <a href="#">Twitter</a>
-          <a href="#">LinkedIn</a>
+              <p className={styles.text}>
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis sed odio lorem. In a efficitur leo. Ut
+                venenatis finibus quam sed condimentum. Curabitur vel turpis in dolor volutpat imperdiet in ut mi.
+                Integer non volutpat nulla.
+              </p>
+
+              <div className={styles.share}>
+                <span>Share On:</span>
+                <div className={styles.social}>
+                  <a href="#">
+                    <FaFacebookF />
+                  </a>
+                  <a href="#">
+                    <FaTwitter />
+                  </a>
+                  <a href="#">
+                    <FaPinterestP />
+                  </a>
+                  <a href="#">
+                    <FaLinkedinIn />
+                  </a>
+                </div>
+              </div>
+            </motion.article>
+
+            <motion.aside className={styles.sidebar} variants={fadeIn} custom={1}>
+              <div className={styles.searchBox}>
+                <input type="text" placeholder="Search Here..." />
+                <button aria-label="search">🔍</button>
+              </div>
+
+              <div className={styles.categories}>
+                <h4>Categories</h4>
+                <ul>
+                  <li>Blog</li>
+                  <li>Events</li>
+                  <li>Grids</li>
+                  <li>News</li>
+                  <li>Rounded</li>
+                </ul>
+              </div>
+
+              <div className={styles.related}>
+                <h4>Related Posts</h4>
+                <ul>
+                  {relatedPosts.map((p) => (
+                    <li key={p.id} className={styles.relatedItem}>
+                      <img src={p.img} alt={p.title} />
+                      <p>{p.title}</p>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            </motion.aside>
+          </motion.div>
         </div>
       </section>
 
-      <aside className={styles.sidebar}>
-        <div className={styles.widget}>
-          <input type="text" placeholder="Search Here..." />
-        </div>
-
-        <div className={styles.widget}>
-          <h4>Categories</h4>
-          <ul>
-            <li>
-              <a href="#">Blog</a>
-            </li>
-            <li>
-              <a href="#">Events</a>
-            </li>
-            <li>
-              <a href="#">Grids</a>
-            </li>
-            <li>
-              <a href="#">News</a>
-            </li>
-            <li>
-              <a href="#">Rounded</a>
-            </li>
-          </ul>
-        </div>
-
-        <div className={styles.widget}>
-          <h4>Related Posts</h4>
-          <ul>
-            <li>
-              <img src="/images/blog-small-01.png" alt="Blog" />
-              <a href="#">Free advertising for your online business</a>
-            </li>
-            <li>
-              <img src="/images/blog-small-02.png" alt="Blog" />
-              <a href="#">9 simple ways to improve your design skills</a>
-            </li>
-            <li>
-              <img src="/images/blog-small-03.png" alt="Blog" />
-              <a href="#">Tips to quickly improve your coding speed</a>
-            </li>
-          </ul>
-        </div>
-      </aside>
-
-      <section className={styles.cta}>
-        <img src="/images/shape-16.svg" alt="Bg Shape" className={styles.bg} />
-        <div className={styles.ctaContent}>
-          <h2>Join with 5000+ Startups Growing with Base.</h2>
-          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc quis nibh lorem. Duis sed odio lorem.</p>
-          <a href="#" className={styles.btn}>
-            Get Started Now
-          </a>
-        </div>
-      </section>
-    </main>
+      <CtaSection />
+    </>
   );
 };
