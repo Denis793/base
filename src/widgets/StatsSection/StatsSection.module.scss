@@ -1,0 +1,43 @@
+@use '@/shared/styles/variables' as *;
+
+.statsWrapper {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  text-align: center;
+  flex-wrap: wrap;
+  gap: var(--gap-xl);
+  max-width: var(--container-max-width);
+  margin: 0 auto;
+
+  @media (min-width: $breakpoint-m) {
+    flex-direction: column;
+  }
+}
+
+.item {
+  flex: 1;
+  min-width: 200px;
+}
+
+.value {
+  font-family: var(--ff-main);
+  font-size: var(--fs-h2);
+  font-weight: var(--fw-bold);
+  color: var(--text-color-heading);
+}
+
+.label {
+  font-family: var(--ff-secondary);
+  font-size: var(--fs-description);
+  font-weight: var(--fw-medium);
+  color: var(--color-description);
+  margin-top: var(--spacing-s);
+}
+
+@media (max-width: $breakpoint-m) {
+  .grid {
+    flex-direction: column;
+    gap: var(--gap-l);
+  }
+}
