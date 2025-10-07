@@ -100,7 +100,11 @@ export const Header = () => {
                     >
                       {item.children ? (
                         <>
-                          <Button variant="secondary" onClick={() => handleSubmenuToggle(item.label)}>
+                          <Button
+                            className={styles.dropdownButton}
+                            variant="secondary"
+                            onClick={() => handleSubmenuToggle(item.label)}
+                          >
                             {item.label}
                             <FaChevronDown
                               className={clsx(styles.arrow, submenuOpen === item.label && styles.rotated)}

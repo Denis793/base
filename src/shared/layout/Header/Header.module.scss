@@ -62,7 +62,7 @@
   pointer-events: none;
   background: var(--bg-page);
   gap: var(--gap-xl);
-  padding: var(--spacing-2xl);
+
   transform: translateX(-50%);
   box-shadow: var(--shadow-main);
   border-radius: var(--radius-m);
@@ -142,6 +142,10 @@
 
 .dropdown {
   position: relative;
+}
+
+.dropdownButton {
+  padding: 0;
 }
 
 .dropdown::after {
