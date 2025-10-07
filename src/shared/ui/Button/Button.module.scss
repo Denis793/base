@@ -20,6 +20,7 @@
 
 .primary {
   background: var(--primary-color);
+  color: var(--text-color-button);
 }
 
 .secondary {
@@ -42,6 +43,19 @@
   }
 }
 
+.white {
+  background: #fff;
+  color: var(--primary-color);
+  font-weight: var(--fw-semibold);
+  box-shadow: var(--shadow-main);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+
+  &:hover {
+    filter: brightness(0.95);
+    transform: translateY(-1px);
+  }
+}
+
 .link {
   background: transparent;
 
@@ -53,10 +67,12 @@
 
 .blue {
   background: var(--accent-color-blue);
+  color: #fff;
 }
 
 .pink {
   background: var(--accent-color-pink);
+  color: #fff;
 }
 
 .round {

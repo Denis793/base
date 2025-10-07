@@ -34,8 +34,7 @@ export const Button = forwardRef(
         )}
         {...props}
       >
-        {icon && <img src={icon} alt="icon" className={styles.arrowIcon} />}
-        {!icon && children}
+        {icon ? <img src={icon} alt="icon" className={styles.arrowIcon} /> : children}
       </button>
     );
   }
