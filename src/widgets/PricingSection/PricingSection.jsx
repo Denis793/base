@@ -34,8 +34,8 @@ export const PricingSection = () => {
 
   return (
     <>
-      <section className={styles.pricingSection} id="pricing">
-        <div className="container section">
+      <section className="section section--bg" id="pricing">
+        <div className="container ">
           <div className={styles.pricingWrapper}>
             <div className="header">
               <motion.h2 variants={fadeIn} initial="hidden" whileInView="visible" viewport={{ once: true }}>

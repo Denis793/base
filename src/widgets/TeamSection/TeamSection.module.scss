@@ -1,14 +1,8 @@
 @use '@/shared/styles/variables' as *;
 
-.teamSection {
-  position: relative;
-  margin-top: var(--spacing-3xl);
-  padding-top: var(--spacing-4xl);
-}
-
 .bgWrapper {
   position: absolute;
-  top: 130px;
+  top: 0px;
   left: 0;
   width: 100%;
   height: 50%;

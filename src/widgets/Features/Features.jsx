@@ -14,28 +14,30 @@ export const Features = () => {
   ];
 
   return (
-    <div className="container" id="features">
-      <section className={styles.features}>
-        {items.map((item, i) => (
-          <motion.div
-            key={item.title}
-            className={styles.featureItem}
-            variants={slideInDown}
-            initial="hidden"
-            whileInView="visible"
-            viewport={{ once: true, amount: 0.3 }}
-            custom={i}
-          >
-            <div className={`${styles.imageWrapper} ${styles[`image${i + 1}`]}`}>
-              <img className={styles.featureSVG} src={item.icon} alt={item.title} />
-            </div>
-            <div className={styles.descriptionWrapper}>
-              <h4>{item.title}</h4>
-              <p className="description">{item.desc}</p>
-            </div>
-          </motion.div>
-        ))}
-      </section>
-    </div>
+    <>
+      <div className="container" id="features">
+        <section className={styles.features}>
+          {items.map((item, i) => (
+            <motion.div
+              key={item.title}
+              className={styles.featureItem}
+              variants={slideInDown}
+              initial="hidden"
+              whileInView="visible"
+              viewport={{ once: true, amount: 0.3 }}
+              custom={i}
+            >
+              <div className={`${styles.imageWrapper} ${styles[`image${i + 1}`]}`}>
+                <img className={styles.featureSVG} src={item.icon} alt={item.title} />
+              </div>
+              <div className={styles.descriptionWrapper}>
+                <h4>{item.title}</h4>
+                <p className="description">{item.desc}</p>
+              </div>
+            </motion.div>
+          ))}
+        </section>
+      </div>
+    </>
   );
 };

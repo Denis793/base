@@ -21,87 +21,89 @@ export const TeamSection = () => {
   ];
 
   return (
-    <section className={styles.teamSection} id="team">
-      <div className={styles.bgWrapper}>
-        <motion.img
-          src={shapeCircle}
-          alt="Circle shape"
-          className={styles.shapeCircle}
-          variants={rotateInfinite}
-          initial="hidden"
-          animate="visible"
-        />
-
-        <motion.img
-          src={shapeTriangleOrange}
-          alt="Orange triangle"
-          className={styles.shapeOrange}
-          variants={rotateInfinite}
-          initial="hidden"
-          animate="visible"
-        />
-
-        <motion.img
-          src={shapeTrianglePink}
-          alt="Pink triangle"
-          className={styles.shapePink}
-          variants={rotateInfinite}
-          initial="hidden"
-          animate="visible"
-        />
-      </div>
-
-      <div className="container section">
-        <div className="header">
-          <motion.h2 variants={fadeIn} initial="hidden" whileInView="visible" viewport={{ once: true }}>
-            Meet With Our Creative <br /> Dedicated Team
-          </motion.h2>
-          <motion.p
-            className="description"
-            variants={fadeIn}
+    <>
+      <section className="section section--bg" id="team">
+        <div className={styles.bgWrapper}>
+          <motion.img
+            src={shapeCircle}
+            alt="Circle shape"
+            className={styles.shapeCircle}
+            variants={rotateInfinite}
             initial="hidden"
-            whileInView="visible"
-            viewport={{ once: true }}
-            custom={1}
-          >
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit. In convallis tortor eros. Donec vitae tortor lacus.
-            Phasellus aliquam ante in maximus.
-          </motion.p>
+            animate="visible"
+          />
+
+          <motion.img
+            src={shapeTriangleOrange}
+            alt="Orange triangle"
+            className={styles.shapeOrange}
+            variants={rotateInfinite}
+            initial="hidden"
+            animate="visible"
+          />
+
+          <motion.img
+            src={shapeTrianglePink}
+            alt="Pink triangle"
+            className={styles.shapePink}
+            variants={rotateInfinite}
+            initial="hidden"
+            animate="visible"
+          />
         </div>
 
-        {/* Members */}
-        <div className={styles.members}>
-          {members.map((m, i) => (
-            <motion.div
-              key={m.name}
-              className={styles.memberCard}
+        <div className="container">
+          <div className="header">
+            <motion.h2 variants={fadeIn} initial="hidden" whileInView="visible" viewport={{ once: true }}>
+              Meet With Our Creative <br /> Dedicated Team
+            </motion.h2>
+            <motion.p
+              className="description"
               variants={fadeIn}
               initial="hidden"
               whileInView="visible"
               viewport={{ once: true }}
-              custom={i}
+              custom={1}
             >
-              <div className={styles.photo}>
-                <img src={m.img} alt={m.name} />
+              Lorem ipsum dolor sit amet, consectetur adipiscing elit. In convallis tortor eros. Donec vitae tortor
+              lacus. Phasellus aliquam ante in maximus.
+            </motion.p>
+          </div>
 
-                <div className={styles.socialOverlay}>
-                  <div className={styles.overlayBlue}></div>
-                  <div className={styles.overlayPink}></div>
+          {/* Members */}
+          <div className={styles.members}>
+            {members.map((m, i) => (
+              <motion.div
+                key={m.name}
+                className={styles.memberCard}
+                variants={fadeIn}
+                initial="hidden"
+                whileInView="visible"
+                viewport={{ once: true }}
+                custom={i}
+              >
+                <div className={styles.photo}>
+                  <img src={m.img} alt={m.name} />
 
-                  <div className={styles.socialIcons}>
-                    <FaFacebookF />
-                    <FaTwitter />
-                    <FaLinkedinIn />
+                  <div className={styles.socialOverlay}>
+                    <div className={styles.overlayBlue}></div>
+                    <div className={styles.overlayPink}></div>
+
+                    <div className={styles.socialIcons}>
+                      <FaFacebookF />
+                      <FaTwitter />
+                      <FaLinkedinIn />
+                    </div>
                   </div>
                 </div>
-              </div>
 
-              <h4 className={styles.membersTitle}>{m.name}</h4>
-              <span className="description">{m.role}</span>
-            </motion.div>
-          ))}
+                <h4 className={styles.membersTitle}>{m.name}</h4>
+                <span className="description">{m.role}</span>
+              </motion.div>
+            ))}
+          </div>
         </div>
-      </div>
-    </section>
+      </section>
+    </>
   );
 };

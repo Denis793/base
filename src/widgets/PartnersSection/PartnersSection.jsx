@@ -40,8 +40,8 @@ export const PartnersSection = () => {
 
   return (
     <>
-      <section className={styles.clientSection}>
-        <div className="container section">
+      <section className="section section--bg">
+        <div className="container">
           <h2 className={styles.heading}>Trusted by 5000+ Clients</h2>
 
           <Swiper

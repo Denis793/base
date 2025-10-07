@@ -40,38 +40,40 @@ export const ServicesSection = () => {
   ];
 
   return (
-    <section className={styles.services} id="services">
-      <div className="container section">
-        <motion.div
-          className="header"
-          variants={fadeIn}
-          initial="hidden"
-          whileInView="visible"
-          viewport={{ once: true }}
-        >
-          <h2>We Offer The Best Quality Service for You</h2>
-          <p className="description">
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit. In convallis tortor eros. Donec vitae tortor lacus.
-            Phasellus aliquam ante in maximus.
-          </p>
-        </motion.div>
+    <>
+      <section className="section" id="services">
+        <div className="container ">
+          <motion.div
+            className="header"
+            variants={fadeIn}
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true }}
+          >
+            <h2>We Offer The Best Quality Service for You</h2>
+            <p className="description">
+              Lorem ipsum dolor sit amet, consectetur adipiscing elit. In convallis tortor eros. Donec vitae tortor
+              lacus. Phasellus aliquam ante in maximus.
+            </p>
+          </motion.div>
 
-        <motion.div
-          className={styles.servicesGrid}
-          variants={staggerContainer}
-          initial="hidden"
-          whileInView="visible"
-          viewport={{ once: true, amount: 0.3 }}
-        >
-          {services.map((s, i) => (
-            <motion.div key={s.title} className={styles.serviceCard} variants={fadeIn} custom={i}>
-              <div className={styles.icon}>{s.icon}</div>
-              <h4>{s.title}</h4>
-              <p className="description">{s.description}</p>
-            </motion.div>
-          ))}
-        </motion.div>
-      </div>
-    </section>
+          <motion.div
+            className={styles.servicesGrid}
+            variants={staggerContainer}
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, amount: 0.3 }}
+          >
+            {services.map((s, i) => (
+              <motion.div key={s.title} className={styles.serviceCard} variants={fadeIn} custom={i}>
+                <div className={styles.icon}>{s.icon}</div>
+                <h4>{s.title}</h4>
+                <p className="description">{s.description}</p>
+              </motion.div>
+            ))}
+          </motion.div>
+        </div>
+      </section>
+    </>
   );
 };

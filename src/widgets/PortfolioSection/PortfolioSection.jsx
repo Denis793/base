@@ -25,8 +25,8 @@ export const PortfolioSection = () => {
 
   return (
     <>
-      <section className={styles.portfolioSection} id="portfolio">
-        <div className="container section">
+      <section className="section" id="portfolio">
+        <div className="container ">
           <div className="header">
             <motion.h2
               className={styles.headerTitle}

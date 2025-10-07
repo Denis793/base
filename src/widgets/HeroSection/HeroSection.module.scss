@@ -1,9 +1,5 @@
 @use '@/shared/styles/variables' as *;
 
-.heroWrapper {
-  position: relative;
-}
-
 .hero {
   width: 100%;
   @media (min-width: $breakpoint-m) {

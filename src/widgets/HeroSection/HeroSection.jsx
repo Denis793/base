@@ -25,8 +25,8 @@ const imageVariants = {
 export const HeroSection = () => {
   return (
     <>
-      <div className={styles.heroWrapper}>
-        <div className="container section">
+      <div className="section">
+        <div className="container">
           <section className={styles.hero} id="home">
             <motion.div
               className={styles.heroContent}

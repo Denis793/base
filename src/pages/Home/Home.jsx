@@ -8,6 +8,7 @@ import { PricingSection } from '@/widgets/PricingSection';
 import { PortfolioSection } from '@/widgets/PortfolioSection';
 import { PartnersSection } from '@/widgets/PartnersSection';
 import { TestimonialsSection } from '@/widgets/TestimonialsSection';
+import { StatsSection } from '@/widgets/StatsSection';
 import styles from './Home.module.scss';
 
 export const Home = () => {
@@ -23,6 +24,7 @@ export const Home = () => {
         <PortfolioSection />
         <PartnersSection />
         <TestimonialsSection />
+        <StatsSection />
       </main>
     </>
   );

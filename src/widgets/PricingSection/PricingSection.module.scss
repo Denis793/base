@@ -1,12 +1,5 @@
 @use '@/shared/styles/variables' as *;
 
-.pricingSection {
-  position: relative;
-  background: var(--bg-section);
-  text-align: center;
-  z-index: 0;
-}
-
 .pricingWrapper {
   z-index: 2;
 }

@@ -93,7 +93,15 @@ li {
 }
 
 .section {
+  position: relative;
+  text-align: center;
   padding: var(--spacing-2xl) var(--spacing-m);
+
+  &--bg {
+    background: var(--bg-section);
+    z-index: 0;
+  }
+
   @media (min-width: $breakpoint-m) {
     padding: var(--spacing-4xl) var(--spacing-l);
   }
