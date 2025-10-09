@@ -1,58 +1,61 @@
-import { useEffect, useState } from 'react';
-import { motion } from 'framer-motion';
+import { useEffect, useState, useRef } from 'react';
+import { motion, useInView } from 'framer-motion';
+import { statsData } from '@/shared/data/statsData';
 import styles from './StatsSection.module.scss';
 
-const stats = [
-  { value: 785, label: 'Global Brands' },
-  { value: 533, label: 'Happy Clients' },
-  { value: 865, label: 'Winning Award' },
-  { value: 346, label: 'Happy Clients' },
-];
-
-export function StatsSection() {
-  const [counts, setCounts] = useState(stats.map(() => 0));
+export const StatsSection = () => {
+  const ref = useRef(null);
+  const isInView = useInView(ref, { once: true, amount: 0.3 });
+  const [counts, setCounts] = useState(statsData.map(() => 0));
+  const [started, setStarted] = useState(false);
 
   useEffect(() => {
+    if (!isInView || started) return;
+    setStarted(true);
+
     const duration = 1500;
-    const intervals = stats.map((stat, i) => {
-      const step = Math.ceil(stat.value / (duration / 16));
-      return setInterval(() => {
+    const easing = (t) => 1 - Math.pow(1 - t, 3);
+
+    statsData.forEach((stat, index) => {
+      const startTime = performance.now();
+
+      const animate = (time) => {
+        const progress = Math.min((time - startTime) / duration, 1);
+        const eased = easing(progress);
+        const value = Math.floor(stat.value * eased);
+
         setCounts((prev) => {
           const next = [...prev];
-          if (next[i] < stat.value) next[i] += step;
-          else next[i] = stat.value;
+          next[index] = value;
           return next;
         });
-      }, 16);
-    });
 
-    const timeout = setTimeout(() => intervals.forEach(clearInterval), duration + 200);
-    return () => {
-      intervals.forEach(clearInterval);
-      clearTimeout(timeout);
-    };
-  }, []);
+        if (progress < 1) requestAnimationFrame(animate);
+      };
+
+      requestAnimationFrame(animate);
+    });
+  }, [isInView, started]);
 
   return (
-    <>
-      <section className={`section section--bg ${styles.statsSection}`}>
-        <div className="container">
-          <div className={styles.statsWrapper}>
-            {stats.map((stat, i) => (
-              <motion.div
-                key={i}
-                className={styles.item}
-                initial={{ opacity: 0, y: 30 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.6, delay: i * 0.2 }}
-                viewport={{ once: true }}>
-                <h3 className={styles.value}>{counts[i]}</h3>
-                <p className={styles.label}>{stat.label}</p>
-              </motion.div>
-            ))}
-          </div>
+    <section ref={ref} className={`section section--bg ${styles.statsSection}`}>
+      <div className="container">
+        <div className={styles.statsWrapper}>
+          {statsData.map((stat, i) => (
+            <motion.div
+              key={i}
+              className={styles.item}
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, delay: i * 0.2 }}
+              viewport={{ once: true, amount: 0.3 }}
+            >
+              <h3 className={styles.value}>{counts[i]}</h3>
+              <p className={styles.label}>{stat.label}</p>
+            </motion.div>
+          ))}
         </div>
-      </section>
-    </>
+      </div>
+    </section>
   );
-}
+};

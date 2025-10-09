@@ -8,20 +8,20 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  text-align: center;
+
   flex-wrap: wrap;
   gap: var(--gap-xl);
-  max-width: var(--container-max-width);
-  margin: 0 auto;
+  text-align: center;
 
-  @media (max-width: $breakpoint-m) {
-    flex-direction: column;
+  @media (min-width: $breakpoint-m) {
+    text-align: left;
   }
 }
 
 .item {
   flex: 1;
   min-width: 200px;
+  text-align: center;
 }
 
 .value {
@@ -32,16 +32,8 @@
 }
 
 .label {
+  margin-top: var(--spacing-s);
   font-family: var(--ff-secondary);
   font-size: var(--fs-description);
-  font-weight: var(--fw-medium);
   color: var(--color-description);
-  margin-top: var(--spacing-s);
-}
-
-@media (max-width: $breakpoint-m) {
-  .grid {
-    flex-direction: column;
-    gap: var(--gap-l);
-  }
 }
