@@ -17,13 +17,13 @@
 
 .grid {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  grid-template-columns: 1fr;
   grid-template-rows: repeat(2, 1fr);
   margin-top: var(--spacing-2xl);
   gap: var(--gap-l);
 
-  @media (max-width: $breakpoint-m) {
-    grid-template-columns: 1fr;
+  @media (min-width: $breakpoint-m) {
+    grid-template-columns: repeat(3, 1fr);
   }
 }
 

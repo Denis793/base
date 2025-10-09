@@ -65,10 +65,10 @@
 .shapeWaves,
 .shapeBlue {
   position: absolute;
-  display: block;
+  display: none;
 
-  @media (max-width: $breakpoint-m) {
-    display: none;
+  @media (min-width: $breakpoint-m) {
+    display: block;
   }
 }
 

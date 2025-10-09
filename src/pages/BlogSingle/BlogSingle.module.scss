@@ -7,11 +7,11 @@
 
 .wrapper {
   display: grid;
-  grid-template-columns: 2fr 1fr;
+  grid-template-columns: 1fr;
   gap: var(--gap-2xl);
 
-  @media (max-width: $breakpoint-m) {
-    grid-template-columns: 1fr;
+  @media (min-width: $breakpoint-m) {
+    grid-template-columns: 2fr 1fr;
   }
 }
 
