@@ -22,7 +22,8 @@ export const BlogSingle = () => {
             variants={staggerContainer}
             initial="hidden"
             whileInView="visible"
-            viewport={{ once: true }}>
+            viewport={{ once: true }}
+          >
             <motion.article className={styles.article} variants={fadeIn}>
               <img src={blogMain} alt="Main article" className={styles.mainImage} />
 
@@ -73,7 +74,7 @@ export const BlogSingle = () => {
 
               <div className={styles.share}>
                 <h4>Share On:</h4>
-                <Social />
+                <Social align="left" variant="light" networks={['facebook', 'x', 'linkedin', 'behance']} />
               </div>
             </motion.article>
 

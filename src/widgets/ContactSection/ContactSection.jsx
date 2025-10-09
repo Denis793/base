@@ -2,7 +2,8 @@ import React, { useState } from 'react';
 import { motion } from 'framer-motion';
 import { useFormik } from 'formik';
 import { fadeIn, staggerContainer } from '@/shared/lib/animations';
-import { contactValidationSchema } from '@/shared/utils/contactValidation';
+import { contactValidationSchema } from '@/shared/utils/validation';
+import { handleContactSubmit } from '@/shared/utils/formHandlers';
 import { Button } from '@/shared/ui/Button';
 import { ShapeBackground } from '@/shared/ui/ShapeBackground';
 import { FormToast } from '@/shared/ui/FormToast';
@@ -13,32 +14,10 @@ import styles from './ContactSection.module.scss';
 export const ContactSection = () => {
   const [toast, setToast] = useState({ show: false, type: '', message: '' });
 
-  const handleSubmit = async (values, { resetForm, setSubmitting }) => {
-    try {
-      console.log('📨 submit', values);
-      await new Promise((r) => setTimeout(r, 1000));
-      setToast({
-        show: true,
-        type: 'success',
-        message: 'Your message has been successfully sent!',
-      });
-      resetForm();
-    } catch {
-      setToast({
-        show: true,
-        type: 'error',
-        message: 'Something went wrong. Please try again.',
-      });
-    } finally {
-      setSubmitting(false);
-      setTimeout(() => setToast({ show: false, type: '', message: '' }), 3000);
-    }
-  };
-
   const formik = useFormik({
     initialValues: { fullName: '', email: '', phone: '', subject: '', message: '' },
     validationSchema: contactValidationSchema,
-    onSubmit: handleSubmit,
+    onSubmit: (values, helpers) => handleContactSubmit(values, helpers, setToast),
   });
 
   const isDisabled = formik.isSubmitting;
@@ -61,7 +40,8 @@ export const ContactSection = () => {
             initial="hidden"
             whileInView="visible"
             viewport={{ once: true }}
-            custom={1}>
+            custom={1}
+          >
             Contact us for inquiries, collaborations, or project discussions.
           </motion.p>
         </div>
@@ -71,8 +51,8 @@ export const ContactSection = () => {
           variants={staggerContainer}
           initial="hidden"
           whileInView="visible"
-          viewport={{ once: true, amount: 0.3 }}>
-          {/* Left Info Box */}
+          viewport={{ once: true, amount: 0.3 }}
+        >
           <motion.div className={styles.infoBox} variants={fadeIn} custom={0}>
             <div className={styles.infoGroup}>
               <h4>Email Address</h4>
@@ -90,7 +70,7 @@ export const ContactSection = () => {
             </div>
 
             <div className={styles.social}>
-              <Social />
+              <Social align="left" variant="light" networks={['facebook', 'x', 'linkedin', 'behance']} />
             </div>
           </motion.div>
 

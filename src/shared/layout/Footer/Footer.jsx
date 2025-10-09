@@ -24,7 +24,7 @@ export const Footer = () => {
                 Building modern digital experiences with performance, accessibility, and style in mind.
               </p>
 
-              <Social />
+              <Social align="left" variant="light" networks={['facebook', 'x', 'linkedin', 'behance']} />
             </motion.div>
 
             <motion.div className={styles.linksGroup} variants={fadeIn} custom={1}>

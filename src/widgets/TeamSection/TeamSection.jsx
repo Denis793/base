@@ -62,7 +62,8 @@ export const TeamSection = () => {
               initial="hidden"
               whileInView="visible"
               viewport={{ once: true }}
-              custom={1}>
+              custom={1}
+            >
               Lorem ipsum dolor sit amet, consectetur adipiscing elit. In convallis tortor eros.
               <br /> Donec vitae tortor lacus. Phasellus aliquam ante in maximus.
             </motion.p>
@@ -77,13 +78,14 @@ export const TeamSection = () => {
                 initial="hidden"
                 whileInView="visible"
                 viewport={{ once: true }}
-                custom={i}>
+                custom={i}
+              >
                 <div className={styles.photo}>
                   <img src={m.img} alt={m.name} />
 
                   <div className={styles.socialOverlay}>
                     <div className={styles.socialIcons}>
-                      <Social />
+                      <Social align="left" size="s" networks={['facebook', 'linkedin', 'x']} />
                     </div>
 
                     <div className={styles.overlayBlue}></div>

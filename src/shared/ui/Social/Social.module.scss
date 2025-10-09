@@ -5,22 +5,112 @@
   align-items: center;
   gap: var(--gap-m);
   margin-top: var(--spacing-s);
+  transition: var(--transition-fast);
 }
 
-.socials svg {
+.align-left {
+  justify-content: flex-start;
+}
+
+.align-center {
+  justify-content: center;
+}
+
+.align-right {
+  justify-content: flex-end;
+}
+
+.iconWrapper {
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  width: 3rem;
-  height: 3rem;
-  padding: 1rem;
-  border-radius: 50%;
-  font-size: var(--social-size);
-  transition: all 0.3s ease;
+  border-radius: var(--radius-full);
+  background: transparent;
+  transition: var(--transition-fast);
   cursor: pointer;
+  box-shadow: none;
 
   &:hover {
-    background: var(--primary-color);
-    color: var(--text-color-button);
+    background: linear-gradient(90deg, var(--accent-color-blue), var(--accent-color-pink));
+    transform: translateY(-3px);
+    box-shadow: var(--shadow-main);
+
+    .icon {
+      color: var(--text-color-button);
+    }
+  }
+}
+
+.icon {
+  color: var(--text-color-heading);
+  transition: color 0.3s ease;
+}
+
+.size-s {
+  .iconWrapper {
+    width: 2.2rem;
+    height: 2.2rem;
+  }
+  .icon {
+    font-size: 1rem;
+  }
+}
+
+.size-m {
+  .iconWrapper {
+    width: 3rem;
+    height: 3rem;
+  }
+  .icon {
+    font-size: 1.25rem;
+  }
+}
+
+.size-l {
+  .iconWrapper {
+    width: 4rem;
+    height: 4rem;
+  }
+  .icon {
+    font-size: 1.6rem;
+  }
+}
+
+.default {
+  .iconWrapper {
+    background: transparent;
+  }
+}
+
+.light {
+  .iconWrapper {
+    .icon {
+      color: var(--text-color-heading);
+    }
+
+    &:hover {
+      background: var(--bg-card);
+      box-shadow: var(--shadow-overlay);
+      .icon {
+        color: var(--primary-color);
+      }
+    }
+  }
+}
+
+.dark {
+  .iconWrapper {
+    border: 1px solid var(--border-color);
+    background: var(--bg-card);
+    .icon {
+      color: var(--text-color-heading);
+    }
+
+    &:hover {
+      background: linear-gradient(90deg, var(--accent-color-blue), var(--accent-color-pink));
+      .icon {
+        color: var(--text-color-button);
+      }
+    }
   }
 }
