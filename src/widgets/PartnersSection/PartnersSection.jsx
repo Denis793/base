@@ -1,69 +1,44 @@
-import React, { useEffect, useState } from 'react';
-import { Autoplay } from 'swiper/modules';
+import React from 'react';
 import { Swiper, SwiperSlide } from 'swiper/react';
-
-// Light
-import logoLight1 from '@/assets/images/brands/brand-light-01.svg';
-import logoLight2 from '@/assets/images/brands/brand-light-02.svg';
-import logoLight3 from '@/assets/images/brands/brand-light-03.svg';
-import logoLight4 from '@/assets/images/brands/brand-light-04.svg';
-import logoLight5 from '@/assets/images/brands/brand-light-05.svg';
-import logoLight6 from '@/assets/images/brands/brand-light-06.svg';
-
-// Dark
-import logoDark1 from '@/assets/images/brands/brand-dark-01.svg';
-import logoDark2 from '@/assets/images/brands/brand-dark-02.svg';
-import logoDark3 from '@/assets/images/brands/brand-dark-03.svg';
-import logoDark4 from '@/assets/images/brands/brand-dark-04.svg';
-import logoDark5 from '@/assets/images/brands/brand-dark-05.svg';
-import logoDark6 from '@/assets/images/brands/brand-dark-06.svg';
-
+import { Autoplay } from 'swiper/modules';
+import { ThemeImage } from '@/shared/ui/ThemeImage';
 import 'swiper/css';
 import styles from './PartnersSection.module.scss';
 
-const logosLight = [logoLight1, logoLight2, logoLight3, logoLight4, logoLight5, logoLight6];
-const logosDark = [logoDark1, logoDark2, logoDark3, logoDark4, logoDark5, logoDark6];
-
 export const PartnersSection = () => {
-  const [isDark, setIsDark] = useState(false);
-
-  useEffect(() => {
-    const checkTheme = () => setIsDark(document.documentElement.classList.contains('dark'));
-    checkTheme();
-
-    const observer = new MutationObserver(checkTheme);
-    observer.observe(document.documentElement, { attributes: true, attributeFilter: ['class'] });
-    return () => observer.disconnect();
-  }, []);
-
-  const logos = isDark ? logosDark : logosLight;
+  const partners = [1, 2, 3, 4, 5, 6];
 
   return (
-    <>
-      <section className={`section section--bg ${styles.partnersSection}`}>
-        <div className="container">
-          <h2 className={styles.heading}>Trusted by 5000+ Clients</h2>
+    <section className={`section section--bg ${styles.partnersSection}`}>
+      <div className="container">
+        <h2 className={styles.heading}>Trusted by 5000+ Clients</h2>
 
-          <Swiper
-            modules={[Autoplay]}
-            slidesPerView={4}
-            spaceBetween={40}
-            loop={true}
-            autoplay={{ delay: 2000, disableOnInteraction: false }}
-            breakpoints={{
-              320: { slidesPerView: 2, spaceBetween: 20 },
-              768: { slidesPerView: 3, spaceBetween: 30 },
-              1024: { slidesPerView: 5, spaceBetween: 40 },
-            }}
-          >
-            {logos.map((logo, index) => (
-              <SwiperSlide key={index} className={styles.slide}>
-                <img src={logo} alt={`Client ${index + 1}`} />
-              </SwiperSlide>
-            ))}
-          </Swiper>
-        </div>
-      </section>
-    </>
+        <Swiper
+          modules={[Autoplay]}
+          slidesPerView={4}
+          spaceBetween={40}
+          loop={true}
+          autoplay={{ delay: 2000, disableOnInteraction: false }}
+          breakpoints={{
+            320: { slidesPerView: 2, spaceBetween: 20 },
+            768: { slidesPerView: 3, spaceBetween: 30 },
+            1024: { slidesPerView: 5, spaceBetween: 40 },
+          }}
+          className={styles.slider}
+        >
+          {partners.map((i) => (
+            <SwiperSlide key={i} className={styles.slide}>
+              <ThemeImage
+                name={`partner${i}`}
+                alt={`Partner ${i}`}
+                fit="contain"
+                position="center"
+                className={styles.partnerLogo}
+              />
+            </SwiperSlide>
+          ))}
+        </Swiper>
+      </div>
+    </section>
   );
 };

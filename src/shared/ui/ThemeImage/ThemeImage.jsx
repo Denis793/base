@@ -17,7 +17,7 @@ export const ThemeImage = ({ name, alt = 'image', className, position = 'center'
   const imageSrc = isDark ? themeImages[name]?.dark : themeImages[name]?.light;
 
   if (!imageSrc) {
-    console.warn(`⚠️ No theme image found for key: "${name}"`);
+    console.warn(`No theme image found for key: "${name}"`);
     return null;
   }
 
