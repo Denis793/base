@@ -1,5 +1,5 @@
 import clsx from 'clsx';
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useRef } from 'react';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { menuItems } from '@/shared/config/menuConfig';
 import { scrollWithOffset } from '@/shared/utils/scrollWithOffset';
@@ -18,34 +18,35 @@ export const Header = () => {
 
   const location = useLocation();
   const navigate = useNavigate();
+  const lastScrollY = useRef(0);
+  const ticking = useRef(false);
 
+  // 👇 debounce scroll для стабільного приховування
   useEffect(() => {
-    let lastScrollY = window.scrollY;
-
     const handleScroll = () => {
       const currentY = window.scrollY;
-      setScrolled(currentY > 50);
-      setScrollDirection(currentY > lastScrollY ? 'down' : 'up');
-      lastScrollY = currentY <= 0 ? 0 : currentY;
+      if (!ticking.current) {
+        window.requestAnimationFrame(() => {
+          setScrolled(currentY > 50);
+          if (Math.abs(currentY - lastScrollY.current) > 10) {
+            setScrollDirection(currentY > lastScrollY.current ? 'down' : 'up');
+            lastScrollY.current = currentY;
+          }
+          ticking.current = false;
+        });
+        ticking.current = true;
+      }
     };
 
     window.addEventListener('scroll', handleScroll, { passive: true });
     return () => window.removeEventListener('scroll', handleScroll);
   }, [location.pathname]);
 
+  // Закриваємо меню при зміні маршруту
   useEffect(() => {
     setMenuOpen(false);
     setSubmenuOpen(null);
   }, [location]);
-
-  const handleLinkClick = () => {
-    setMenuOpen(false);
-    setSubmenuOpen(null);
-  };
-
-  const handleSubmenuToggle = (label) => {
-    setSubmenuOpen((prev) => (prev === label ? null : label));
-  };
 
   const handleLogoClick = (e) => {
     e.preventDefault();
@@ -57,6 +58,15 @@ export const Header = () => {
     }
   };
 
+  const handleSubmenuToggle = (label) => {
+    setSubmenuOpen((prev) => (prev === label ? null : label));
+  };
+
+  const handleLinkClick = () => {
+    setMenuOpen(false);
+    setSubmenuOpen(null);
+  };
+
   const renderLink = (item, onClick) => {
     if (item.to?.startsWith('#')) {
       return (
@@ -64,19 +74,16 @@ export const Header = () => {
           href={item.to}
           onClick={(e) => {
             e.preventDefault();
-
             const scrollToSection = () => {
               const el = document.querySelector(item.to);
               if (el) scrollWithOffset(el);
             };
-
             if (location.pathname !== '/') {
               navigate('/');
               setTimeout(scrollToSection, 500);
             } else {
               scrollToSection();
             }
-
             onClick?.();
           }}
         >
@@ -84,7 +91,6 @@ export const Header = () => {
         </a>
       );
     }
-
     return (
       <Link to={item.to || item.href} onClick={onClick}>
         {item.label}
@@ -136,7 +142,6 @@ export const Header = () => {
 
             <div className={styles.actions}>
               <ThemeToggle />
-
               <Link className={styles.signIn} to="/signin">
                 Sign In
               </Link>
