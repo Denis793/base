@@ -1,57 +1,42 @@
 import clsx from 'clsx';
 import { useState, useEffect } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { HashLink } from 'react-router-hash-link';
 import { menuItems } from '@/shared/config/menuConfig';
+import { scrollWithOffset } from '@/shared/utils/scrollWithOffset';
 import { BurgerIcon } from '@/shared/ui/BurgerIcon';
+import { ThemeImage } from '@/shared/ui/ThemeImage';
 import { ThemeToggle } from '@/shared/ui/ThemeToggle';
 import { Button } from '@/shared/ui/Button';
 import { FaChevronDown } from 'react-icons/fa';
-import logoLight from '@/assets/images/logo/logo-light.svg';
-import logoDark from '@/assets/images/logo/logo-dark.svg';
 import styles from './Header.module.scss';
 
 export const Header = () => {
   const [menuOpen, setMenuOpen] = useState(false);
   const [submenuOpen, setSubmenuOpen] = useState(null);
-  const [isDark, setIsDark] = useState(false);
   const [scrolled, setScrolled] = useState(false);
   const [scrollDirection, setScrollDirection] = useState('up');
 
-  useEffect(() => {
-    const storedTheme = localStorage.getItem('theme');
-    if (storedTheme === 'dark' || document.documentElement.classList.contains('dark')) {
-      setIsDark(true);
-    }
-  }, []);
+  const location = useLocation();
+  const navigate = useNavigate();
 
-  useEffect(() => {
-    const observer = new MutationObserver(() => {
-      setIsDark(document.documentElement.classList.contains('dark'));
-    });
-
-    observer.observe(document.documentElement, { attributes: true, attributeFilter: ['class'] });
-    return () => observer.disconnect();
-  }, []);
-
+  // scroll behavior
   useEffect(() => {
     let lastScrollY = window.scrollY;
-
     const handleScroll = () => {
       setScrolled(window.scrollY > 50);
-
-      if (window.scrollY > lastScrollY) {
-        setScrollDirection('down');
-      } else {
-        setScrollDirection('up');
-      }
-
+      setScrollDirection(window.scrollY > lastScrollY ? 'down' : 'up');
       lastScrollY = window.scrollY;
     };
-
     window.addEventListener('scroll', handleScroll);
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
+
+  // close menus on route change
+  useEffect(() => {
+    setMenuOpen(false);
+    setSubmenuOpen(null);
+  }, [location]);
 
   const handleLinkClick = () => {
     setMenuOpen(false);
@@ -59,87 +44,86 @@ export const Header = () => {
   };
 
   const handleSubmenuToggle = (label) => {
-    setSubmenuOpen(submenuOpen === label ? null : label);
+    setSubmenuOpen((prev) => (prev === label ? null : label));
   };
 
-  const renderLink = (item, onClick) => {
-    if (item.to?.startsWith('#')) {
-      return (
-        <HashLink smooth to={item.to} onClick={onClick}>
-          {item.label}
-        </HashLink>
-      );
+  const handleLogoClick = (e) => {
+    e.preventDefault();
+    if (location.pathname !== '/') {
+      navigate('/');
+      setTimeout(() => window.scrollTo({ top: 0, behavior: 'smooth' }), 100);
+    } else {
+      window.scrollTo({ top: 0, behavior: 'smooth' });
     }
-    return (
+  };
+
+  const renderLink = (item, onClick) =>
+    item.to?.startsWith('#') ? (
+      <HashLink smooth to={item.to} scroll={scrollWithOffset} onClick={onClick}>
+        {item.label}
+      </HashLink>
+    ) : (
       <Link to={item.to || item.href} onClick={onClick}>
         {item.label}
       </Link>
     );
-  };
 
   return (
-    <>
-      <header
-        className={clsx(styles.header, scrolled && styles.headerScrolled, scrollDirection === 'down' && styles.hidden)}
-      >
-        <div className="container">
-          <div className={styles.headerWrapper}>
-            <div className={styles.logo}>
-              <Link to="/">
-                <img src={isDark ? logoLight : logoDark} alt="Logo" />
+    <header
+      className={clsx(styles.header, scrolled && styles.headerScrolled, scrollDirection === 'down' && styles.hidden)}
+    >
+      <div className="container">
+        <div className={styles.headerWrapper}>
+          <div className={styles.headerLogo} onClick={handleLogoClick} aria-label="Go to home">
+            <ThemeImage name="logo" alt="Logo" position="left" fit="contain" />
+          </div>
+
+          <div className={styles.menuWrapper}>
+            <nav className={clsx(styles.nav, menuOpen && styles.open)}>
+              <ul>
+                {menuItems.map((item) => (
+                  <li
+                    key={item.label}
+                    className={clsx(item.children && styles.dropdown, submenuOpen === item.label && styles.active)}
+                  >
+                    {item.children ? (
+                      <>
+                        <Button
+                          className={styles.dropdownButton}
+                          variant="secondary"
+                          onClick={() => handleSubmenuToggle(item.label)}
+                        >
+                          {item.label}
+                          <FaChevronDown className={clsx(styles.arrow, submenuOpen === item.label && styles.rotated)} />
+                        </Button>
+                        <ul className={clsx(styles.dropdownMenu, submenuOpen === item.label && styles.open)}>
+                          {item.children.map((child) => (
+                            <li key={child.label}>{renderLink(child, handleLinkClick)}</li>
+                          ))}
+                        </ul>
+                      </>
+                    ) : (
+                      renderLink(item, handleLinkClick)
+                    )}
+                  </li>
+                ))}
+              </ul>
+            </nav>
+
+            <div className={styles.actions}>
+              <ThemeToggle />
+              <Link className={styles.signIn} to="/signin">
+                Sign In
+              </Link>
+              <Link className={styles.signUp} to="/signup">
+                <Button variant="primary">Sign Up</Button>
               </Link>
             </div>
 
-            <div className={styles.menuWrapper}>
-              <nav className={clsx(styles.nav, menuOpen && styles.open)}>
-                <ul>
-                  {menuItems.map((item) => (
-                    <li
-                      key={item.label}
-                      className={clsx(item.children && styles.dropdown, submenuOpen === item.label && styles.active)}
-                    >
-                      {item.children ? (
-                        <>
-                          <Button
-                            className={styles.dropdownButton}
-                            variant="secondary"
-                            onClick={() => handleSubmenuToggle(item.label)}
-                          >
-                            {item.label}
-                            <FaChevronDown
-                              className={clsx(styles.arrow, submenuOpen === item.label && styles.rotated)}
-                            />
-                          </Button>
-
-                          <ul className={clsx(styles.dropdownMenu, submenuOpen === item.label && styles.open)}>
-                            {item.children.map((child) => (
-                              <li key={child.label}>{renderLink(child, handleLinkClick)}</li>
-                            ))}
-                          </ul>
-                        </>
-                      ) : (
-                        renderLink(item, handleLinkClick)
-                      )}
-                    </li>
-                  ))}
-                </ul>
-              </nav>
-
-              <div className={styles.actions}>
-                <ThemeToggle />
-                <Link className={styles.signIn} to="/signin">
-                  Sign In
-                </Link>
-                <Link className={styles.signUp} to="/signup">
-                  <Button variant="primary">Sign Up</Button>
-                </Link>
-              </div>
-
-              <BurgerIcon isOpen={menuOpen} onClick={() => setMenuOpen((prev) => !prev)} />
-            </div>
+            <BurgerIcon isOpen={menuOpen} onClick={() => setMenuOpen((prev) => !prev)} />
           </div>
         </div>
-      </header>
-    </>
+      </div>
+    </header>
   );
 };

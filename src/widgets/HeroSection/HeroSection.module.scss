@@ -1,9 +1,13 @@
 @use '@/shared/styles/variables' as *;
 
 .hero {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
   width: 100%;
+
   @media (min-width: $breakpoint-m) {
-    max-width: 50%;
+    max-width: 70%;
   }
 }
 
@@ -11,6 +15,7 @@
   display: flex;
   flex-direction: column;
   gap: var(--gap-xl);
+  z-index: 2;
 }
 
 .heroCta {
@@ -18,6 +23,7 @@
   flex-wrap: wrap;
   flex-direction: column;
   gap: var(--gap-xl);
+
   @media (min-width: $breakpoint-m) {
     flex-direction: row-reverse;
     justify-content: start;
@@ -29,58 +35,69 @@
   font-weight: var(--fw-medium);
 }
 
-// heroVisual
 .heroVisual {
+  display: none;
   position: absolute;
   top: 0;
-  right: 0;
-  height: 100%;
-  max-width: 50%;
-  @media (max-width: $breakpoint-m) {
-    display: none;
-    z-index: 4;
+  right: 0%;
+  width: 30%;
+  overflow: visible;
+  pointer-events: none;
+
+  @media (min-width: $breakpoint-m) {
+    display: block;
   }
 }
 
 .heroImageWrapper {
-  position: relative;
+  position: absolute;
+  top: calc(-1 * var(--spacing-4xl));
+  right: 0%;
   width: 100%;
-  max-height: 36rem;
+  max-height: 60rem;
   aspect-ratio: 1 / 1;
+  z-index: 1;
 }
 
 .heroImage,
+.heroShape,
 .shapeYellow,
 .shapeWaves,
 .shapeBlue {
   position: absolute;
   display: block;
+
   @media (max-width: $breakpoint-m) {
     display: none;
-    height: auto;
   }
 }
 
 .heroImage {
   top: 0;
-  left: 0;
+  right: 0;
+  width: 100%;
+}
+
+.heroShape {
+  top: 0;
+  right: 0;
   width: 100%;
 }
 
 .shapeYellow {
-  top: 30%;
-  left: -8%;
-  width: 15%;
+  top: 22%;
+  left: -10%;
+  width: 18%;
 }
 
 .shapeWaves {
-  bottom: 26%;
-  left: 8%;
-  width: 10%;
+  bottom: 15%;
+  left: 15%;
+  width: 15%;
 }
 
 .shapeBlue {
-  bottom: 8%;
+  bottom: 5%;
   right: 15%;
-  width: 12%;
+  width: 15%;
 }

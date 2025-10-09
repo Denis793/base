@@ -17,6 +17,9 @@
 
 .hidden {
   transform: translateY(-100%);
+  @media (min-width: $breakpoint-m) {
+    transform: none;
+  }
 }
 
 .headerWrapper {
@@ -26,28 +29,38 @@
   justify-content: space-between;
   align-items: center;
   padding: var(--spacing-l);
+
   @media (min-width: $breakpoint-m) {
-    padding: var(--spacing-xl);
-    max-width: 100%;
+    padding: var(--spacing-xl) 0;
   }
 }
 
-.logo {
+.headerLogo {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
   width: 30%;
-}
-
-.logo img {
   height: 2.6rem;
+  cursor: pointer;
+  flex-shrink: 0;
+
+  img {
+    display: block;
+    height: 100%;
+    width: auto;
+    object-fit: contain;
+    margin: 0;
+  }
 }
 
 .menuWrapper {
   display: flex;
   align-items: center;
-  justify-content: flex-end;
-  width: 100%;
+  justify-content: space-between;
+  width: 70%;
 
-  @media (min-width: $breakpoint-m) {
-    justify-content: space-between;
+  @media (max-width: $breakpoint-m) {
+    width: auto;
   }
 }
 

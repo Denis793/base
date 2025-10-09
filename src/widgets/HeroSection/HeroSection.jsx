@@ -28,6 +28,7 @@ export const HeroSection = () => {
       <div className="section">
         <div className="container">
           <section className={styles.hero} id="home">
+            {/* === Text Content === */}
             <motion.div
               className={styles.heroContent}
               initial="hidden"
@@ -39,8 +40,8 @@ export const HeroSection = () => {
               </motion.h2>
 
               <motion.p variants={textVariants} custom={1} className="description">
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque fringilla magna mauris. Nulla fermentum
-                viverra sem eu rhoncus consequat varius nisi quis, posuere magna.
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque fringilla magna mauris. <br />
+                Nulla fermentum viverra sem eu rhoncus consequat varius nisi quis, posuere magna.
               </motion.p>
 
               <motion.div variants={textVariants} custom={2} className={styles.heroCta}>
@@ -56,6 +57,7 @@ export const HeroSection = () => {
               </motion.div>
             </motion.div>
 
+            {/* === Visual Part === */}
             <motion.div
               className={styles.heroVisual}
               initial="hidden"
@@ -63,11 +65,11 @@ export const HeroSection = () => {
               viewport={{ once: true, amount: 0.4 }}
             >
               <motion.div className={styles.heroImageWrapper} variants={imageVariants}>
-                <img src={shape04} alt="Decorative background" className={styles.heroShape} />
-                <img src={heroImg} alt="Hero" className={styles.heroImage} />
-                <img src={shapeYellow} alt="Yellow quarter" className={styles.shapeYellow} />
-                <img src={shapeWaves} alt="Waves" className={styles.shapeWaves} />
-                <img src={shapeBlue} alt="Blue quarter" className={styles.shapeBlue} />
+                <img className={styles.heroShape} src={shape04} alt="Decorative background" />
+                <img className={styles.heroImage} src={heroImg} alt="Hero" />
+                <img className={styles.shapeYellow} src={shapeYellow} alt="Yellow quarter" />
+                <img className={styles.shapeWaves} src={shapeWaves} alt="Waves" />
+                <img className={styles.shapeBlue} src={shapeBlue} alt="Blue quarter" />
               </motion.div>
             </motion.div>
           </section>

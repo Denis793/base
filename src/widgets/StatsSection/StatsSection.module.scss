@@ -1,5 +1,9 @@
 @use '@/shared/styles/variables' as *;
 
+.statsSection {
+  padding: var(--spacing-3xl) 0;
+}
+
 .statsWrapper {
   display: flex;
   justify-content: space-between;

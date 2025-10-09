@@ -2,9 +2,6 @@ import React, { useEffect, useState } from 'react';
 import { Autoplay } from 'swiper/modules';
 import { Swiper, SwiperSlide } from 'swiper/react';
 
-import 'swiper/css';
-import styles from './PartnersSection.module.scss';
-
 // Light
 import logoLight1 from '@/assets/images/brands/brand-light-01.svg';
 import logoLight2 from '@/assets/images/brands/brand-light-02.svg';
@@ -20,6 +17,9 @@ import logoDark3 from '@/assets/images/brands/brand-dark-03.svg';
 import logoDark4 from '@/assets/images/brands/brand-dark-04.svg';
 import logoDark5 from '@/assets/images/brands/brand-dark-05.svg';
 import logoDark6 from '@/assets/images/brands/brand-dark-06.svg';
+
+import 'swiper/css';
+import styles from './PartnersSection.module.scss';
 
 const logosLight = [logoLight1, logoLight2, logoLight3, logoLight4, logoLight5, logoLight6];
 const logosDark = [logoDark1, logoDark2, logoDark3, logoDark4, logoDark5, logoDark6];
@@ -40,7 +40,7 @@ export const PartnersSection = () => {
 
   return (
     <>
-      <section className="section section--bg">
+      <section className={`section section--bg ${styles.partnersSection}`}>
         <div className="container">
           <h2 className={styles.heading}>Trusted by 5000+ Clients</h2>
 

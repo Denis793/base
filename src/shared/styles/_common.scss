@@ -94,8 +94,7 @@ li {
 
 .section {
   position: relative;
-  text-align: center;
-  padding: var(--spacing-2xl) var(--spacing-m);
+  margin: var(--spacing-2xl) var(--spacing-m);
 
   &--bg {
     background: var(--bg-section);
@@ -103,7 +102,7 @@ li {
   }
 
   @media (min-width: $breakpoint-m) {
-    padding: var(--spacing-4xl) var(--spacing-l);
+    margin: var(--spacing-4xl) 0;
   }
 }
 
@@ -111,5 +110,4 @@ li {
   font-family: var(--ff-secondary);
   font-size: var(--fs-description);
   color: var(--color-description);
-  max-width: var(--description-width);
 }

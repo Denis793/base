@@ -52,8 +52,8 @@ export const ServicesSection = () => {
           >
             <h2>We Offer The Best Quality Service for You</h2>
             <p className="description">
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit. In convallis tortor eros. Donec vitae tortor
-              lacus. Phasellus aliquam ante in maximus.
+              Lorem ipsum dolor sit amet, consectetur adipiscing elit. In convallis tortor eros. <br />
+              Donec vitae tortor lacus. Phasellus aliquam ante in maximus.
             </p>
           </motion.div>
 

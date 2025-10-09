@@ -1,6 +1,7 @@
 @use '@/shared/styles/variables' as *;
 
 .pricingWrapper {
+  padding: var(--spacing-4xl) 0;
   z-index: 2;
 }
 

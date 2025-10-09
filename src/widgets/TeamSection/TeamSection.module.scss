@@ -1,5 +1,9 @@
 @use '@/shared/styles/variables' as *;
 
+.teamSection {
+  padding: var(--spacing-4xl) 0;
+}
+
 .bgWrapper {
   position: absolute;
   top: 0px;
@@ -11,7 +15,7 @@
   background-repeat: no-repeat;
   background-position: center;
   background-size: cover;
-  z-index: -1;
+  // z-index: -1;
 }
 
 .shapeCircle,
@@ -37,10 +41,15 @@
 }
 
 .shapePink {
-  top: 10%;
+  top: 20%;
   right: 20%;
   width: 4rem;
   height: 4rem;
+}
+
+.headerTeam h2,
+.headerTeam p {
+  z-index: 2;
 }
 
 .members {

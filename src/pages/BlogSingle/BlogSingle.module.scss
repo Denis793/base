@@ -8,7 +8,7 @@
 .wrapper {
   display: grid;
   grid-template-columns: 2fr 1fr;
-  gap: var(--gap-xl);
+  gap: var(--gap-2xl);
 
   @media (max-width: $breakpoint-m) {
     grid-template-columns: 1fr;
@@ -18,19 +18,20 @@
 .article {
   border-radius: var(--radius-s);
   text-align: left;
+  display: flex;
+  flex-direction: column;
+  gap: var(--gap-xl);
 }
 
 .mainImage {
   width: 100%;
   border-radius: var(--radius-s);
-  margin-bottom: var(--spacing-xl);
 }
 
 .meta {
   display: flex;
   flex-wrap: wrap;
   gap: var(--gap-l);
-  margin-bottom: var(--spacing-xl);
   color: var(--color-description);
   font-size: var(--fs-description);
 
@@ -43,7 +44,6 @@
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
   gap: var(--gap-l);
-  margin: var(--spacing-2xl) 0;
 
   img {
     border-radius: var(--radius-s);
@@ -56,20 +56,14 @@
   font-size: var(--fs-h3);
   font-weight: var(--fw-semibold);
   color: var(--text-color-heading);
-  margin-bottom: var(--spacing-l);
 }
 
 .share {
   display: flex;
   align-items: center;
-  justify-content: space-between;
+  gap: var(--gap-l);
   padding-top: var(--spacing-l);
   border-top: 1px solid var(--border-color);
-  margin-top: var(--spacing-2xl);
-
-  span {
-    font-weight: var(--fw-medium);
-  }
 }
 
 .sidebar {

@@ -35,7 +35,7 @@ export function StatsSection() {
 
   return (
     <>
-      <section className="section section--bg">
+      <section className={`section section--bg ${styles.statsSection}`}>
         <div className="container">
           <div className={styles.statsWrapper}>
             {stats.map((stat, i) => (

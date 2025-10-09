@@ -2,6 +2,7 @@ import React from 'react';
 import { motion } from 'framer-motion';
 import { Social } from '@/shared/ui/Social';
 import { fadeIn, staggerContainer } from '@/shared/lib/animations';
+import logo from '../../../assets/images/logo/logo-dark.svg';
 import styles from './Footer.module.scss';
 
 export const Footer = () => {
@@ -17,7 +18,7 @@ export const Footer = () => {
             viewport={{ once: true }}
           >
             <motion.div className={styles.brand} variants={fadeIn}>
-              <h3 className={styles.logo}>StartupBase</h3>
+              <img src={logo} />
               <p className={styles.description}>
                 Building modern digital experiences with performance, accessibility, and style in mind.
               </p>

@@ -73,7 +73,7 @@ export const BlogSingle = () => {
               </p>
 
               <div className={styles.share}>
-                <span>Share On:</span>
+                <h4>Share On:</h4>
                 <Social />
               </div>
             </motion.article>

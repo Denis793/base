@@ -21,7 +21,7 @@ export const TeamSection = () => {
 
   return (
     <>
-      <section className="section section--bg" id="team">
+      <section className={`section section--bg ${styles.teamSection}`} id="team">
         <div className={styles.bgWrapper}>
           <motion.img
             src={shapeCircle}
@@ -52,7 +52,7 @@ export const TeamSection = () => {
         </div>
 
         <div className="container">
-          <div className="header">
+          <div className={`header ${styles.headerTeam}`}>
             <motion.h2 variants={fadeIn} initial="hidden" whileInView="visible" viewport={{ once: true }}>
               Meet With Our Creative <br /> Dedicated Team
             </motion.h2>
@@ -64,8 +64,8 @@ export const TeamSection = () => {
               viewport={{ once: true }}
               custom={1}
             >
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit. In convallis tortor eros. Donec vitae tortor
-              lacus. Phasellus aliquam ante in maximus.
+              Lorem ipsum dolor sit amet, consectetur adipiscing elit. In convallis tortor eros.
+              <br /> Donec vitae tortor lacus. Phasellus aliquam ante in maximus.
             </motion.p>
           </div>
 

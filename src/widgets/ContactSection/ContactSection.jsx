@@ -7,7 +7,7 @@ import { Button } from '@/shared/ui/Button';
 import { ShapeBackground } from '@/shared/ui/ShapeBackground';
 import { FormToast } from '@/shared/ui/FormToast';
 import { InputField } from '@/shared/ui/InputField';
-import { FaFacebookF, FaTwitter, FaLinkedinIn, FaBehance } from 'react-icons/fa';
+import { Social } from '@/shared/ui/Social';
 import styles from './ContactSection.module.scss';
 
 export const ContactSection = () => {
@@ -92,18 +92,7 @@ export const ContactSection = () => {
             </div>
 
             <div className={styles.social}>
-              <a className="socialLink" target="_blank" href="#" aria-label="Facebook">
-                <FaFacebookF />
-              </a>
-              <a className="socialLink" target="_blank" href="#" aria-label="Twitter">
-                <FaTwitter />
-              </a>
-              <a className="socialLink" target="_blank" href="#" aria-label="LinkedIn">
-                <FaLinkedinIn />
-              </a>
-              <a className="socialLink" target="_blank" href="#" aria-label="Behance">
-                <FaBehance />
-              </a>
+              <Social />
             </div>
           </motion.div>
 
