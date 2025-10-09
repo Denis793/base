@@ -37,8 +37,7 @@ export const TestimonialsSection = () => {
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true, amount: 0.3 }}
-          variants={fadeIn}
-        >
+          variants={fadeIn}>
           <h2>Client’s Testimonials</h2>
           <p className="description">
             It is a long established fact that a reader will be distracted by the readable content
@@ -59,8 +58,7 @@ export const TestimonialsSection = () => {
           }}
           onInit={(swiper) => {
             swiperRef.current = swiper.el;
-          }}
-        >
+          }}>
           {testimonials.map((t, i) => (
             <SwiperSlide key={t.id}>
               <motion.div
@@ -69,8 +67,7 @@ export const TestimonialsSection = () => {
                 whileInView="visible"
                 viewport={{ once: true, amount: 0.2 }}
                 variants={fadeIn}
-                custom={i}
-              >
+                custom={i}>
                 <div className={styles.imageWrapper}>
                   <img src={t.image} alt={t.name} />
                 </div>

@@ -80,7 +80,9 @@
   box-shadow: var(--shadow-main);
   border-radius: var(--radius-m);
   z-index: var(--z-index-overlay);
-  transition: top 0.35s ease, opacity 0.3s ease;
+  transition:
+    top 0.35s ease,
+    opacity 0.3s ease;
 
   @media (min-width: $breakpoint-m) {
     opacity: 1;
@@ -187,7 +189,10 @@
   z-index: var(--z-index-overlay);
   opacity: 0;
   visibility: hidden;
-  transition: top 0.55s ease, opacity 0.5s ease, visibility 0s linear 0.3s;
+  transition:
+    top 0.55s ease,
+    opacity 0.5s ease,
+    visibility 0s linear 0.3s;
 }
 
 .dropdownMenu.open {

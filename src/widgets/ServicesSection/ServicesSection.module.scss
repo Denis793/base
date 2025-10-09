@@ -15,7 +15,9 @@
   padding: var(--spacing-l);
   border-radius: var(--radius-s);
   text-align: center;
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  transition:
+    transform 0.3s ease,
+    box-shadow 0.3s ease;
 
   &:hover {
     background: var(--bg-card);
@@ -32,7 +34,9 @@
     font-size: 2rem;
     color: var(--primary-color);
     margin-bottom: var(--spacing-m);
-    transition: transform 0.3s ease, color 0.3s ease;
+    transition:
+      transform 0.3s ease,
+      color 0.3s ease;
   }
 
   h4 {

@@ -20,8 +20,7 @@ export const BlogSection = () => {
             initial="hidden"
             whileInView="visible"
             viewport={{ once: true }}
-            custom={1}
-          >
+            custom={1}>
             Stay updated with the latest design and development trends, tips, and industry insights.
           </motion.p>
         </div>
@@ -31,8 +30,7 @@ export const BlogSection = () => {
           variants={staggerContainer}
           initial="hidden"
           whileInView="visible"
-          viewport={{ once: true }}
-        >
+          viewport={{ once: true }}>
           {blogData.slice(0, 3).map((b, i) => (
             <motion.div key={b.id} variants={fadeIn} custom={i}>
               <BlogCard

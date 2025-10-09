@@ -1,7 +1,6 @@
 import clsx from 'clsx';
 import { useState, useEffect } from 'react';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
-import { HashLink } from 'react-router-hash-link';
 import { menuItems } from '@/shared/config/menuConfig';
 import { scrollWithOffset } from '@/shared/utils/scrollWithOffset';
 import { BurgerIcon } from '@/shared/ui/BurgerIcon';
@@ -20,19 +19,20 @@ export const Header = () => {
   const location = useLocation();
   const navigate = useNavigate();
 
-  // scroll behavior
   useEffect(() => {
     let lastScrollY = window.scrollY;
-    const handleScroll = () => {
-      setScrolled(window.scrollY > 50);
-      setScrollDirection(window.scrollY > lastScrollY ? 'down' : 'up');
-      lastScrollY = window.scrollY;
-    };
-    window.addEventListener('scroll', handleScroll);
-    return () => window.removeEventListener('scroll', handleScroll);
-  }, []);
 
-  // close menus on route change
+    const handleScroll = () => {
+      const currentY = window.scrollY;
+      setScrolled(currentY > 50);
+      setScrollDirection(currentY > lastScrollY ? 'down' : 'up');
+      lastScrollY = currentY <= 0 ? 0 : currentY;
+    };
+
+    window.addEventListener('scroll', handleScroll, { passive: true });
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, [location.pathname]);
+
   useEffect(() => {
     setMenuOpen(false);
     setSubmenuOpen(null);
@@ -57,16 +57,40 @@ export const Header = () => {
     }
   };
 
-  const renderLink = (item, onClick) =>
-    item.to?.startsWith('#') ? (
-      <HashLink smooth to={item.to} scroll={scrollWithOffset} onClick={onClick}>
-        {item.label}
-      </HashLink>
-    ) : (
+  const renderLink = (item, onClick) => {
+    if (item.to?.startsWith('#')) {
+      return (
+        <a
+          href={item.to}
+          onClick={(e) => {
+            e.preventDefault();
+
+            const scrollToSection = () => {
+              const el = document.querySelector(item.to);
+              if (el) scrollWithOffset(el);
+            };
+
+            if (location.pathname !== '/') {
+              navigate('/');
+              setTimeout(scrollToSection, 500);
+            } else {
+              scrollToSection();
+            }
+
+            onClick?.();
+          }}
+        >
+          {item.label}
+        </a>
+      );
+    }
+
+    return (
       <Link to={item.to || item.href} onClick={onClick}>
         {item.label}
       </Link>
     );
+  };
 
   return (
     <header
@@ -112,6 +136,7 @@ export const Header = () => {
 
             <div className={styles.actions}>
               <ThemeToggle />
+
               <Link className={styles.signIn} to="/signin">
                 Sign In
               </Link>

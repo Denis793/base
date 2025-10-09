@@ -21,8 +21,7 @@ export const AboutSection = () => {
               initial="hidden"
               whileInView="visible"
               viewport={{ once: true, amount: 0.3 }}
-              variants={fadeLeft}
-            >
+              variants={fadeLeft}>
               <div className={styles.imageWrapper}>
                 <img className={styles.aboutImg} src={about01} alt="Team working together" />
                 <img className={styles.aboutImg} src={about02} alt="Team collaboration" />
@@ -39,8 +38,7 @@ export const AboutSection = () => {
               initial="hidden"
               whileInView="visible"
               viewport={{ once: true, amount: 0.3 }}
-              variants={fadeRight}
-            >
+              variants={fadeRight}>
               <h4>Why Choose Us</h4>
               <h2>We Make Our customers happy by giving Best services.</h2>
               <p className="description">
@@ -52,8 +50,7 @@ export const AboutSection = () => {
                 href="https://www.youtube.com/watch?v=xcJtL7QggTI"
                 target="_blank"
                 rel="noopener noreferrer"
-                className={styles.videoBtn}
-              >
+                className={styles.videoBtn}>
                 <span className={styles.playIcon}>
                   <img src={playIcon} alt="Play video" />
                 </span>

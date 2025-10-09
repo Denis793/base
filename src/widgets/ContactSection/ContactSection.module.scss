@@ -72,7 +72,9 @@ textarea {
   border-radius: var(--radius-s);
   padding: var(--spacing-m);
   font-size: var(--fs-base);
-  transition: border-color 0.3s ease, box-shadow 0.3s ease;
+  transition:
+    border-color 0.3s ease,
+    box-shadow 0.3s ease;
 
   &:focus {
     border-color: var(--primary-color);

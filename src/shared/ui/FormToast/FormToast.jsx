@@ -19,8 +19,7 @@ export const FormToast = ({ show, type = 'success', message = '', duration = 300
         type === 'success' && styles.toastSuccess,
         type === 'error' && styles.toastError,
         type === 'info' && styles.toastInfo
-      )}
-    >
+      )}>
       {message}
     </div>
   );

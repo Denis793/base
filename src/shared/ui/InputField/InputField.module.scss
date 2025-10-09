@@ -20,7 +20,9 @@
   padding: var(--spacing-m);
   font-size: var(--fs-base);
   font-family: var(--ff-main);
-  transition: border-color 0.3s ease, box-shadow 0.3s ease;
+  transition:
+    border-color 0.3s ease,
+    box-shadow 0.3s ease;
 
   &::placeholder {
     color: var(--color-description);

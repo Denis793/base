@@ -33,8 +33,7 @@ export const HeroSection = () => {
               className={styles.heroContent}
               initial="hidden"
               whileInView="visible"
-              viewport={{ once: true, amount: 0.3 }}
-            >
+              viewport={{ once: true, amount: 0.3 }}>
               <motion.h2 variants={textVariants} custom={0} className={styles.heroTitle}>
                 We specialize in UI/UX, Web Development, Digital Marketing.
               </motion.h2>
@@ -62,8 +61,7 @@ export const HeroSection = () => {
               className={styles.heroVisual}
               initial="hidden"
               whileInView="visible"
-              viewport={{ once: true, amount: 0.4 }}
-            >
+              viewport={{ once: true, amount: 0.4 }}>
               <motion.div className={styles.heroImageWrapper} variants={imageVariants}>
                 <img className={styles.heroShape} src={shape04} alt="Decorative background" />
                 <img className={styles.heroImage} src={heroImg} alt="Hero" />

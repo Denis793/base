@@ -61,8 +61,7 @@ export const ContactSection = () => {
             initial="hidden"
             whileInView="visible"
             viewport={{ once: true }}
-            custom={1}
-          >
+            custom={1}>
             Contact us for inquiries, collaborations, or project discussions.
           </motion.p>
         </div>
@@ -72,8 +71,7 @@ export const ContactSection = () => {
           variants={staggerContainer}
           initial="hidden"
           whileInView="visible"
-          viewport={{ once: true, amount: 0.3 }}
-        >
+          viewport={{ once: true, amount: 0.3 }}>
           {/* Left Info Box */}
           <motion.div className={styles.infoBox} variants={fadeIn} custom={0}>
             <div className={styles.infoGroup}>

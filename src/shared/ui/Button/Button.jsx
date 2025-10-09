@@ -32,8 +32,7 @@ export const Button = forwardRef(
           direction && styles[`arrow${direction[0].toUpperCase() + direction.slice(1)}`],
           className
         )}
-        {...props}
-      >
+        {...props}>
         {icon ? <img src={icon} alt="icon" className={styles.arrowIcon} /> : children}
       </button>
     );

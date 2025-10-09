@@ -25,8 +25,7 @@ export const Features = () => {
               initial="hidden"
               whileInView="visible"
               viewport={{ once: true, amount: 0.3 }}
-              custom={i}
-            >
+              custom={i}>
               <div className={`${styles.imageWrapper} ${styles[`image${i + 1}`]}`}>
                 <img className={styles.featureSVG} src={item.icon} alt={item.title} />
               </div>

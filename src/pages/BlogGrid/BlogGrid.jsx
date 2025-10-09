@@ -14,8 +14,7 @@ export const BlogGrid = () => (
       variants={staggerContainer}
       initial="hidden"
       whileInView="visible"
-      viewport={{ once: true }}
-    >
+      viewport={{ once: true }}>
       {blogData.map((p, i) => (
         <motion.div key={p.id} variants={fadeIn} custom={i}>
           <BlogCard

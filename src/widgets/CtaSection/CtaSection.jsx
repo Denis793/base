@@ -7,7 +7,7 @@ import styles from './CtaSection.module.scss';
 export const CtaSection = () => {
   return (
     <>
-      <section className={`section ${styles.ctaSection}`}>
+      <section className={styles.ctaSection}>
         <div className="container">
           <motion.div
             className={styles.ctaContent}

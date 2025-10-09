@@ -7,8 +7,7 @@ export const BurgerIcon = ({ isOpen, onClick }) => {
       type="button"
       aria-label="Toggle menu"
       className={clsx(styles.burger, isOpen && styles.open)}
-      onClick={onClick}
-    >
+      onClick={onClick}>
       <span className={styles.line}></span>
       <span className={styles.line}></span>
       <span className={styles.line}></span>
