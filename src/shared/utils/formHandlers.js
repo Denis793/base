@@ -1,18 +1,16 @@
-import { validateUserCredentials } from '@/shared/utils/userService';
-
-const delay = (ms) => new Promise((resolve) => setTimeout(resolve, ms));
-
 const hideToastAfterDelay = (setToast, delayMs = 3000) => {
   setTimeout(() => setToast({ show: false, type: '', message: '' }), delayMs);
 };
 
-const API_URL = 'http://localhost:3001/api/messages';
+const API_MESSAGES_URL = 'http://localhost:3001/api/messages';
+const API_REGISTER_URL = 'http://localhost:3001/api/register';
+const API_LOGIN_URL = 'http://localhost:3001/api/login';
 
 export const handleContactSubmit = async (values, helpers, setToast) => {
   helpers.setSubmitting(true);
 
   try {
-    const response = await fetch(API_URL, {
+    const response = await fetch(API_MESSAGES_URL, {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
@@ -48,34 +46,84 @@ export const handleSignInSubmit = async (values, helpers, setToast) => {
   const { setSubmitting, setFieldError, setTouched, resetForm } = helpers;
 
   try {
-    await delay(600);
+    const response = await fetch(API_LOGIN_URL, {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify(values),
+    });
 
-    const email = values.username.trim();
-    const password = values.password.trim();
+    const result = await response.json();
 
-    const { valid, reason, user } = validateUserCredentials(email, password);
-
-    if (valid) {
-      setToast({ show: true, type: 'success', message: `Welcome back, ${user.name}!` });
+    if (response.ok) {
+      setToast({ show: true, type: 'success', message: `Welcome back, ${result.user.name}!` });
       resetForm();
       return;
     }
 
     setTouched({ username: true, password: true }, true);
 
-    let message = '';
-    if (reason === 'email') {
-      setFieldError('username', 'Email is not registered.');
-      message = 'Email is not registered.';
-    } else if (reason === 'password') {
-      setFieldError('password', 'Incorrect password.');
-      message = 'Incorrect password.';
+    let message = result.message;
+
+    if (result.reason === 'email') {
+      setFieldError('username', result.message);
+    } else if (result.reason === 'password') {
+      setFieldError('password', result.message);
     }
 
     setToast({ show: true, type: 'error', message });
   } catch (error) {
     console.error('❌ signInSubmit:', error);
     setToast({ show: true, type: 'error', message: 'Something went wrong. Please try again.' });
+  } finally {
+    setSubmitting(false);
+    hideToastAfterDelay(setToast);
+  }
+};
+
+export const handleSignUpSubmit = async (values, helpers, setToast) => {
+  const { setSubmitting, setFieldError, resetForm } = helpers;
+
+  try {
+    const response = await fetch(API_REGISTER_URL, {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify(values),
+    });
+
+    const result = await response.json();
+
+    if (response.status === 409) {
+      setFieldError('username', result.message);
+      setToast({
+        show: true,
+        type: 'error',
+        message: result.message,
+      });
+      return;
+    }
+
+    if (!response.ok) {
+      throw new Error(result.message || `HTTP Error: ${response.status}`);
+    }
+
+    setToast({
+      show: true,
+      type: 'success',
+      message: `Registration successful! Welcome, ${result.user.name}!`,
+    });
+
+    resetForm();
+  } catch (error) {
+    console.error('❌ signUpSubmit:', error);
+    setToast({
+      show: true,
+      type: 'error',
+      message: `Registration failed: ${error.message || 'Something went wrong. Please try again.'}`,
+    });
   } finally {
     setSubmitting(false);
     hideToastAfterDelay(setToast);

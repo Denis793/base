@@ -1,0 +1,14 @@
+[
+  {
+    "name": "gemini",
+    "email": "demo1@gmail.com",
+    "password": "demo123",
+    "registeredAt": "2025-10-10T09:50:16.756Z"
+  },
+  {
+    "name": "Rex ",
+    "email": "example2@gmail.com",
+    "password": "1q2w3e4r",
+    "registeredAt": "2025-10-10T09:58:15.042Z"
+  }
+]
