@@ -13,14 +13,14 @@ import {
 import styles from './Social.module.scss';
 
 const ICONS = {
-  facebook: FaFacebookF,
-  twitter: FaTwitter,
-  x: FaXTwitter,
-  linkedin: FaLinkedinIn,
-  instagram: FaInstagram,
-  google: FaGoogle,
-  github: FaGithub,
-  behance: FaBehance,
+  facebook: { icon: FaFacebookF, url: 'https://www.facebook.com/' },
+  twitter: { icon: FaTwitter, url: 'https://twitter.com/' },
+  x: { icon: FaXTwitter, url: 'https://x.com/' },
+  linkedin: { icon: FaLinkedinIn, url: 'https://www.linkedin.com/' },
+  instagram: { icon: FaInstagram, url: 'https://www.instagram.com/' },
+  google: { icon: FaGoogle, url: 'https://google.com/' },
+  github: { icon: FaGithub, url: 'https://github.com/' },
+  behance: { icon: FaBehance, url: 'https://www.behance.net/' },
 };
 
 export const Social = ({
@@ -36,12 +36,22 @@ export const Social = ({
         className={clsx(styles.socials, styles[`align-${align}`], styles[variant], styles[`size-${size}`], className)}
       >
         {networks.map((key) => {
-          const Icon = ICONS[key];
-          if (!Icon) return null;
+          const network = ICONS[key];
+          if (!network) return null;
+
+          const Icon = network.icon;
+
           return (
-            <div key={key} className={clsx(styles.iconWrapper, styles[`icon-${key}`])}>
+            <a
+              key={key}
+              href={network.url}
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label={`Link to ${key} profile`}
+              className={clsx(styles.iconWrapper, styles[`icon-${key}`])}
+            >
               <Icon className={styles.icon} />
-            </div>
+            </a>
           );
         })}
       </div>
