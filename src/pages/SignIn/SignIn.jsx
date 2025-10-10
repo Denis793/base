@@ -35,13 +35,6 @@ export const SignIn = () => {
           <div className={styles.card}>
             <div className={styles.cardHeader} />
 
-            <FormToast
-              show={toast.show}
-              type={toast.type}
-              message={toast.message}
-              onHide={() => setToast({ show: false, type: '', message: '' })}
-            />
-
             <h2>Sign in to your Account</h2>
             <p className="description">Lorem ipsum dolor sit amet, consectetur</p>
 
@@ -82,6 +75,13 @@ export const SignIn = () => {
               <Button type="submit" variant="primary" disabled={formik.isSubmitting} onClick={touchAllAndValidate}>
                 {formik.isSubmitting ? 'Signing In…' : 'Sign In'}
               </Button>
+
+              <FormToast
+                show={toast.show}
+                type={toast.type}
+                message={toast.message}
+                onHide={() => setToast({ show: false, type: '', message: '' })}
+              />
 
               <p className={styles.signupText}>
                 Don’t have an account? <Link to="/signup">Sign Up</Link>
