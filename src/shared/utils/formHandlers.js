@@ -1,72 +1,78 @@
-import { DEMO_USER } from '@/shared/config/demoUser';
+import { validateUserCredentials } from '@/shared/utils/userService';
 
-// === Common Helpers ===
 const delay = (ms) => new Promise((resolve) => setTimeout(resolve, ms));
+
 const hideToastAfterDelay = (setToast, delayMs = 3000) => {
   setTimeout(() => setToast({ show: false, type: '', message: '' }), delayMs);
 };
 
-// === CONTACT FORM SUBMIT ===
-export const handleContactSubmit = async (values, { resetForm, setSubmitting }, setToast) => {
+const API_URL = 'http://localhost:3001/api/messages';
+
+export const handleContactSubmit = async (values, helpers, setToast) => {
+  helpers.setSubmitting(true);
+
   try {
-    console.log('📨 submit', values);
-    await delay(1000);
+    const response = await fetch(API_URL, {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify(values),
+    });
+
+    if (!response.ok) {
+      const errorData = await response.json().catch(() => ({ message: `HTTP Error: ${response.status}` }));
+      throw new Error(errorData.message || 'Server responded with an unknown error');
+    }
+
+    helpers.resetForm();
 
     setToast({
       show: true,
       type: 'success',
-      message: 'Your message has been successfully sent!',
+      message: 'Ваше повідомлення успішно надіслано та збережено!',
     });
-
-    resetForm();
   } catch (error) {
-    console.error('❌ contactSubmit:', error);
+    console.error('Submission error:', error);
     setToast({
       show: true,
       type: 'error',
-      message: 'Something went wrong. Please try again.',
+      message: `Помилка при відправці: ${error.message}. Перевірте консоль та сервер.`,
     });
   } finally {
-    setSubmitting(false);
-    hideToastAfterDelay(setToast);
+    helpers.setSubmitting(false);
   }
 };
 
-// === SIGN-IN FORM SUBMIT ===
 export const handleSignInSubmit = async (values, helpers, setToast) => {
   const { setSubmitting, setFieldError, setTouched, resetForm } = helpers;
 
   try {
     await delay(600);
 
-    const email = values.username.trim().toLowerCase();
-    const pass = values.password.trim();
+    const email = values.username.trim();
+    const password = values.password.trim();
 
-    const emailOk = email === DEMO_USER.email;
-    const passOk = pass === DEMO_USER.password;
+    const { valid, reason, user } = validateUserCredentials(email, password);
 
-    if (emailOk && passOk) {
-      setToast({ show: true, type: 'success', message: `Welcome back, ${DEMO_USER.name}!` });
+    if (valid) {
+      setToast({ show: true, type: 'success', message: `Welcome back, ${user.name}!` });
       resetForm();
       return;
     }
 
     setTouched({ username: true, password: true }, true);
 
-    let toastMsg = '';
-    if (!emailOk && passOk) {
+    let message = '';
+    if (reason === 'email') {
       setFieldError('username', 'Email is not registered.');
-      toastMsg = 'Email is not registered.';
-    } else if (emailOk && !passOk) {
+      message = 'Email is not registered.';
+    } else if (reason === 'password') {
       setFieldError('password', 'Incorrect password.');
-      toastMsg = 'Incorrect password.';
-    } else {
-      setFieldError('username', 'Email is not registered.');
-      setFieldError('password', 'Incorrect password.');
-      toastMsg = 'Email and password are incorrect.';
+      message = 'Incorrect password.';
     }
 
-    setToast({ show: true, type: 'error', message: toastMsg });
+    setToast({ show: true, type: 'error', message });
   } catch (error) {
     console.error('❌ signInSubmit:', error);
     setToast({ show: true, type: 'error', message: 'Something went wrong. Please try again.' });
