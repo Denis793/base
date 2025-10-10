@@ -5,116 +5,144 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  padding: $spacing-12 $spacing-4;
   min-height: 80vh;
-  background-color: $bg-section;
+  background-color: var(--bg-section);
+
+  // Mobile First Padding
+  padding: var(--spacing-4xl) var(--spacing-l);
+
+  @media (min-width: $breakpoint-m) {
+    min-height: 90vh;
+    padding: var(--spacing-5xl) var(--spacing-xl);
+  }
 }
 
 .wrapper {
   position: relative;
+  width: 100%;
+
+  @media (min-width: $breakpoint-l) {
+    max-width: 450px;
+  }
 }
 
 .shape {
   position: absolute;
   opacity: 0.1;
-  max-width: 150px;
+  max-width: 100px;
+
+  @media (min-width: $breakpoint-m) {
+    max-width: 150px;
+  }
 }
 
 .card {
   position: relative;
-  z-index: 2;
-  max-width: 400px;
+  z-index: var(--z-index-base);
+  width: 100%;
   margin: auto;
-  background: $bg-card;
-  padding: $spacing-8;
-  border-radius: $radius-md;
-  box-shadow: $shadow-md;
+  background: var(--bg-card);
+  padding: var(--spacing-3xl);
+  border-radius: var(--radius-m);
+  box-shadow: var(--shadow-main);
+
+  @media (min-width: $breakpoint-m) {
+    padding: var(--spacing-4xl);
+  }
 }
 
 .cardTitle {
-  margin-bottom: $spacing-2;
-  color: $primary-color;
-  font-weight: $font-weight-bold;
+  margin-bottom: var(--spacing-s);
+  color: var(--primary-color);
+  font-weight: var(--fw-bold);
+  font-size: var(--fs-h3);
 }
 
 .cardDescription {
-  margin-bottom: $spacing-6;
-  color: $text-color-default;
+  margin-bottom: var(--spacing-2xl);
+  color: var(--text-color-default);
+  font-size: var(--fs-base);
 }
 
 .cardSubtitle {
-  margin: $spacing-6 0 $spacing-4;
-  color: $secondary-color;
-  font-weight: $font-weight-medium;
+  margin: var(--spacing-2xl) 0 var(--spacing-l);
+  color: var(--secondary-color);
+  font-weight: var(--fw-medium);
+  font-size: var(--fs-base);
 }
 
 .social {
   display: flex;
   justify-content: space-between;
-  margin-bottom: $spacing-6;
+  margin-bottom: var(--spacing-2xl);
   gap: var(--gap-m);
 }
 
 .socialLink {
   display: inline-block;
-  background: $primary-color;
-  color: $text-color-contrast;
-  padding: $spacing-2 $spacing-4;
-  border-radius: $radius-sm;
-  font-weight: $font-weight-semibold;
-  transition: $transition-fast;
-}
+  background: var(--primary-color);
+  color: var(--text-color-contrast);
+  padding: var(--spacing-xs) var(--spacing-m);
+  border-radius: var(--radius-s);
+  font-weight: var(--fw-semibold);
+  transition: var(--transition-fast);
+  flex-grow: 1;
+  text-align: center;
 
-.socialLink:hover {
-  background: $primary-color-hover;
+  &:hover {
+    background: var(--primary-color-hover);
+  }
 }
 
 .divider {
   display: block;
-  margin: $spacing-6 0;
+  margin: var(--spacing-2xl) 0;
   text-align: center;
-  color: $text-color-default;
+  color: var(--text-color-default);
 }
 
 .formGroup {
-  margin-bottom: $spacing-4;
+  margin-bottom: var(--spacing-l);
 }
 
 .formLabel {
   display: block;
-  margin-bottom: $spacing-2;
-  font-weight: $font-weight-medium;
-  color: $text-color-heading;
+  margin-bottom: var(--spacing-s);
+  font-weight: var(--fw-medium);
+  color: var(--text-color-heading);
 }
 
 .formInput {
   width: 100%;
-  padding: $spacing-3;
-  border: 1px solid $border-color;
-  border-radius: $radius-sm;
+  padding: var(--spacing-m);
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius-s);
+  font-size: var(--fs-base);
 }
 
 .btnPrimary {
   width: 100%;
-  background: $primary-color;
-  color: $text-color-contrast;
-  padding: $spacing-3;
-  border-radius: $radius-sm;
+  background: var(--primary-color);
+  color: var(--text-color-contrast);
+  padding: var(--spacing-m);
+  border-radius: var(--radius-s);
   border: none;
-  font-weight: $font-weight-semibold;
-  transition: $transition-fast;
-}
+  font-weight: var(--fw-semibold);
+  transition: var(--transition-fast);
 
-.btnPrimary:hover {
-  background: color.adjust($primary-color, $lightness: -5%);
+  &:hover {
+    background: color.adjust(var(--primary-color), $lightness: -5%);
+    background: var(--primary-color-hover);
+  }
 }
 
 .signinText {
-  margin-top: $spacing-4;
+  margin-top: var(--spacing-l);
   text-align: center;
-}
+  font-size: var(--fs-small);
 
-.signinText a {
-  color: $secondary-color;
-  font-weight: $font-weight-semibold;
+  & a {
+    color: var(--secondary-color);
+    font-weight: var(--fw-semibold);
+  }
 }

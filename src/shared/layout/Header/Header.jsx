@@ -21,7 +21,6 @@ export const Header = () => {
   const lastScrollY = useRef(0);
   const ticking = useRef(false);
 
-  // 👇 debounce scroll для стабільного приховування
   useEffect(() => {
     const handleScroll = () => {
       const currentY = window.scrollY;
@@ -42,7 +41,6 @@ export const Header = () => {
     return () => window.removeEventListener('scroll', handleScroll);
   }, [location.pathname]);
 
-  // Закриваємо меню при зміні маршруту
   useEffect(() => {
     setMenuOpen(false);
     setSubmenuOpen(null);
