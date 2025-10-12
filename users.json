@@ -10,5 +10,11 @@
     "email": "example2@gmail.com",
     "password": "1q2w3e4r",
     "registeredAt": "2025-10-10T09:58:15.042Z"
+  },
+  {
+    "name": "Frank",
+    "email": "demo8@gmail.com",
+    "password": "demo123",
+    "registeredAt": "2025-10-12T12:59:54.652Z"
   }
 ]

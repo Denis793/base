@@ -5,8 +5,7 @@ import { Header } from '@/shared/layout/Header';
 import { Home } from '@/pages/Home';
 import { BlogGrid } from '@/pages/BlogGrid';
 import { BlogSingle } from '@/pages/BlogSingle';
-import { SignIn } from '@/pages/SignIn';
-import { Registration } from '@/pages/Registration';
+import { AuthPage } from '@/pages/AuthPage';
 import { NotFound } from '@/pages/NotFound';
 import { Footer } from '@/shared/layout/Footer';
 
@@ -21,8 +20,8 @@ export default function App() {
         <Route path="/home" element={<Home />} />
         <Route path="/blog-grid" element={<BlogGrid />} />
         <Route path="/blog-single" element={<BlogSingle />} />
-        <Route path="/signin" element={<SignIn />} />
-        <Route path="/Registration" element={<Registration />} />
+        <Route path="/signin" element={<AuthPage mode="signin" />} />
+        <Route path="/registration" element={<AuthPage mode="registration" />} />
         <Route path="*" element={<NotFound />} />
       </Routes>
 
