@@ -1,7 +1,7 @@
 @use '@/shared/styles/variables' as *;
 
 .partnersSection {
-  padding: var(--spacing-s);
+  padding: var(--spacing-3xl) var(--spacing-m);
   text-align: center;
 
   @media (min-width: $breakpoint-m) {

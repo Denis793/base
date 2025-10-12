@@ -24,16 +24,11 @@ export const PartnersSection = () => {
             768: { slidesPerView: 3, spaceBetween: 30 },
             1024: { slidesPerView: 5, spaceBetween: 40 },
           }}
-          className={styles.slider}>
+          className={styles.slider}
+        >
           {partners.map((i) => (
             <SwiperSlide key={i} className={styles.slide}>
-              <ThemeImage
-                name={`partner${i}`}
-                alt={`Partner ${i}`}
-                fit="contain"
-                position="center"
-                className={styles.partnerLogo}
-              />
+              <ThemeImage name={`partner${i}`} alt={`Partner ${i}`} fit="contain" position="center" />
             </SwiperSlide>
           ))}
         </Swiper>
