@@ -15,7 +15,7 @@ export const signInValidationSchema = Yup.object({
   password: Yup.string().trim().min(6, 'Password must be at least 6 characters').required('Password is required'),
 });
 
-export const signUpValidationSchema = Yup.object().shape({
+export const registrationValidationSchema = Yup.object().shape({
   fullName: Yup.string()
     .min(2, 'Full name must be at least 2 characters')
     .max(50, 'Full name must be 50 characters or less')

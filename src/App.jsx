@@ -6,7 +6,7 @@ import { Home } from '@/pages/Home';
 import { BlogGrid } from '@/pages/BlogGrid';
 import { BlogSingle } from '@/pages/BlogSingle';
 import { SignIn } from '@/pages/SignIn';
-import { SignUp } from '@/pages/SignUp';
+import { Registration } from '@/pages/Registration';
 import { NotFound } from '@/pages/NotFound';
 import { Footer } from '@/shared/layout/Footer';
 
@@ -22,7 +22,7 @@ export default function App() {
         <Route path="/blog-grid" element={<BlogGrid />} />
         <Route path="/blog-single" element={<BlogSingle />} />
         <Route path="/signin" element={<SignIn />} />
-        <Route path="/signup" element={<SignUp />} />
+        <Route path="/Registration" element={<Registration />} />
         <Route path="*" element={<NotFound />} />
       </Routes>
 

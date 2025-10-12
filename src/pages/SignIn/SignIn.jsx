@@ -83,8 +83,8 @@ export const SignIn = () => {
                 onHide={() => setToast({ show: false, type: '', message: '' })}
               />
 
-              <p className={styles.signupText}>
-                Don’t have an account? <Link to="/signup">Sign Up</Link>
+              <p className={styles.registrationText}>
+                Don’t have an account? <Link to="/registration">Register</Link>
               </p>
             </form>
           </div>

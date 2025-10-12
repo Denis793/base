@@ -82,7 +82,7 @@ export const handleSignInSubmit = async (values, helpers, setToast) => {
   }
 };
 
-export const handleSignUpSubmit = async (values, helpers, setToast) => {
+export const handleRegistrationSubmit = async (values, helpers, setToast) => {
   const { setSubmitting, setFieldError, resetForm } = helpers;
 
   try {
@@ -118,7 +118,7 @@ export const handleSignUpSubmit = async (values, helpers, setToast) => {
 
     resetForm();
   } catch (error) {
-    console.error('❌ signUpSubmit:', error);
+    console.error('❌ registrationSubmit:', error);
     setToast({
       show: true,
       type: 'error',

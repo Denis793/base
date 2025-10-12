@@ -1,8 +1,8 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { useFormik } from 'formik';
-import { signUpValidationSchema } from '@/shared/utils/validation';
-import { handleSignUpSubmit } from '@/shared/utils/formHandlers';
+import { registrationValidationSchema } from '@/shared/utils/validation';
+import { handleRegistrationSubmit } from '@/shared/utils/formHandlers';
 import { InputField } from '@/shared/ui/InputField';
 import { FormToast } from '@/shared/ui/FormToast';
 import { Social } from '@/shared/ui/Social';
@@ -14,15 +14,15 @@ import styles from '@/pages/SignIn/SignIn.module.scss';
 
 const TOAST_DURATION_MS = 5000;
 
-export const SignUp = () => {
+export const Registration = () => {
   const [toast, setToast] = useState({ show: false, type: '', message: '' });
   const [showPassword, setShowPassword] = useState(false);
   const [showConfirmPassword, setShowConfirmPassword] = useState(false);
 
   const formik = useFormik({
     initialValues: { fullName: '', username: '', password: '', confirmPassword: '' },
-    validationSchema: signUpValidationSchema,
-    onSubmit: (values, helpers) => handleSignUpSubmit(values, helpers, setToast, TOAST_DURATION_MS),
+    validationSchema: registrationValidationSchema,
+    onSubmit: (values, helpers) => handleRegistrationSubmit(values, helpers, setToast, TOAST_DURATION_MS),
   });
 
   const touchAllAndValidate = () => {
@@ -39,10 +39,10 @@ export const SignUp = () => {
             <div className={styles.cardHeader} />
             <h2>Create your New Account</h2>
             <p className="description">Get started with our service. It's fast and easy!</p>
-            <h3>Sign up with Social Media</h3>
+            <h3>Registration with Social Media</h3>
             <Social align="center" variant="light" networks={['google', 'x', 'facebook', 'github']} />
             <div className={styles.divider}>
-              <h3>Or, sign up with your email</h3>
+              <h3>Or, register with your email</h3>
             </div>
             <form onSubmit={formik.handleSubmit} className={styles.form} noValidate>
               <InputField
@@ -98,7 +98,7 @@ export const SignUp = () => {
               </div>
 
               <Button type="submit" variant="primary" disabled={formik.isSubmitting} onClick={touchAllAndValidate}>
-                {formik.isSubmitting ? 'Registering…' : 'Sign Up'}
+                {formik.isSubmitting ? 'Registering…' : 'Register'}
               </Button>
 
               <FormToast
@@ -109,7 +109,7 @@ export const SignUp = () => {
                 onHide={() => setToast({ show: false, type: '', message: '' })}
               />
 
-              <p className={styles.signupText}>
+              <p className={styles.registrationText}>
                 Already have an account? <Link to="/signin">Sign In</Link>
               </p>
             </form>

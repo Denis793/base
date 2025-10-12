@@ -8,7 +8,7 @@ export const menuItems = [
       { label: 'Blog Grid', to: '/blog-grid' },
       { label: 'Blog Single', to: '/blog-single' },
       { label: 'Sign In', to: '/signin' },
-      { label: 'Sign Up', to: '/signup' },
+      { label: 'Registration', to: '/registration' },
       { label: '404', to: '/404' },
     ],
   },
