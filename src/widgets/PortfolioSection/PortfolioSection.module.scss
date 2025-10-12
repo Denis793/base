@@ -27,7 +27,8 @@
   }
 }
 
-.description {
+.overlayDescription {
+  color: var(--overlay-color);
   text-shadow: var(--shadow-overlay);
 }
 

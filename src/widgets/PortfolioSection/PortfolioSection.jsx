@@ -32,7 +32,8 @@ export const PortfolioSection = () => {
               variants={fadeIn}
               initial="hidden"
               whileInView="visible"
-              viewport={{ once: true }}>
+              viewport={{ once: true }}
+            >
               We Offer Great Affordable <br /> Premium Prices.
             </motion.h2>
 
@@ -42,7 +43,8 @@ export const PortfolioSection = () => {
               initial="hidden"
               whileInView="visible"
               viewport={{ once: true }}
-              custom={1}>
+              custom={1}
+            >
               It is a long established fact that a reader will be distracted by the readable content <br />
               of a page when looking at its layout. The point of using.
             </motion.p>
@@ -53,7 +55,8 @@ export const PortfolioSection = () => {
               <Button
                 key={cat}
                 variant={activeCategory === cat ? 'primary' : 'secondary'}
-                onClick={() => setActiveCategory(cat)}>
+                onClick={() => setActiveCategory(cat)}
+              >
                 {cat}
               </Button>
             ))}
@@ -64,7 +67,8 @@ export const PortfolioSection = () => {
             variants={staggerContainer}
             initial="hidden"
             whileInView="visible"
-            viewport={{ once: true }}>
+            viewport={{ once: true }}
+          >
             <AnimatePresence>
               {filteredProjects.map((p, i) => (
                 <motion.div
@@ -75,13 +79,14 @@ export const PortfolioSection = () => {
                   initial="hidden"
                   animate="visible"
                   exit={{ opacity: 0, scale: 0.9 }}
-                  layout>
+                  layout
+                >
                   <div className="cardImage">
                     <img src={p.img} alt={p.category} />
                     <div className="overlay">
                       <div className="overlayContent">
                         <h3 className={styles.overlayTitle}>Photo Retouching</h3>
-                        <p className={`description ${styles.description}`}>{p.category}</p>
+                        <p className={styles.overlayDescription}>{p.category}</p>
                         <Button variant="primary" round icon={arrowRight} />
                       </div>
                     </div>

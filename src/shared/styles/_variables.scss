@@ -66,12 +66,10 @@
 
   /* === Shadows === */
   --shadow-main: 0 0px 12px rgba(0, 0, 0, 0.2);
-  --shadow-overlay: 0 0px 12px rgba(255, 255, 255, 0.5);
+  --shadow-overlay: 0 0px 12px rgba(0, 0, 0, 0.5);
 
   /* === Overlay Colors === */
-  --overlay-color: rgba(0, 0, 0, 0.5);
-  --overlay-light: rgba(255, 255, 255, 0.5);
-  --overlay-white: rgba(255, 255, 255, 0.95);
+  --overlay-color: #fff;
 
   /* === Radius === */
   --radius-s: 0.5rem;
