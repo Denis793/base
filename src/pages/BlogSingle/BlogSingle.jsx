@@ -6,6 +6,7 @@ import { fadeIn, staggerContainer } from '@/shared/lib/animations';
 import blogMain from '@/assets/images/blog/blog-big.png';
 import blogImg1 from '@/assets/images/blog/blog-01.png';
 import blogImg2 from '@/assets/images/blog/blog-02.png';
+import searchIcon from '@/assets/images/icons/icon-search.svg';
 
 import { CtaSection } from '@/widgets/CtaSection';
 import styles from './BlogSingle.module.scss';
@@ -81,7 +82,9 @@ export const BlogSingle = () => {
             <motion.aside className={styles.sidebar} variants={fadeIn} custom={1}>
               <div className={styles.searchBox}>
                 <input type="text" placeholder="Search Here..." />
-                <button aria-label="search">🔍</button>
+                <button aria-label="search">
+                  <img className={styles.searchIcon} src={searchIcon} alt="Search" />
+                </button>
               </div>
 
               <div className={styles.categories}>
