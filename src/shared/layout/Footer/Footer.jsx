@@ -31,16 +31,16 @@ export const Footer = () => {
               <h4>Company</h4>
               <ul>
                 <li>
-                  <a href="#">About</a>
+                  <a href="#about">About</a>
                 </li>
                 <li>
-                  <a href="#">Careers</a>
+                  <a href="#services">Services</a>
                 </li>
                 <li>
-                  <a href="#">Blog</a>
+                  <a href="#blog">Blog</a>
                 </li>
                 <li>
-                  <a href="#">Contact</a>
+                  <a href="#support">Contact</a>
                 </li>
               </ul>
             </motion.div>
@@ -49,16 +49,16 @@ export const Footer = () => {
               <h4>Resources</h4>
               <ul>
                 <li>
-                  <a href="#">Docs</a>
+                  <a href="#testimonials">Testimonials</a>
                 </li>
                 <li>
-                  <a href="#">Support</a>
+                  <a href="#support">Support</a>
                 </li>
                 <li>
-                  <a href="#">Terms</a>
+                  <a href="#team">Team</a>
                 </li>
                 <li>
-                  <a href="#">Privacy</a>
+                  <a href="#pricing">Pricing</a>
                 </li>
               </ul>
             </motion.div>

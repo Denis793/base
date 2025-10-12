@@ -12,6 +12,6 @@ export const menuItems = [
       { label: '404', to: '/404' },
     ],
   },
-  { label: 'Support', href: '#support' },
+  { label: 'Support', to: '#support' },
   { label: 'About', to: '#about' },
 ];
