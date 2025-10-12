@@ -71,7 +71,10 @@ export const Footer = () => {
             whileInView="visible"
             viewport={{ once: true }}
           >
-            <p>© {new Date().getFullYear()} StartupBase. All rights reserved.</p>
+            <p>
+              © {new Date().getFullYear()} StartupBase. <br />
+              All rights reserved.
+            </p>
           </motion.div>
         </div>
       </footer>

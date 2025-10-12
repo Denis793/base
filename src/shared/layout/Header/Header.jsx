@@ -118,13 +118,18 @@ export const Header = () => {
                       <>
                         <Button
                           className={styles.dropdownButton}
-                          variant="secondary"
                           onClick={() => handleSubmenuToggle(item.label)}
+                          // Оновлення: додано ARIA атрибути для доступності
+                          aria-expanded={submenuOpen === item.label}
+                          aria-controls={`submenu-${item.label.toLowerCase().replace(/\s/g, '-')}`}
                         >
                           {item.label}
                           <FaChevronDown className={clsx(styles.arrow, submenuOpen === item.label && styles.rotated)} />
                         </Button>
-                        <ul className={clsx(styles.dropdownMenu, submenuOpen === item.label && styles.open)}>
+                        <ul
+                          id={`submenu-${item.label.toLowerCase().replace(/\s/g, '-')}`}
+                          className={clsx(styles.dropdownMenu, submenuOpen === item.label && styles.open)}
+                        >
                           {item.children.map((child) => (
                             <li key={child.label}>{renderLink(child, handleLinkClick)}</li>
                           ))}

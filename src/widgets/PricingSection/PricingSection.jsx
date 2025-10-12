@@ -41,9 +41,10 @@ export const PricingSection = () => {
                 initial="hidden"
                 whileInView="visible"
                 viewport={{ once: true }}
-                custom={1}>
-                It is a long established fact that a reader will be distracted by the readable content <br />
-                of a page when looking at its layout. The point of using.
+                custom={1}
+              >
+                It is a long established fact that a reader will be distracted by the readable content of a page when
+                looking at its layout. The point of using.
               </motion.p>
 
               <div className={styles.toggleWrapper}>
@@ -61,7 +62,8 @@ export const PricingSection = () => {
               variants={staggerContainer}
               initial="hidden"
               whileInView="visible"
-              viewport={{ once: true, amount: 0.3 }}>
+              viewport={{ once: true, amount: 0.3 }}
+            >
               {plans.map((plan, i) => (
                 <motion.div key={plan.title} className={styles.card} variants={fadeIn} custom={i}>
                   <h3>{plan.title}</h3>

@@ -39,8 +39,8 @@ export const HeroSection = () => {
               </motion.h2>
 
               <motion.p variants={textVariants} custom={1} className="description">
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque fringilla magna mauris. <br />
-                Nulla fermentum viverra sem eu rhoncus consequat varius nisi quis, posuere magna.
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque fringilla magna mauris. Nulla fermentum
+                viverra sem eu rhoncus consequat varius nisi quis, posuere magna.
               </motion.p>
 
               <motion.div variants={textVariants} custom={2} className={styles.heroCta}>

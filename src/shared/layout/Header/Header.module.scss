@@ -4,7 +4,7 @@
   position: fixed;
   top: 0;
   left: 0;
-  width: 100%;
+  width: 100vw;
   z-index: var(--z-header);
   transition: var(--transition-base);
   background: transparent;
@@ -29,7 +29,6 @@
   justify-content: space-between;
   align-items: center;
   padding: var(--spacing-l);
-
   @media (min-width: $breakpoint-m) {
     padding: var(--spacing-xl) 0;
   }
@@ -158,6 +157,8 @@
 }
 
 .dropdownButton {
+  background: none;
+  font-size: var(--fs-nav-mobile);
   padding: 0;
 }
 

@@ -64,8 +64,8 @@ export const TeamSection = () => {
               viewport={{ once: true }}
               custom={1}
             >
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit. In convallis tortor eros.
-              <br /> Donec vitae tortor lacus. Phasellus aliquam ante in maximus.
+              Lorem ipsum dolor sit amet, consectetur adipiscing elit. In convallis tortor eros. Donec vitae tortor
+              lacus. Phasellus aliquam ante in maximus.
             </motion.p>
           </div>
 

@@ -1,1 +1,8 @@
 @use '@/shared/styles/variables' as *;
+
+.home {
+  margin-top: var(--spacing-4xl);
+  @media (min-width: $breakpoint-m) {
+    margin: 0 auto;
+  }
+}

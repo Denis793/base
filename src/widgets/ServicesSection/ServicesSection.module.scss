@@ -15,31 +15,22 @@
   padding: var(--spacing-l);
   border-radius: var(--radius-s);
   text-align: center;
-  transition:
-    transform 0.3s ease,
-    box-shadow 0.3s ease;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
 
   &:hover {
     background: var(--bg-card);
     transform: translateY(-6px);
     box-shadow: var(--shadow-main);
-
-    .icon {
-      transform: scale(1.1);
-      color: var(--primary-color);
-    }
   }
 
   .icon {
-    font-size: 2rem;
+    font-size: 3rem;
     color: var(--primary-color);
     margin-bottom: var(--spacing-m);
-    transition:
-      transform 0.3s ease,
-      color 0.3s ease;
+    transition: transform 0.3s ease, color 0.3s ease;
   }
 
   h4 {
-    margin-bottom: var(--spacing-s);
+    margin-bottom: var(--spacing-2xl);
   }
 }

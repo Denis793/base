@@ -2,9 +2,12 @@
 
 .footer {
   color: var(--text-color-default);
-  padding: var(--spacing-3xl) 0;
+  padding: var(--spacing-3xl) var(--spacing-l);
   position: relative;
   z-index: 2;
+  @media (min-width: $breakpoint-m) {
+    padding: var(--spacing-3xl) 0;
+  }
 }
 
 .footerWrapper {
@@ -37,18 +40,25 @@
 }
 
 .linksGroup {
+  text-align: center;
+
+  @media (min-width: $breakpoint-m) {
+    text-align: left;
+  }
   h4 {
-    font-size: var(--fs-h5);
-    font-weight: var(--fw-semibold);
-    margin-bottom: var(--spacing-m);
-    color: var(--text-color-heading);
+    margin-bottom: var(--spacing-xl);
   }
 
   ul {
     list-style: none;
     display: flex;
+    align-items: center;
     flex-direction: column;
     gap: var(--gap-s);
+
+    @media (min-width: $breakpoint-m) {
+      align-items: flex-start;
+    }
 
     li a {
       color: var(--color-description);
@@ -68,4 +78,8 @@
   padding-top: var(--spacing-3xl);
   font-size: var(--fs-small);
   color: var(--color-description);
+
+  @media (min-width: $breakpoint-m) {
+    text-align: left;
+  }
 }

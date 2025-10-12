@@ -21,7 +21,7 @@ export const CtaSection = () => {
                 Join with <span>5000+ Startups</span>
                 <br /> Growing with <span>Base.</span>
               </h2>
-              <p>
+              <p className={styles.ctaDescription}>
                 Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc quis nibh lorem. Duis sed odio lorem. In a
                 efficitur leo. Ut venenatis rhoncus.
               </p>
