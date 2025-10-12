@@ -54,7 +54,7 @@ export const ContactSection = () => {
             whileInView="visible"
             viewport={{ once: true, amount: 0.3 }}
           >
-            <motion.div className={styles.infoBox} variants={fadeIn} custom={0}>
+            <motion.div className={styles.infoBox} variants={fadeIn} custom={0} id="contacts">
               <div className={styles.infoGroup}>
                 <h4>Email Address</h4>
                 <p className="description">support@startup.com</p>

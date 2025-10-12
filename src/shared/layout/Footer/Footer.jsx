@@ -40,7 +40,7 @@ export const Footer = () => {
                   <a href="#blog">Blog</a>
                 </li>
                 <li>
-                  <a href="#support">Contact</a>
+                  <a href="#contacts">Contacts</a>
                 </li>
               </ul>
             </motion.div>
