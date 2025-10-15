@@ -119,7 +119,6 @@ export const Header = () => {
                         <Button
                           className={styles.dropdownButton}
                           onClick={() => handleSubmenuToggle(item.label)}
-                          // Оновлення: додано ARIA атрибути для доступності
                           aria-expanded={submenuOpen === item.label}
                           aria-controls={`submenu-${item.label.toLowerCase().replace(/\s/g, '-')}`}
                         >
