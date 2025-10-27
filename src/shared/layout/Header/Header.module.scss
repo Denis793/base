@@ -73,6 +73,7 @@
   width: 100%;
   pointer-events: none;
   background: var(--bg-page);
+  padding: var(--spacing-m) var(--spacing-xl);
   gap: var(--gap-xl);
 
   transform: translateX(-50%);
@@ -83,6 +84,7 @@
 
   @media (min-width: $breakpoint-m) {
     opacity: 1;
+    padding: 0;
     width: auto;
     height: auto;
     transform: none;
@@ -161,6 +163,10 @@
   font-size: var(--fs-nav-mobile);
   color: var(--text-color-default);
   padding: 0;
+
+  @media (min-width: $breakpoint-l) {
+    font-size: var(--fs-nav-desktop);
+  }
 }
 
 .dropdown::after {
